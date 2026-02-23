@@ -251,7 +251,7 @@ header p {
 /* ===== SEARCH & FILTER BAR ===== */
 .controls-wrap {
     position: sticky;
-    top: 78px;
+    top: 60px;
     z-index: 100;
     padding: 14px 40px;
     background: rgba(8, 8, 16, 0.96);

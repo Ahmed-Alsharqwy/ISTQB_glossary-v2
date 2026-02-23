@@ -40,7 +40,21 @@ function initTabs() {
         });
     });
 
+    // Hide Search Bar on scroll (Keep Navbar fixed)
+    let lastScrollY = window.scrollY;
+    window.addEventListener('scroll', () => {
+        const currentScrollY = window.scrollY;
+        const controls = document.querySelector('.controls-wrap');
 
+        if (currentScrollY > lastScrollY && currentScrollY > 150) {
+            // Scrolling down - Hide Search
+            if (controls) controls.classList.add('hidden-scroll');
+        } else {
+            // Scrolling up - Show Search
+            if (controls) controls.classList.remove('hidden-scroll');
+        }
+        lastScrollY = currentScrollY;
+    });
 }
 
 // ===== SEARCH LOGIC =====
