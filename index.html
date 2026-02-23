@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ISTQB</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <nav class="app-nav">
+        <div class="nav-brand">
+            <span class="brand-name">ISTQB</span>
+            <div class="brand-icon">
+                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z"
+                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                    <path d="M9 12L11 14L15 10" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+            </div>
+        </div>
+        <div class="nav-links">
+            <div class="nav-item active" data-tab="glossary">📖 Glossary</div>
+            <div class="nav-item" data-tab="tools">🛠 Tools</div>
+            <div class="nav-item" data-tab="quiz">🎯 Test</div>
+        </div>
+    </nav>
+
+    <header>
+        <div class="badge"><span class="badge-dot"></span>ISTQB MASTER HUB v4.0</div>
+        <h1>SOFTWARE TESTING<br><small style="font-size:60%;opacity:0.8; font-family: 'JetBrains Mono'">Glossary & Tools
+                Integrated</small>
+        </h1>
+        <p>المكان الموحد لكل ما تحتاجة لتعلم واحتراف اختبار البرمجيات. مصطلحات، أدوات، واختبارات تفاعلية.</p>
+    </header>
+
+    <div class="controls-wrap">
+        <div class="search-inner">
+            <input type="text" id="searchInput" placeholder="ابحث عن أي شيء..." />
+            <span class="search-icon">🔍</span>
+        </div>
+    </div>
+
+    <main>
+        <!-- GLOSSARY SECTION -->
+        <section id="glossary" class="page-section active">
+            <div class="categories" id="glossary-cats">
+                <button class="cat-btn active" data-cat="all">🗂 الكل</button>
+                <button class="cat-btn" data-cat="basic">📌 المفاهيم الأساسية</button>
+                <button class="cat-btn" data-cat="principles">7️⃣ المبادئ السبعة</button>
+                <button class="cat-btn" data-cat="activities">⚙️ أنشطة الاختبار</button>
+                <button class="cat-btn" data-cat="levels">📊 مستويات الاختبار</button>
+                <button class="cat-btn" data-cat="types">🔬 أنواع الاختبار</button>
+                <button class="cat-btn" data-cat="boxes">📦 أبيض وأسود</button>
+                <button class="cat-btn" data-cat="regression">🔁 Regression</button>
+                <button class="cat-btn" data-cat="static">📖 الاختبار الساكن</button>
+                <button class="cat-btn" data-cat="techniques">🎯 التقنيات</button>
+                <button class="cat-btn" data-cat="risk">⚠️ المخاطر</button>
+                <button class="cat-btn" data-cat="agile">✨ الأجايل</button>
+                <button class="cat-btn" data-cat="defect">🐛 إدارة العيوب</button>
+                <button class="cat-btn" data-cat="tools">🛠 أدوات الاختبار</button>
+            </div>
+            <div class="cards-grid" id="glossary-content"></div>
+        </section>
+
+        <!-- TOOLS SECTION -->
+        <section id="tools" class="page-section">
+            <div class="filter-btns">
+                <button class="fbtn active" data-cat="all">🗂 الكل</button>
+                <button class="fbtn" data-cat="management">📋 إدارة</button>
+                <button class="fbtn" data-cat="automation">🤖 أتمتة</button>
+                <button class="fbtn" data-cat="api">🔗 API</button>
+                <button class="fbtn" data-cat="performance">⚡ أداء</button>
+                <button class="fbtn" data-cat="security">🔒 أمان</button>
+                <button class="fbtn" data-cat="mobile">📱 موبايل</button>
+                <button class="fbtn" data-cat="static">🔍 ساكن</button>
+                <button class="fbtn" data-cat="reporting">📊 تقارير</button>
+            </div>
+            <div class="tools-grid" id="tools-content"></div>
+
+            <!-- Tool Modal -->
+            <div id="tool-modal" class="tool-modal-overlay">
+                <div class="tool-modal-content">
+                    <button id="close-tool-modal" class="tool-modal-close">&times;</button>
+                    <div id="tool-modal-body"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- QUIZ SECTION -->
+        <section id="quiz" class="page-section">
+            <div id="quiz-area" style="padding: 20px;">
+                <div class="quiz-container">
+                    <h2>🎯 اختبر مستواك في ISTQB</h2>
+                    <p>10 أسئلة عشوائية من الـ Glossary الكامل — بالعربي والإنجليزي. هل أنت مستعد؟</p>
+                    <div class="quiz-stats-header" id="quiz-progress-container"
+                        style="display:none; margin-bottom: 20px;">
+                        <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
+                            <span id="quiz-progress-text">السؤال 1 من 10</span>
+                            <span id="quiz-score-text">النتيجة: 0</span>
+                        </div>
+                        <div class="progress-bar-bg"
+                            style="background:var(--surface3); height:8px; border-radius:4px; overflow:hidden;">
+                            <div id="progress-fill"
+                                style="background:var(--accent); width:0%; height:100%; transition:width 0.3s;"></div>
+                        </div>
+                    </div>
+                    <div id="quiz-main-content">
+                        <button class="quiz-btn" id="start-quiz">ابدأ الاختبار الآن</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        ISTQB Master Hub 2025 — دليلك الشامل لاختبار البرمجيات<br>
+        <span style="color:var(--accent3)">✨ 80+ مصطلح · 20+ أداة · اختبارات تفاعلية</span>
+    </footer>
+
+    <script src="data.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
