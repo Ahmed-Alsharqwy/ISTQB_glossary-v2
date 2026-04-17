@@ -1,27 +1,20 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ISTQB</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <title>ISTQB FL v4.0</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style_new.css">
 </head>
-
 <body>
-
     <nav class="app-nav">
         <div class="nav-brand">
             <span class="brand-name">ISTQB</span>
             <div class="brand-icon">
                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z"
-                        stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
-                    <path d="M9 12L11 14L15 10" stroke="var(--accent)" stroke-width="2" stroke-linecap="round"
-                        stroke-linejoin="round" />
+                    <path d="M12 2L4 5V11C4 16.19 7.41 21.05 12 22C16.59 21.05 20 16.19 20 11V5L12 2Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                    <path d="M9 12L11 14L15 10" stroke="var(--accent)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg>
             </div>
         </div>
@@ -33,16 +26,14 @@
     </nav>
 
     <header>
-        <div class="badge"><span class="badge-dot"></span>ISTQB MASTER HUB v4.0</div>
-        <h1>SOFTWARE TESTING<br><small style="font-size:60%;opacity:0.8; font-family: 'JetBrains Mono'">Glossary & Tools
-                Integrated</small>
-        </h1>
-        <p>المكان الموحد لكل ما تحتاجة لتعلم واحتراف اختبار البرمجيات. مصطلحات، أدوات، واختبارات تفاعلية.</p>
+        <div class="badge"><span class="badge-dot"></span>ISTQB FL V4.0 — COMPLETE SYLLABUS</div>
+        <h1>SOFTWARE TESTING<br><small style="font-size:60%;opacity:0.8;font-family:'JetBrains Mono'">6 Chapters · 100% Syllabus Coverage</small></h1>
+        <p>كل مصطلح من كل فصل — مرتب ومشروح بالعربي والإنجليزي مع أمثلة حقيقية وتركيز على الامتحان</p>
     </header>
 
     <div class="controls-wrap">
         <div class="search-inner">
-            <input type="text" id="searchInput" placeholder="ابحث عن أي شيء..." />
+            <input type="text" id="searchInput" placeholder="ابحث عن أي مصطلح..."/>
             <span class="search-icon">🔍</span>
         </div>
     </div>
@@ -52,20 +43,15 @@
         <section id="glossary" class="page-section active">
             <div class="categories" id="glossary-cats">
                 <button class="cat-btn active" data-cat="all">🗂 الكل</button>
-                <button class="cat-btn" data-cat="basic">📌 المفاهيم الأساسية</button>
-                <button class="cat-btn" data-cat="principles">7️⃣ المبادئ السبعة</button>
-                <button class="cat-btn" data-cat="activities">⚙️ أنشطة الاختبار</button>
-                <button class="cat-btn" data-cat="levels">📊 مستويات الاختبار</button>
-                <button class="cat-btn" data-cat="types">🔬 أنواع الاختبار</button>
-                <button class="cat-btn" data-cat="boxes">📦 أبيض وأسود</button>
-                <button class="cat-btn" data-cat="regression">🔁 Regression</button>
-                <button class="cat-btn" data-cat="static">📖 الاختبار الساكن</button>
-                <button class="cat-btn" data-cat="techniques">🎯 التقنيات</button>
-                <button class="cat-btn" data-cat="risk">⚠️ المخاطر</button>
-                <button class="cat-btn" data-cat="agile">✨ الأجايل</button>
-                <button class="cat-btn" data-cat="defect">🐛 إدارة العيوب</button>
-                <button class="cat-btn" data-cat="tools">🛠 أدوات الاختبار</button>
+                <button class="cat-btn ch1-btn" data-cat="ch1">📘 Ch1: Fundamentals</button>
+                <button class="cat-btn ch2-btn" data-cat="ch2">📗 Ch2: SDLC</button>
+                <button class="cat-btn ch3-btn" data-cat="ch3">📙 Ch3: Static Testing</button>
+                <button class="cat-btn ch4-btn" data-cat="ch4">📕 Ch4: Test Design</button>
+                <button class="cat-btn ch5-btn" data-cat="ch5">📓 Ch5: Managing</button>
+                <button class="cat-btn ch6-btn" data-cat="ch6">📔 Ch6: Tools</button>
             </div>
+            <!-- Chapter Info Bar -->
+            <div class="chapter-info-bar" id="chapter-info" style="display:none;"></div>
             <div class="cards-grid" id="glossary-content"></div>
         </section>
 
@@ -83,8 +69,6 @@
                 <button class="fbtn" data-cat="reporting">📊 تقارير</button>
             </div>
             <div class="tools-grid" id="tools-content"></div>
-
-            <!-- Tool Modal -->
             <div id="tool-modal" class="tool-modal-overlay">
                 <div class="tool-modal-content">
                     <button id="close-tool-modal" class="tool-modal-close">&times;</button>
@@ -97,18 +81,15 @@
         <section id="quiz" class="page-section">
             <div id="quiz-area" style="padding: 20px;">
                 <div class="quiz-container">
-                    <h2>🎯 اختبر مستواك في ISTQB</h2>
-                    <p>10 أسئلة عشوائية من الـ Glossary الكامل — بالعربي والإنجليزي. هل أنت مستعد؟</p>
-                    <div class="quiz-stats-header" id="quiz-progress-container"
-                        style="display:none; margin-bottom: 20px;">
+                    <h2>🎯 اختبر مستواك في ISTQB FL v4.0</h2>
+                    <p>10 أسئلة عشوائية من كل الفصول الستة — بالعربي والإنجليزي</p>
+                    <div class="quiz-stats-header" id="quiz-progress-container" style="display:none; margin-bottom: 20px;">
                         <div style="display:flex; justify-content:space-between; margin-bottom:10px;">
                             <span id="quiz-progress-text">السؤال 1 من 10</span>
                             <span id="quiz-score-text">النتيجة: 0</span>
                         </div>
-                        <div class="progress-bar-bg"
-                            style="background:var(--surface3); height:8px; border-radius:4px; overflow:hidden;">
-                            <div id="progress-fill"
-                                style="background:var(--accent); width:0%; height:100%; transition:width 0.3s;"></div>
+                        <div class="progress-bar-bg" style="background:var(--surface3); height:8px; border-radius:4px; overflow:hidden;">
+                            <div id="progress-fill" style="background:var(--accent); width:0%; height:100%; transition:width 0.3s;"></div>
                         </div>
                     </div>
                     <div id="quiz-main-content">
@@ -120,12 +101,11 @@
     </main>
 
     <footer>
-        ISTQB Master Hub 2025 — دليلك الشامل لاختبار البرمجيات<br>
-        <span style="color:var(--accent3)">✨ 80+ مصطلح · 20+ أداة · اختبارات تفاعلية</span>
+        ISTQB FL v4.0 Master Hub — 6 فصول كاملة · 80+ مصطلح · كل السيلابس<br>
+        <span style="color:var(--accent3)">✨ مع بطاقات تركيز خاصة بالامتحان لكل فصل</span>
     </footer>
 
-    <script src="data.js"></script>
-    <script src="script.js"></script>
+    <script src="data_new.js"></script>
+    <script src="script_new.js"></script>
 </body>
-
 </html>
