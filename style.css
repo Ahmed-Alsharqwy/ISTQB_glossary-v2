@@ -1465,3 +1465,133 @@ footer {
     margin-top: 20px;
     box-shadow: 0 15px 40px rgba(0, 0, 0, 0.3);
 }
+/* ===== CHAPTER CATEGORY COLORS ===== */
+.t-ch1 .card-accent-line { background: linear-gradient(90deg, #7c6fff, #a78bfa); }
+.t-ch1 .card-tag { background: rgba(124,111,255,.15); color: #a78bfa; border: 1px solid rgba(124,111,255,.25); }
+
+.t-ch2 .card-accent-line { background: linear-gradient(90deg, #4fc3f7, #0ea5e9); }
+.t-ch2 .card-tag { background: rgba(79,195,247,.15); color: #4fc3f7; border: 1px solid rgba(79,195,247,.25); }
+
+.t-ch3 .card-accent-line { background: linear-gradient(90deg, #3de68a, #22c55e); }
+.t-ch3 .card-tag { background: rgba(61,230,138,.15); color: #3de68a; border: 1px solid rgba(61,230,138,.25); }
+
+.t-ch4 .card-accent-line { background: linear-gradient(90deg, #ff9f43, #f97316); }
+.t-ch4 .card-tag { background: rgba(255,159,67,.15); color: #ff9f43; border: 1px solid rgba(255,159,67,.25); }
+
+.t-ch5 .card-accent-line { background: linear-gradient(90deg, #ff5f7e, #ef4444); }
+.t-ch5 .card-tag { background: rgba(255,95,126,.15); color: #ff5f7e; border: 1px solid rgba(255,95,126,.25); }
+
+.t-ch6 .card-accent-line { background: linear-gradient(90deg, #2dd4bf, #14b8a6); }
+.t-ch6 .card-tag { background: rgba(45,212,191,.15); color: #2dd4bf; border: 1px solid rgba(45,212,191,.25); }
+
+/* ===== CHAPTER INFO BAR ===== */
+.chapter-info-bar {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin: 8px 40px 0;
+    padding: 14px 20px;
+    border-radius: 14px;
+    border: 1px solid;
+    animation: fadeIn 0.3s ease;
+}
+@media(max-width:600px) { .chapter-info-bar { margin: 8px 14px 0; } }
+
+/* ===== CHAPTER CATEGORY BUTTONS ===== */
+.ch1-btn.active { border-color: #7c6fff; color: #7c6fff; background: rgba(124,111,255,.1); }
+.ch2-btn.active { border-color: #4fc3f7; color: #4fc3f7; background: rgba(79,195,247,.1); }
+.ch3-btn.active { border-color: #3de68a; color: #3de68a; background: rgba(61,230,138,.1); }
+.ch4-btn.active { border-color: #ff9f43; color: #ff9f43; background: rgba(255,159,67,.1); }
+.ch5-btn.active { border-color: #ff5f7e; color: #ff5f7e; background: rgba(255,95,126,.1); }
+.ch6-btn.active { border-color: #2dd4bf; color: #2dd4bf; background: rgba(45,212,191,.1); }
+
+/* ===== EXAM FOCUS CARD ===== */
+.exam-focus-card {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--surface2) 0%, rgba(124,111,255,.05) 100%);
+    border: 2px solid var(--focus-color, #7c6fff);
+    border-radius: 20px;
+    overflow: hidden;
+    animation: fadeUp 0.5s ease both;
+    box-shadow: 0 0 40px rgba(124,111,255,.1);
+    margin-top: 8px;
+}
+
+.focus-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 20px 24px;
+    background: rgba(0,0,0,.2);
+    border-bottom: 1px solid var(--border);
+}
+
+.focus-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+}
+
+.focus-title {
+    font-size: 1.2rem;
+    font-weight: 800;
+    color: #fff;
+}
+
+.focus-sub {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    font-family: 'JetBrains Mono', monospace;
+    margin-top: 2px;
+}
+
+.focus-badge {
+    margin-right: auto;
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-size: 10px;
+    font-family: 'JetBrains Mono', monospace;
+    letter-spacing: 2px;
+    font-weight: 700;
+    border: 1px solid;
+    white-space: nowrap;
+}
+
+.focus-body {
+    padding: 20px 24px 24px;
+}
+
+.focus-intro {
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+    font-style: italic;
+}
+
+.focus-points {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.focus-point {
+    background: var(--surface3);
+    border-radius: 10px;
+    padding: 10px 16px;
+    font-size: 13.5px;
+    line-height: 1.6;
+    color: var(--text);
+    direction: ltr;
+    text-align: left;
+    border-right: 3px solid var(--focus-color, #7c6fff);
+    transition: background 0.2s;
+}
+
+.focus-point:hover {
+    background: var(--surface2);
+}
+
+/* ===== QUIZ CHAPTER TAG ===== */
+.quiz-chapter-tag {
+    display: inline-block;
+    margin-bottom: 12px;
+}

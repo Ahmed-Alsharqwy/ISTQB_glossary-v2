@@ -1,924 +1,792 @@
+// ============================================================
+// ISTQB FL v4.0 — COMPLETE GLOSSARY DATA
+// Organized by Chapter — Covers 100% of Syllabus
+// ============================================================
+
 const glossaryData = [
-    // ===== 1. BASIC CONCEPTS =====
+
+// ==========================================================
+// CHAPTER 1 — FUNDAMENTALS OF TESTING (8Q: K1=2, K2=6)
+// ==========================================================
+
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Software Testing", ar: "اختبار البرمجيات",
-        defEN: "The process of evaluating software to find defects and verify it meets requirements.",
-        defAR: "عملية نتأكد فيها أن البرنامج يعمل صح وبيحقق ما طلبه العميل — وأنه خالٍ من المشاكل.",
-        example: "تخيّل إنك اشتريت تليفون جديد. قبل ما يوصلك، المصنع يجرّب كل حاجة فيه: الكاميرا، البطارية، الشاشة، الإنترنت. لو لقوا عطل صلحوه قبلك. ده بالظبط اختبار البرمجيات — بس على التطبيقات."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Software Testing — What & Why",
+        ar: "اختبار البرمجيات — ما هو ولماذا؟",
+        defEN: "A set of activities to discover defects and evaluate the quality of software artifacts (test objects). Testing saves money, time, and reputation — it reduces risk of software failure in operation.",
+        defAR: "مجموعة من الأنشطة لاكتشاف العيوب وتقييم جودة مواد البرمجيات (الكائنات التي نختبرها). الاختبار يوفر المال والوقت والسمعة — ويقلل من مخاطر فشل البرنامج أثناء التشغيل.",
+        example: "قبل ما تطلق تطبيق دفع بنكي للمليون مستخدم — تختبره مسبقاً. لو فشل في الإنتاج بدون اختبار: خسارة مال (Transactions غلط)، خسارة سمعة (عملاء غاضبون)، ومشاكل قانونية. الاختبار يكشف المشاكل قبل وصولها للمستخدم."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Error (Human Mistake)", ar: "خطأ بشري",
-        defEN: "A mistake made by a person (developer, analyst) that introduces a problem into the software.",
-        defAR: "الخطأ اللي بيعمله الإنسان وهو بيكتب الكود أو بيحلل المتطلبات.",
-        example: "تخيّل طباخ كتب في الوصفة 'ملعقة ملح' بدل 'ملعقة صغيرة'. الخطأ ده بشري. في البرمجيات: مطور كتب > بدل >= في شرط السن، فالشخص عمره 18 بيتحوّل ياخده كـ 17 ويتحرم من الخدمة."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Test Objectives (9 Goals)",
+        ar: "أهداف الاختبار (الأهداف التسعة)",
+        defEN: "9 test objectives: (1) Evaluate work products, (2) Trigger failures & find defects, (3) Ensure required coverage, (4) Reduce risk level, (5) Verify requirements are met, (6) Verify legal/contractual compliance, (7) Provide info to stakeholders, (8) Build confidence in quality, (9) Validate the system works as expected.",
+        defAR: "9 أهداف: (1) تقييم مخرجات العمل، (2) تشغيل الفشل وإيجاد العيوب، (3) ضمان التغطية المطلوبة، (4) تقليل مستوى المخاطر، (5) التحقق من تحقق المتطلبات، (6) التحقق من الامتثال القانوني، (7) تزويد أصحاب المصلحة بمعلومات، (8) بناء الثقة في الجودة، (9) التصديق على أن النظام يعمل كما هو متوقع.",
+        example: "الأهداف بتتغير حسب السياق: في مرحلة التطوير — هدف 2 (إيجاد bugs). قبل الإطلاق — هدف 8 (بناء ثقة العميل). في نظام طيارة — هدف 6 (الامتثال للوائح). كل مشروع يحدد أهدافه الأولوية."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Defect (Bug / Fault)", ar: "عيب / خلل في الكود",
-        defEN: "A flaw in the software code or design that was caused by a human error.",
-        defAR: "الخطأ البشري بعد ما يتسجّل في الكود يبقى عيب — زي علبة كولا مسدودة في خط الإنتاج لما محدش فتحها بعد.",
-        example: "تخيّل مطعم بيقبل أوردرات أون لاين. لو الكود مكتوب غلط وبيحسب الديليفري بالسعر القديم، ده defect. الخطأ ده موجود في الكود حتى لو ما اكتشفهوش المستخدمين لسه."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Static Testing vs Dynamic Testing",
+        ar: "الاختبار الساكن مقابل الاختبار الديناميكي",
+        defEN: "Static Testing: reviewing/analyzing documents & code WITHOUT executing the software (reviews, static analysis). Dynamic Testing: EXECUTING the software with inputs and observing outputs (running test cases).",
+        defAR: "الاختبار الساكن: مراجعة وتحليل الوثائق والكود بدون تشغيل البرنامج (مراجعات، تحليل ساكن). الاختبار الديناميكي: تشغيل البرنامج بمدخلات ومراقبة المخرجات (تشغيل حالات الاختبار).",
+        example: "محامٍ يراجع عقداً قبل توقيعه = Static (قراءة بدون تنفيذ). قاضٍ ينفذ بنود العقد ويرى النتائج = Dynamic. في البرمجيات: Code Review = Static. تشغيل Test Case فعلي = Dynamic."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Failure", ar: "الفشل / الانهيار",
-        defEN: "The visible, observable wrong behavior when the software runs — when the defect causes a real problem.",
-        defAR: "لما العيب الموجود في الكود يظهر فعلياً ويأثر على المستخدم — اللحظة اللي حاجة فعلاً بتتعطل.",
-        example: "عميل بيكمّل عملية دفع على موقع تسوّق، وفجأة الصفحة بتفضل تلف وما تكملش. ده failure — العيب اللي كان موجود في الكود ظهر فعلاً وأثّر على العميل الحقيقي."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Error → Defect → Failure → Root Cause",
+        ar: "خطأ ← عيب ← فشل ← السبب الجذري",
+        defEN: "Error (human mistake) → produces a Defect/Bug in the code → when executed may cause a Failure (visible malfunction). Root Cause = the fundamental reason the error occurred. Defects don't always cause failures. Failures can also be caused by environmental conditions.",
+        defAR: "الخطأ البشري ← ينتج عيباً في الكود ← عند التنفيذ قد يسبب فشلاً ظاهراً. السبب الجذري = السبب الأساسي لحدوث الخطأ. العيوب لا تسبب فشلاً دائماً. الفشل قد ينتج أيضاً عن ظروف بيئية.",
+        example: "مطور كتب > بدل >= (خطأ بشري). هذا ينتج عيباً في الكود. لو مستخدم عمره 18 حاول يدخل — النظام رفضه بدل ما يقبله (فشل ظاهر). السبب الجذري: تدريب غير كافٍ للمطور على منطق الشروط."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Test Case", ar: "حالة الاختبار",
-        defEN: "A documented set of steps and expected results to verify one specific behavior of the software.",
-        defAR: "خطة مكتوبة تقول: 'افعل كذا، أدخل كذا، النتيجة المتوقعة كذا' — زي وصفة طبخ خاصة بالاختبار.",
-        example: "تخيّل إنك بتاخد امتحان قيادة. الممتحن عنده ورقة مكتوب فيها: 'اطلب المتقدم يلف يمين عند الإشارة الحمراء — النتيجة المتوقعة: يوقف عند الأحمر ويلف يمين بعد ما يخضر'. ده بالظبط Test Case."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Testing vs Debugging",
+        ar: "الاختبار مقابل تتبع الأخطاء وإصلاحها",
+        defEN: "Testing = finding failures (Tester's job — both static & dynamic). Debugging = finding the CAUSE and FIXING it (Developer's job). After debugging: Confirmation Testing confirms the fix worked, Regression Testing checks nothing else broke.",
+        defAR: "الاختبار = اكتشاف الفشل (عمل المختبر — ساكن وديناميكي). تتبع الأخطاء = إيجاد السبب وإصلاحه (عمل المطور). بعد الإصلاح: Confirmation Testing يؤكد أن الإصلاح نجح، Regression Testing يتأكد أن شيئاً آخر لم يكسر.",
+        example: "طبيب يكشف على مريض ويقول 'التهاب كلوي' = Testing. جراح يعمل عملية يصلح فيها الكلى = Debugging. بعد العملية: طبيب يتأكد إن المريض تعافى (Confirmation) + يراجع تقارير باقي الأعضاء (Regression)."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Test Condition", ar: "شرط / بند الاختبار",
-        defEN: "A specific aspect or behavior of the software that needs to be verified by testing.",
-        defAR: "الحاجة اللي عايزين نتأكد منها — كل سؤال بيخطر في ذهنك عن النظام هو test condition.",
-        example: "في تطبيق بنك: 'هل يقدر المستخدم يحوّل أكتر من رصيده؟' — ده test condition. كل حاجة ممكن تتأكد منها تُعدّ شرطاً للاختبار."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Testing's Contribution to Success (SQTC)",
+        ar: "مساهمة الاختبار في نجاح المشروع (SQTC)",
+        defEN: "Testing as quality control helps achieve goals within Scope, Quality, Time, and Cost (SQTC). Contributions: cost-effective defect detection, higher quality test objects, evaluating quality at each SDLC stage, contributing to go/no-go decisions, providing user representation.",
+        defAR: "الاختبار كضبط جودة يساعد في تحقيق الأهداف ضمن النطاق والجودة والوقت والتكلفة (SQTC). مساهماته: اكتشاف العيوب بفعالية تكلفة، رفع جودة الكائنات التي تُختبر، تقييم الجودة في كل مرحلة SDLC، المساهمة في قرارات الإطلاق.",
+        example: "بدون اختبار: Bug في صفحة الدفع يكتشفه المستخدم بعد الإطلاق = تكلفة 100x. مع اختبار: نفس الـ Bug يُكتشف في مرحلة التطوير = تكلفة 1x. الاختبار يوفر وقت وتكلفة الإطلاق بأقل مخاطر."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Test Basis", ar: "أساس / مصدر الاختبار",
-        defEN: "Any document we use to understand what to test (requirements, designs, user stories, etc.).",
-        defAR: "المصادر اللي منها بنعرف إيه اللي المفروض يتعمل — وبالتالي بنبني الاختبارات منها.",
-        example: "لو إيكيا أعطتك كتالوج الإمباكت لتركيب خزانة، ده هو أساسك. في البرمجيات: وثيقة المتطلبات، صفحة wire frame، أو user story — كلها أساس نبني منها الاختبارات."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "QC vs QA vs Quality Management",
+        ar: "ضبط الجودة مقابل ضمان الجودة مقابل إدارة الجودة",
+        defEN: "Quality Control (QC): product-oriented CORRECTIVE approach — finds defects in products. Testing is a major form of QC. Quality Assurance (QA): process-oriented PREVENTIVE approach — improves processes to prevent defects. QA applies to BOTH development AND testing. Quality Management = QA + QC combined.",
+        defAR: "ضبط الجودة QC: نهج تصحيحي موجه للمنتج — يجد العيوب في المنتجات. الاختبار هو الشكل الرئيسي لـ QC. ضمان الجودة QA: نهج وقائي موجه للعملية — يحسّن العمليات لمنع العيوب. QA يُطبق على التطوير والاختبار معاً. إدارة الجودة = QA + QC معاً.",
+        example: "مصنع أدوية: QC = الفاحص عند نهاية الخط يرفض الحبوب المعيبة (تصحيح). QA = المهندس يراجع كل عملية التصنيع ويضيف فلاتر لمنع العيوب (وقاية). نتائج الاختبار: في QC → تُصلح العيوب. في QA → تُعطي feedback لتحسين العملية."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Test Oracle", ar: "مرجع النتيجة الصحيحة",
-        defEN: "The source that tells us what the correct result should be, so we can compare it with the actual system output.",
-        defAR: "المرجع اللي بيقولنا إيه الإجابة الصح — عشان نعرف هل النظام جاوب صح ولا غلط.",
-        example: "لما تعمل حساب على الآلة الحاسبة 25 × 4، والنتيجة من دماغك 100 — دماغك هو oracle. في البرمجيات: لو النظام حسب فاتورة وعايزين نتأكد، بنحسب يدوياً أو من قاعدة البيانات ونقارن."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Verification vs Validation",
+        ar: "التحقق مقابل التصديق",
+        defEN: "Verification = 'Are we building the product RIGHT?' (checking it meets specifications). Validation = 'Are we building the RIGHT product?' (checking it meets user needs in real environment). Both are needed!",
+        defAR: "التحقق = هل نبني المنتج بشكل صحيح؟ (التحقق من مطابقة المواصفات). التصديق = هل نبني المنتج الصحيح؟ (التحقق من تلبية احتياجات المستخدم في البيئة الحقيقية). كلاهما ضروري!",
+        example: "كوبري: Verification = هل الحديد بالمواصفات المطلوبة؟ Validation = هل الكوبري في المكان الصح ويخدم الناس المحتاجينه؟ ممكن تبني كوبري صح تماماً (Verification ✓) لكن في المكان الغلط (Validation ✗)."
     },
     {
-        cat: "basic", catLabel: "المفاهيم الأساسية · Basic Concepts", isNew: false,
-        en: "Verification vs Validation", ar: "التحقق والتصديق",
-        defEN: "Verification = 'Are we building the product right?' | Validation = 'Are we building the right product?'",
-        defAR: "التحقق = هل بنبني الحاجة صح؟ | التصديق = هل بنبني الحاجة الصح أصلاً؟",
-        example: "تخيّل إنت بتبني كوبري. Verification: هل الحديد المستخدم بالمواصفات الصح؟ Validation: هل الكوبري ده في المكان الصح ويخدم الناس اللي محتاجاه؟ ممكن تبني الكوبري صح تماماً بس في المكان الغلط!"
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "STLC — 7 Test Activities (Test Process)",
+        ar: "دورة حياة الاختبار — 7 أنشطة الاختبار",
+        defEN: "The 7 test activities (often parallel/iterative, not strictly sequential): (1) Test Planning, (2) Test Monitoring & Control, (3) Test Analysis 'What to test?', (4) Test Design 'How to test?', (5) Test Implementation 'Setup', (6) Test Execution 'Run tests', (7) Test Completion.",
+        defAR: "الأنشطة السبعة للاختبار (غالباً متوازية/تكرارية وليست بالضرورة تسلسلية): (1) تخطيط الاختبار، (2) متابعة والتحكم في الاختبار، (3) تحليل الاختبار 'ماذا نختبر؟'، (4) تصميم الاختبار 'كيف نختبر؟'، (5) تجهيز الاختبار 'الإعداد'، (6) تنفيذ الاختبار 'تشغيل الاختبارات'، (7) إتمام الاختبار.",
+        example: "بناء عمارة: (1) خطة المشروع، (2) متابعة التقدم اليومي، (3) تحليل المتطلبات، (4) رسم التصميم، (5) تجهيز المواد والأدوات، (6) البناء الفعلي، (7) استلام العمارة وتوثيق الدروس. في STLC نفسها بالترتيب ولكن غالباً بتتداخل."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Test Basis vs Testware",
+        ar: "أساس الاختبار مقابل مواد الاختبار",
+        defEN: "Test Basis = INPUT documents used to derive tests (requirements, designs, user stories, regulations). Testware = OUTPUT work products created by testing (test plan, test cases, test data, test scripts, defect reports, test completion report).",
+        defAR: "أساس الاختبار = وثائق الإدخال التي تُشتق منها الاختبارات (متطلبات، تصاميم، قصص مستخدم، لوائح). مواد الاختبار = مخرجات عمل يُنشئها الاختبار (خطة اختبار، حالات اختبار، بيانات اختبار، سكريبتات، تقارير عيوب، تقرير إتمام الاختبار).",
+        example: "وثيقة المتطلبات تقول 'يجب قبول أعمار 18-70' (Test Basis) → ننشئ Test Cases: 'اختبر 17، 18، 70، 71' (Testware). الـ Testware هو 'كل حاجة خصت التيست' من بداية خطة الاختبار لنهاية التقرير."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Traceability",
+        ar: "قابلية التتبع",
+        defEN: "The ability to link test cases back to requirements/risks/defects they cover. Enables: coverage evaluation, impact analysis of changes, understanding test progress reports, assessing product quality. Good traceability also helps test audits.",
+        defAR: "القدرة على ربط حالات الاختبار بالمتطلبات والمخاطر والعيوب التي تغطيها. تمكّن من: تقييم التغطية، تحليل تأثير التغييرات، فهم تقارير تقدم الاختبار، تقييم جودة المنتج. تتبع جيد يساعد أيضاً في عمليات التدقيق.",
+        example: "Requirement R-45 'تحويل الأموال' → Test Cases: TC-23 (نجاح)، TC-24 (رصيد منخفض)، TC-25 (حساب محظور). لو R-45 اتغير → بنعرف بالضبط إن TC-23/24/25 لازم يتراجعوا ويتحدثوا. بدون Traceability الكل ضايع."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Test Process in Context (Contextual Factors)",
+        ar: "عملية الاختبار حسب السياق (العوامل السياقية)",
+        defEN: "Testing is NOT performed in isolation. The way testing is done depends on 8 contextual factors: Stakeholders, Team members, Business domain, Technical factors, Project constraints, Organizational factors, Software development lifecycle, and Tools.",
+        defAR: "الاختبار لا يُنفذ بمعزل عن السياق. كيفية إجراء الاختبار تعتمد على 8 عوامل سياقية: أصحاب المصلحة، أعضاء الفريق، مجال الأعمال، العوامل التقنية، قيود المشروع، العوامل التنظيمية، دورة حياة التطوير، والأدوات.",
+        example: "اختبار تطبيق لعبة موبايل (سياق أ) مختلف جداً عن اختبار نظام تحكم في طائرة (سياق ب). في الطيارة: قيود قانونية صارمة، استقلالية عالية للمختبر، وثائق مكثفة. في اللعبة: مرونة أكبر، Agile سريع، تركيز على UX."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Roles in Testing: Test Manager vs Tester",
+        ar: "الأدوار في الاختبار: مدير الاختبار مقابل المختبر",
+        defEN: "Test Manager: responsible for test process, test team, and leadership of test activities. Focuses on: planning, monitoring & control, test completion. Tester: responsible for engineering (technical) aspects. Focuses on: analysis, design, implementation, execution. One person can hold both roles.",
+        defAR: "مدير الاختبار: مسؤول عن عملية الاختبار والفريق وقيادة الأنشطة. يركز على: التخطيط، المتابعة والتحكم، الإتمام. المختبر: مسؤول عن الجوانب الهندسية (التقنية). يركز على: التحليل، التصميم، التجهيز، التنفيذ. شخص واحد ممكن يلعب الدورين.",
+        example: "في Agile: بعض مهام مدير الاختبار بتتعامل معها الـ Agile Team كلها. في مشاريع كبيرة: مدير اختبار منفصل يتابع ويخطط. في شركات صغيرة: نفس الشخص بيخطط وبيختبر. المهم إن الأدوار واضحة ومغطاة."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Generic Skills for Testers",
+        ar: "المهارات العامة المطلوبة في المختبر",
+        defEN: "Key tester skills: Testing knowledge (using test techniques), Thoroughness & attention to detail, Curiosity & carefulness, Good communication & active listening, Analytical & critical thinking, Technical knowledge (using test tools), Domain knowledge (understanding the business). Testers are often 'bearers of bad news' — communication skills are CRUCIAL.",
+        defAR: "المهارات الرئيسية للمختبر: معرفة الاختبار، الدقة والانتباه للتفاصيل، الفضول والحرص، التواصل الجيد والاستماع الفعّال، التفكير التحليلي والنقدي، المعرفة التقنية (استخدام أدوات الاختبار)، معرفة المجال. المختبرون غالباً 'حاملو الأخبار السيئة' — مهارات التواصل حاسمة.",
+        example: "مختبر بدون مهارات تواصل يكتب تقرير Bug بطريقة هجومية → مطورون يتحاملون عليه → بيئة عمل سيئة. مختبر بمهارات تواصل عالية يكتب Bug Report واضح ومحترم → مطورون يتعاونون → نتيجة أفضل للكل."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Whole Team Approach",
+        ar: "مدخل الفريق الكامل",
+        defEN: "From Extreme Programming (XP): ALL team members are responsible for quality. Testers collaborate with business representatives (acceptance tests) and developers (test strategy, automation). Everyone can perform quality tasks. May NOT be appropriate in safety-critical contexts that require high independence.",
+        defAR: "من Extreme Programming: جميع أعضاء الفريق مسؤولون عن الجودة. المختبرون يتعاونون مع ممثلي الأعمال (اختبارات القبول) والمطورين (استراتيجية الاختبار، الأتمتة). الجميع يمكنه أداء مهام الجودة. قد لا يكون مناسباً في السياقات الحرجة التي تتطلب استقلالية عالية.",
+        example: "في Scrum Sprint: المطور يكتب Unit Tests، المختبر يكتب Acceptance Criteria مع البيزنس، Product Owner يعلّق على جودة الـ Feature. كل الفريق مسؤول عن الجودة — مش المختبر لوحده."
+    },
+    {
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "Independence of Testing (4 Levels)",
+        ar: "استقلالية الاختبار (4 مستويات)",
+        defEN: "4 levels: (1) No independence — author tests own work. (2) Some — peers from same team. (3) High — separate test team within org. (4) Very high — external org. Benefits: finds different failures, challenges assumptions. Drawbacks: isolation from dev team, communication issues, perceived as bottleneck.",
+        defAR: "4 مستويات: (1) لا استقلالية — المؤلف يختبر عمله. (2) بعض الاستقلالية — زملاء من نفس الفريق. (3) عالية — فريق اختبار منفصل داخل المنظمة. (4) عالية جداً — منظمة خارجية. فوائد: يكتشف إخفاقات مختلفة، يتحدى الافتراضات. عيوب: عزل عن فريق التطوير، مشاكل تواصل.",
+        example: "امتحانات الثانوية: لو المدرس يصحح ورقة طالبه (لا استقلالية). لو مدرس آخر يصحح (بعض الاستقلالية). لو لجنة وزارية (عالية جداً). كلما زاد الاستقلال، قلّ التحيز وزادت الموضوعية — لكن التواصل قد يصعب."
     },
 
-    // ===== 2. TESTING PRINCIPLES =====
+    // ===== CH1 EXAM FOCUS CARD =====
     {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Testing Shows Presence of Defects", ar: "الاختبار يُثبت وجود عيوب — لا غيابها",
-        defEN: "Testing can prove defects exist, but CANNOT prove the software is 100% defect-free.",
-        defAR: "الاختبار يقدر يثبت إن في مشاكل، لكن لو ما لقيناش مشكلة ما يعنيش إن البرنامج خالي من المشاكل تماماً.",
-        example: "لو فحصت 1000 تلاجة في المصنع ومالقيتش عطل — مش معناه إن كل تلاجات في العالم كاملة. ممكن في عطل نادر ما لاقيتوش. نفس الفكرة في البرمجيات."
-    },
-    {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Exhaustive Testing is Impossible", ar: "الاختبار الشامل مستحيل",
-        defEN: "You cannot test every single combination of inputs — it's practically infinite. Focus on risk and priorities.",
-        defAR: "مش ممكن تختبر كل تركيبة ممكنة من المدخلات — العدد بيكون خيالي. لازم تركّز على الأهم والأخطر.",
-        example: "لو عندك خانة نص تقبل 10 حروف، الاحتمالات ملايين. بدل ما تجرّب كل حاجة (مستحيل)، تركّز على أهم الحالات: نص فاضي، نص بحروف خاصة، نص بالحد الأقصى."
-    },
-    {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Early Testing Saves Time & Money", ar: "الاختبار المبكر يوفّر الوقت والمال",
-        defEN: "Finding defects early in development is much cheaper than finding them after release.",
-        defAR: "كل ما اكتشفنا العيب بدري أرخص. العيب في مرحلة التحليل يكلف دولار، في الإنتاج يكلف 100 دولار.",
-        example: "تخيّل بنيت مبنى وبعد ما خلصت اكتشفت إن القواعد غلط. التصليح هيكلّفك أكتر من بناء المبنى من أول. نفس الفكرة في البرنامج: لو في خطأ في تصميم قاعدة البيانات وما اتعمشملوش إلا في آخر لحظة — كارثة."
-    },
-    {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Defect Clustering", ar: "تجمّع العيوب",
-        defEN: "Most defects tend to be concentrated in a small number of modules or features.",
-        defAR: "العيوب مش بتتوزع بالتساوي — 80% من المشاكل بتكون في 20% من الكود.",
-        example: "في أي متجر، زوايا معينة دايماً فيها أكتر حوادث سقوط. في التطبيقات: عادةً الـ payment module أو الـ authentication بيكون فيه أكتر bugs. ركّز اختباراتك هناك."
-    },
-    {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Pesticide Paradox", ar: "مفارقة المبيد الحشري",
-        defEN: "Running the same tests repeatedly will stop finding new bugs. You must keep updating your tests.",
-        defAR: "لو اختبرت بنفس الاختبارات كل مرة، الحشرات (الـ bugs) هتتعوّد عليها وما هيتاخدش. لازم تجدد.",
-        example: "الحشرات بتتطوّر وتتمنّع ضد مبيد اتستخدم كتير. نفس الفكرة: لو عندك اختبار بيتعمل من سنة وما بيلقيش bugs جديدة — مش معناه إن كل حاجة تمام، يمكن الاختبار بقى قديم ومحتاج تحديث."
-    },
-    {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Testing is Context-Dependent", ar: "الاختبار يعتمد على السياق",
-        defEN: "Testing strategies differ based on the type and risk of the software being built.",
-        defAR: "مش في طريقة اختبار واحدة تصلح لكل شيء — اختبار موقع إخباري مختلف عن اختبار نظام مستشفى.",
-        example: "كيفية اختبار تطبيق لعبة على التليفون مختلف تماماً عن اختبار نظام طائرة. في الطائرة، عيب واحد = كارثة. في اللعبة، بعض العيوب مقبولة. السياق هو اللي بيحدد مقدار الاختبار."
-    },
-    {
-        cat: "principles", catLabel: "مبادئ الاختبار السبعة · 7 Testing Principles", isNew: true,
-        en: "Absence of Errors Fallacy", ar: "وهم غياب الأخطاء",
-        defEN: "Even if the software has no bugs, it could still be useless if it doesn't meet user needs.",
-        defAR: "حتى لو البرنامج خالي 100% من الأخطاء التقنية، ممكن يكون عديم الفائدة لو ما يحقق احتياجات المستخدم.",
-        example: "شركة صنعت سيارة بدون أي عطل تقني — لكن بدون مقاعد خلفية! السيارة 'شغّالة' تقنياً بس عديمة الفائدة. نفس الفكرة: برنامج محاسبة ما بيحسبش الضريبة الصح من حيث احتياجات المستخدم."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: true, isExamFocus: true,
+        en: "🎯 CH1 EXAM FOCUS — Key Points",
+        ar: "🎯 أهم نقاط الفصل الأول للامتحان",
+        defEN: "CRITICAL FOR EXAM: K1 remember, K2 understand and explain.",
+        defAR: "الأهم للامتحان — الفصل الأول:",
+        example: "① Testing SHOWS presence of defects, CANNOT prove absence ② Defect ≠ always causes Failure ③ Testing = Tester's job | Debugging = Developer's job ④ QC = product/corrective | QA = process/preventive ⑤ Test Basis (input) → Testware (output) ⑥ Roles: Test Manager (plan/monitor) | Tester (design/execute) ⑦ Independence: 4 levels — more independence = better defect detection BUT may cause isolation ⑧ Whole Team: everyone responsible for quality — NOT appropriate in safety-critical systems"
     },
 
-    // ===== 3. TEST ACTIVITIES =====
+// ==========================================================
+// CHAPTER 2 — TESTING THROUGHOUT SDLC (6Q: K1=2, K2=4)
+// ==========================================================
+
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Planning", ar: "تخطيط الاختبار",
-        defEN: "Creating a document that defines what will be tested, how, by whom, when, and with what resources.",
-        defAR: "وضع خطة عمل شاملة قبل ما يبدأ أي اختبار — زي ما المعلّم بيحضّر الخطة الدراسية في بداية الترم.",
-        example: "تخيّل هتنظم حفل زفاف. قبل أي حاجة: بتحدد الضيوف (الـ scope)، الميزانية (الموارد)، التوقيت (الجدول)، ومن مسؤول عن إيه (الأدوار). الـ Test Plan هو نفس الفكرة: من يختبر إيه، إمتى، وبأي طريقة."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "SDLC Models — Overview",
+        ar: "نماذج دورة حياة تطوير البرمجيات — نظرة عامة",
+        defEN: "SDLC = abstract high-level representation of the software development process. Types: Sequential (Waterfall, V-model — phases complete one at a time), Iterative (Spiral, Prototyping — repeated loops), Incremental (Unified Process — parts delivered step by step), Agile (Scrum, Kanban — combines iterative + incremental).",
+        defAR: "SDLC = تمثيل عالي المستوى لعملية تطوير البرمجيات. الأنواع: التسلسلية (Waterfall, V-model — مرحلة تكتمل قبل التالية)، التكرارية (Spiral, Prototyping — حلقات متكررة)، التصاعدية (Unified Process — أجزاء تُسلّم تدريجياً)، Agile (Scrum, Kanban — يجمع التكراري + التصاعدي).",
+        example: "تشبيه لوحة فنية: Waterfall = رسم كامل ثم تقييم. Iterative = رسم مسودة كاملة، تحسينها، تحسينها. Incremental = رسم وجه مكتمل، ثم جسم مكتمل، ثم خلفية مكتملة. Agile = رسم لوحة كاملة مبسطة كل أسبوعين ثم تحسينها."
     },
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Analysis", ar: "تحليل الاختبار",
-        defEN: "Reading the requirements and asking 'What do we need to verify?' to extract testable conditions.",
-        defAR: "قراءة المتطلبات وتحليلها لاستخراج كل الحالات الممكنة التي يجب اختبارها.",
-        example: "المتطلب بيقول: 'المستخدم يقدر يغيّر رقم موبايله'. المحلّل يفكر: ماذا لو الرقم الجديد مسجّل بحساب تاني؟ ماذا لو فيه أحرف؟ ماذا لو قصير جداً؟ ده التحليل — استخراج كل الأسئلة الممكنة."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Waterfall Model",
+        ar: "نموذج الشلال",
+        defEN: "Sequential model: Requirements → Design → Coding → Testing → Deployment. Each phase completes before next begins. Advantages: simple, specific deliverables, works for small projects. Disadvantages: testing only at the end (NO early testing), inflexible, high risk if requirements change.",
+        defAR: "نموذج تسلسلي: متطلبات → تصميم → كود → اختبار → نشر. كل مرحلة تكتمل قبل التالية. مزايا: بسيط، مخرجات محددة، يناسب المشاريع الصغيرة. عيوب: الاختبار في النهاية فقط (لا اختبار مبكر)، غير مرن، مخاطر عالية لو المتطلبات تغيّرت.",
+        example: "كتابة رواية بالترتيب الصارم: كل الأبحاث أولاً، ثم كل الكتابة، ثم كل المراجعة، ثم النشر. لو اكتشفت في مرحلة النشر أن الفصل الأول كان غلطاً — تكلفة هائلة للتعديل. لهذا Waterfall مناسب فقط لو المتطلبات واضحة 100% من البداية."
     },
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Design", ar: "تصميم حالات الاختبار",
-        defEN: "Converting the test conditions into actual test cases with specific inputs and expected results.",
-        defAR: "تحويل الأسئلة اللي استخرجناها من التحليل إلى خطوات محددة نعملها فعلياً للاختبار.",
-        example: "بعد ما سألنا 'ماذا لو الرقم موجود بحساب تاني؟' — دلوقتي نكتب Test Case: 'ادخل 01099123456 وهو رقم مسجّل بيزيد آخر، اضغط حفظ، النتيجة المتوقعة: رسالة تقول الرقم مستخدم مسبقاً'."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "V-Model (Verification & Validation Model)",
+        ar: "نموذج الـ V",
+        defEN: "Extension of Waterfall where each development phase has a CORRESPONDING test level. Testing activities are planned EARLY (before coding). Left side (development): Requirements → High-Level Design → Low-Level Design → Coding. Right side (testing): Acceptance Test ↔ System Test ↔ Integration Test ↔ Unit Test.",
+        defAR: "امتداد للـ Waterfall حيث كل مرحلة تطوير لها مستوى اختبار موازٍ. أنشطة الاختبار تُخطط مبكراً (قبل الكود). الجانب الأيسر (تطوير): متطلبات → تصميم عالي → تصميم تفصيلي → كود. الجانب الأيمن (اختبار): اختبار قبول ↔ اختبار نظام ↔ اختبار تكامل ↔ اختبار وحدة.",
+        example: "مزايا V-Model: الاختبار يُصمم مبكراً جداً. لما بنكتب متطلبات بنخطط Acceptance Test في نفس الوقت. لما بنعمل High-Level Design بنخطط System Test. المختبر مشارك من الأول، مش بيجي في النهاية. عيب: لا يزال يفتقر للمرونة."
     },
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Implementation", ar: "تجهيز بيئة الاختبار",
-        defEN: "Preparing everything needed before running tests: environment, test data, test accounts, tools.",
-        defAR: "تجهيز كل شيء قبل ما يبدأ الاختبار الفعلي — البيانات، الحسابات التجريبية، البيئة.",
-        example: "زي الطبيب قبل العملية يجهّز غرفة العمليات، الأدوات، والتخدير قبل ما يدخل المريض. في الاختبار: ننشئ حسابات تجريبية، نحط أرصدة وهمية في قاعدة البيانات، ونأكد إن الـ test environment شغّالة."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Iterative vs Incremental Development",
+        ar: "التطوير التكراري مقابل التصاعدي",
+        defEN: "Iterative: build FULL system repeatedly, each time refining and improving (rough sketch → detailed sketch → full painting). Incremental: deliver system in COMPLETE PARTS one at a time (paint the face completely, then body completely, then background). Agile combines BOTH: delivers complete increments iteratively.",
+        defAR: "التكراري: بناء النظام الكامل عدة مرات، كل مرة بتحسين وتطوير. التصاعدي: تسليم النظام على أجزاء مكتملة في كل مرة. Agile يجمع الاثنين: يسلّم increments مكتملة بشكل تكراري.",
+        example: "Iterative = Scrum: نفس ميزة التسجيل بتتحسن كل Sprint. Incremental: الـ Sprint الأول يسلّم صفحة Login كاملة، الثاني يسلّم Profile كاملة، الثالث يسلّم Dashboard كاملة. في الواقع Agile بيجمع الاثنين."
     },
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Execution", ar: "تنفيذ الاختبار",
-        defEN: "Actually running the test cases and recording whether they pass or fail.",
-        defAR: "تنفيذ الاختبارات الفعلية وتسجيل النتيجة — الخطوة الوحيدة اللي بنتعامل فيها مع البرنامج مباشرةً.",
-        example: "ده زي لما تجرّب طبخة جديدة لأول مرة. كل خطوة في الوصفة بتنفّذها وبتلاحظ النتيجة. في الاختبار: بندخل بيانات حقيقية ونشوف إيه اللي بيحصل فعلاً مقابل إيه اللي المفروض يحصل."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Good Testing Practices (Any SDLC)",
+        ar: "الممارسات الجيدة للاختبار (في أي SDLC)",
+        defEN: "4 good practices regardless of SDLC: (1) Every development activity has a corresponding test activity. (2) Different test levels have specific test objectives (avoiding redundancy). (3) Test analysis and design begins during the corresponding development phase. (4) Testers review work products as soon as drafts are available (supporting shift-left).",
+        defAR: "4 ممارسات جيدة بصرف النظر عن SDLC: (1) كل نشاط تطوير له نشاط اختبار مقابل. (2) مستويات اختبار مختلفة لها أهداف اختبار محددة (تفادي التكرار). (3) تحليل وتصميم الاختبار يبدأ خلال مرحلة التطوير المقابلة. (4) المختبرون يراجعون مخرجات العمل بمجرد توفر المسودات.",
+        example: "في كل Sprint: (1) المطور يكتب كود، المختبر يكتب Test Case في نفس الوقت. (2) Unit Test يختبر وحدات، System Test يختبر سلوك كامل — مش تكرار. (3) لما نكتب User Story، المختبر يكتب Acceptance Criteria في نفس الجلسة. (4) المختبر يراجع الـ wireframe قبل ما يتحول لكود."
     },
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Monitoring & Control", ar: "متابعة الاختبار والتحكم فيه",
-        defEN: "Tracking how testing is progressing and making adjustments if things go off-track.",
-        defAR: "المتابعة المستمرة لتقدم الاختبار واتخاذ قرارات تصحيحية عند الحاجة.",
-        example: "زي مدير مشروع بيتابع على dashboard: كم بيت اتبنى؟ كم باقي؟ في تأخير؟ في الاختبار: نعرف كم test case اتنفذ، كم passed وكم failed، وهل هنخلص في الوقت المحدد."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "TDD, ATDD, BDD — Testing as Driver",
+        ar: "TDD وATDD وBDD — الاختبار كمحرك للتطوير",
+        defEN: "TDD: Write TEST first, then write code to make it pass, then refactor. ATDD: Business + Dev + Tester define acceptance tests TOGETHER before development. BDD: Scenarios written in natural language Given/When/Then (Gherkin) — readable by all stakeholders. All three follow shift-left principle and support iterative models.",
+        defAR: "TDD: اكتب الاختبار أولاً، ثم الكود لتمريره، ثم أعد الهيكلة. ATDD: الأعمال + المطور + المختبر يحددون اختبارات القبول معاً قبل التطوير. BDD: سيناريوهات مكتوبة بلغة طبيعية Given/When/Then (Gherkin) — مفهومة لجميع أصحاب المصلحة. الثلاثة يتبعون مبدأ Shift-Left.",
+        example: "TDD: 'اكتب امتحان الطالب قبل الدرس ثم اشرح ما يخليه ينجح'. ATDD: الكل يتفق على معايير النجاح قبل البناء. BDD: GIVEN المستخدم عمره 17 / WHEN يحاول يشتري كحول / THEN يُرفض طلبه مع رسالة 'العمر أقل من 18'."
     },
     {
-        cat: "activities", catLabel: "أنشطة الاختبار · Test Activities", isNew: false,
-        en: "Test Completion", ar: "إنهاء الاختبار وإغلاقه",
-        defEN: "Finalizing all testing work, writing the final summary report, and archiving everything.",
-        defAR: "إنهاء كل أنشطة الاختبار رسمياً وإعداد التقرير النهائي وحفظ كل الوثائق.",
-        example: "زي ما الطبيب بعد العملية يكتب تقرير: 'العملية نجحت، المريض مستقر، اتخذنا هذه الإجراءات'. Test Summary Report: كم bug اكتشفنا، كم اتصلح، كم مقبول للإطلاق، ما هي المخاطر المتبقية."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "DevOps and Testing",
+        ar: "DevOps والاختبار",
+        defEN: "DevOps bridges Development and Operations. Promotes: team autonomy, fast feedback, integrated toolchains, CI/CD. Testing benefits: fast code quality feedback, shift-left (CI encourages component tests + static analysis), automated regression reduces risk, promotes non-functional testing. Risks: DevOps pipeline needs maintenance, CI/CD tools need resources, automation is complex.",
+        defAR: "DevOps يجسر التطوير والتشغيل. يعزز: استقلالية الفريق، تغذية راجعة سريعة، سلاسل أدوات متكاملة، CI/CD. فوائد الاختبار: تغذية راجعة سريعة، Shift-Left، regression آلي يقلل المخاطر، يعزز الاختبار غير الوظيفي. مخاطر: الـ pipeline يحتاج صيانة، تعقيد الأتمتة.",
+        example: "مطور يرفع كود → Jenkins يشغّل 500 Unit Test + Static Analysis في 5 دقائق → لو فشل: بلّغ المطور فوراً قبل ما يكمل. لو نجح: يُنشر تلقائياً لبيئة Staging. هذا هو DevOps pipeline — الاختبار مدمج في كل خطوة."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Shift-Left Approach",
+        ar: "مدخل الانتقال لليسار (الاختبار المبكر)",
+        defEN: "Testing is performed EARLIER in the SDLC. Good practices: reviewing specs from a testing perspective, writing tests before code (TDD), using CI/CD with automated component tests, completing static analysis before dynamic testing, performing non-functional testing at component level. Requires extra effort/cost early but SAVES effort/cost later.",
+        defAR: "تنفيذ الاختبار في وقت أبكر من دورة حياة التطوير. ممارسات جيدة: مراجعة المواصفات من منظور الاختبار، كتابة الاختبارات قبل الكود (TDD)، استخدام CI/CD مع اختبارات مكونات آلية، إتمام التحليل الساكن قبل الاختبار الديناميكي، إجراء اختبار غير وظيفي على مستوى المكون.",
+        example: "طبيب يعمل فحوصات دورية منتظمة (Shift-Left) أرخص بكثير من علاج مرض متأخر. في البرمجيات: مراجعة وثيقة متطلبات بمنظور اختباري في اليوم الأول = تكلفة 1. إصلاح نفس المشكلة بعد الإطلاق = تكلفة 100."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Shift-Right Testing",
+        ar: "الاختبار المتأخر (Shift Right)",
+        defEN: "Testing performed AFTER release in the production environment. Techniques: A/B testing, canary releases, feature flags, monitoring, chaos engineering. Purpose: gather real-world feedback, validate behavior at scale, find issues invisible in test environments. Complements, does NOT replace earlier testing.",
+        defAR: "اختبار يتم بعد الإطلاق في بيئة الإنتاج. التقنيات: A/B testing، إصدارات canary، feature flags، مراقبة، هندسة الفوضى. الهدف: جمع ملاحظات من العالم الحقيقي، التحقق من السلوك على نطاق واسع، اكتشاف مشاكل غير مرئية في بيئات الاختبار. يُكمل، ولا يحل محل، الاختبار المبكر.",
+        example: "Facebook عند إطلاق ميزة جديدة: أولاً تظهر لـ 1% من المستخدمين (Canary Release) — المهندسون يراقبون Errors والأداء. لو كل حاجة تمام → 10% → 50% → 100%. هذا Shift-Right Testing في الواقع."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Retrospectives and Process Improvement",
+        ar: "الاجتماعات الاستعراضية والتحسين المستمر",
+        defEN: "Post-project/iteration meetings where team discusses: What was successful?, What was not?, How to improve? Results are recorded and are normally part of the test completion report. Benefits for testing: increased effectiveness, better testware quality, team learning, improved test basis quality, better cooperation.",
+        defAR: "اجتماعات بعد المشروع/التكرار يناقش فيها الفريق: ما الذي نجح؟ ما الذي لم ينجح؟ كيف نتحسن؟ النتائج تُسجل وهي عادةً جزء من تقرير إتمام الاختبار. فوائد للاختبار: فعالية أعلى، جودة testware أفضل، تعلم الفريق، تحسين جودة Test Basis، تعاون أفضل.",
+        example: "Scrum Sprint Retrospective: 'الـ CI pipeline بطيء جداً (مشكلة) → الجلسة القادمة نحدّث خطوات الـ pipeline. التواصل مع البيزنس ممتاز (نجاح) → نكمّل نفس الأسلوب.' هذا هو التحسين المستمر الذي يُميّز الفرق الناضجة."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Test Levels (5 Levels + Test Pyramid)",
+        ar: "مستويات الاختبار (5 مستويات + هرم الاختبار)",
+        defEN: "5 test levels: (1) Component/Unit Testing — isolated components. (2) Component Integration Testing — interfaces between components. (3) System Testing — complete integrated system. (4) System Integration Testing — system with external systems. (5) Acceptance Testing — validation with real users (UAT, Alpha, Beta, Operational). Test Pyramid: Unit (many/fast) → Integration → E2E UI (few/slow).",
+        defAR: "5 مستويات اختبار: (1) اختبار المكون/الوحدة — مكونات معزولة. (2) اختبار تكامل المكونات — واجهات بين المكونات. (3) اختبار النظام — النظام الكامل المتكامل. (4) اختبار تكامل الأنظمة — النظام مع الأنظمة الخارجية. (5) اختبار القبول — تصديق مع مستخدمين حقيقيين (UAT، Alpha، Beta).",
+        example: "سيارة: (1) فحص كل برغي لوحده. (2) فحص المحرك مع الجير وهما مربوطان. (3) Test Drive كامل على الطريق. (4) فحص الاتصال مع GPS الخارجي وكاميرات الرادار. (5) العميل يجرب السيارة ويقرر يقبلها أو يرفضها."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Component Integration Testing — Strategies",
+        ar: "اختبار تكامل المكونات — استراتيجيات التكامل",
+        defEN: "Tests interfaces BETWEEN components after unit testing. 3 integration strategies: Bottom-Up (test low-level components first, needs DRIVERS to simulate higher-level callers), Top-Down (test high-level first, needs STUBS to simulate lower-level), Big-Bang (test all at once — risky, difficult to isolate failures).",
+        defAR: "يختبر الواجهات بين المكونات بعد اختبار الوحدة. 3 استراتيجيات تكامل: من الأسفل للأعلى (اختبار المكونات منخفضة المستوى أولاً، يحتاج DRIVERS)، من الأعلى للأسفل (اختبار عالي المستوى أولاً، يحتاج STUBS)، Big-Bang (اختبار كل شيء مرة واحدة — محفوف بمخاطر).",
+        example: "Bottom-Up: الأساسات أولاً ثم الجدران ثم السقف (يحتاج سقالات مؤقتة = Drivers). Top-Down: السقف أولاً ثم الجدران ثم الأساسات (يحتاج دعائم مؤقتة = Stubs). Big-Bang: بناء كل شيء مرة واحدة — لو انهار صعب تعرف أين المشكلة."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Test Types (Functional, Non-functional, WB, BB)",
+        ar: "أنواع الاختبار (الوظيفي وغير الوظيفي والأبيض والأسود)",
+        defEN: "4 test types: (1) Functional: WHAT the system does (features, functions). (2) Non-functional: HOW WELL — Performance, Usability, Security, Reliability, Compatibility, Maintainability, Portability (ISO 25010). (3) Black-box: specification-based, no internal code knowledge. (4) White-box: structure-based, uses internal code knowledge. All 4 can be applied at all test levels.",
+        defAR: "4 أنواع اختبار: (1) وظيفي: ماذا يفعل النظام (الميزات والوظائف). (2) غير وظيفي: كيف يؤديه — أداء، سهولة استخدام، أمان، موثوقية، توافق، قابلية صيانة، نقل (ISO 25010). (3) صندوق أسود: قائم على المواصفات بدون معرفة بالكود. (4) صندوق أبيض: قائم على البنية باستخدام معرفة الكود الداخلي.",
+        example: "زر 'نسيت كلمة المرور': Functional = هل يرسل إيميل؟. Non-functional Performance = هل يرسله في أقل من 3 ثوانٍ؟. Non-functional Usability = هل الزر واضح ومرئي للمستخدم الجديد؟. Non-functional Security = هل يمنع enumeration attacks؟"
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Confirmation Testing vs Regression Testing",
+        ar: "اختبار التأكيد مقابل اختبار الانحدار",
+        defEN: "Confirmation Testing (Re-test): runs the SAME failed test after a fix to confirm the defect is resolved. Regression Testing: after ANY change, runs tests on OTHER parts to ensure the change didn't break anything previously working. Regression testing is a strong candidate for automation. Impact Analysis shows which parts may be affected.",
+        defAR: "اختبار التأكيد: يُعيد نفس الاختبار الفاشل بعد الإصلاح للتأكد من حل العيب. اختبار الانحدار: بعد أي تغيير، يُجري اختبارات على أجزاء أخرى للتأكد أن التغيير لم يكسر شيئاً كان يعمل. اختبار الانحدار مرشح قوي للأتمتة. تحليل التأثير يُظهر الأجزاء التي قد تتأثر.",
+        example: "صنبور مطبخ سرّب → صاحب الشقة أصلح. Confirmation: فتح نفس الصنبور → لا تسريب ✓. Regression: فتح باقي الصنابير والدش → هل الضغط تأثر؟ هل خط المياه سليم؟ في البرمجيات: أصلح Bug في حساب الشحن → Regression على صفحات الدفع والسلة والفاتورة."
+    },
+    {
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: false, isExamFocus: false,
+        en: "Maintenance Testing",
+        ar: "اختبار الصيانة",
+        defEN: "Testing after software is in production. Triggered by: Modifications (corrective/adaptive/improvement), Upgrades or Migrations (new platform), Retirement. Always needs Confirmation + Regression testing. Scope depends on: degree of risk, size of existing system, size of change. Impact Analysis done BEFORE making changes to decide if changes should be made.",
+        defAR: "اختبار بعد وصول البرنامج للإنتاج. محفوزات: التعديلات (تصحيحية/تكيفية/تحسينية)، الترقيات أو الهجرة (منصة جديدة)، التقاعد. يحتاج دائماً Confirmation + Regression. النطاق يعتمد على: درجة المخاطرة، حجم النظام الموجود، حجم التغيير.",
+        example: "بنك ينقل بياناته من Oracle إلى PostgreSQL (Migration): يحتاج اختبار تحويل البيانات + التأكد أن كل العمليات تشتغل صح على قاعدة البيانات الجديدة + Regression كامل. لو نظام تقاعد — لازم تختبر أرشفة البيانات وإجراءات الاسترداد."
     },
 
-    // ===== 4. TEST LEVELS =====
+    // ===== CH2 EXAM FOCUS CARD =====
     {
-        cat: "levels", catLabel: "مستويات الاختبار · Test Levels", isNew: false,
-        en: "Component / Unit Testing", ar: "اختبار الوحدة / المكوّن",
-        defEN: "Testing the smallest individual piece of code in complete isolation from everything else.",
-        defAR: "اختبار أصغر وحدة في الكود بمعزل تام عن باقي الأجزاء.",
-        example: "تخيّل مصنع سيارات. قبل تركيب المحرك في العربية، المهندسون يفحصون كل مسمار وكل ترس لوحده. في البرمجيات: اختبار دالة calculateDiscount() لوحدها — أعطيها أرقام وأتحقق من النتيجة قبل ربطها بأي شيء آخر."
-    },
-    {
-        cat: "levels", catLabel: "مستويات الاختبار · Test Levels", isNew: false,
-        en: "Integration Testing", ar: "اختبار التكامل",
-        defEN: "Testing how different components or systems work together when connected.",
-        defAR: "اختبار إن الأجزاء المختلفة بتتكلم مع بعض صح لما تتربط ببعض.",
-        example: "محرك السيارة شغّال لوحده، الجير شغّال لوحده — لكن لما وصلناهم مع بعض هل الجير بيتحرك؟ في البرمجيات: Front-end يبعت طلب للـ Back-end، هل البيانات بتوصل صح وبالشكل المطلوب؟"
-    },
-    {
-        cat: "levels", catLabel: "مستويات الاختبار · Test Levels", isNew: false,
-        en: "System Testing", ar: "اختبار النظام",
-        defEN: "Testing the complete, integrated system as a whole against the full requirements.",
-        defAR: "اختبار النظام بالكامل كأنك مستخدم حقيقي — من أول خطوة لآخر خطوة.",
-        example: "السيارة اتركّبت كلها — دلوقتي نعمل test drive حقيقي على الطريق. في البرمجيات: مستخدم يفتح الموقع، يتسجّل، يضيف منتج للسلة، يدفع، يستلم إيميل التأكيد — الرحلة كلها من أولها لآخرها."
-    },
-    {
-        cat: "levels", catLabel: "مستويات الاختبار · Test Levels", isNew: false,
-        en: "Acceptance Testing (UAT)", ar: "اختبار القبول",
-        defEN: "The final check where the actual users or clients test the system to decide if they accept it.",
-        defAR: "المرحلة الأخيرة اللي فيها العميل نفسه يجرّب النظام ويقرر يقبله ولا يرفضه.",
-        example: "قبل ما تشتري شقة، بتعمل معاينة أخيرة — بتفتح النور، الماية، التكييف، كل حاجة. لو كل حاجة تمام توقّع العقد. UAT هو نفس الفكرة: العميل يجرب النظام بنفسه قبل الاستلام الرسمي."
-    },
-    {
-        cat: "levels", catLabel: "مستويات الاختبار · Test Levels", isNew: true,
-        en: "Alpha Testing", ar: "اختبار ألفا",
-        defEN: "Testing done by internal teams at the developer's location, simulating real user behavior before public release.",
-        defAR: "اختبار داخلي بيعمله فريق الشركة نفسها قبل ما المنتج يوصل لأي حد من برّا.",
-        example: "مطعم جديد قبل افتتاحه، بيدعو موظفيه وأصحابهم يجرّبوا الأكل ويديّوه feedback. لو في مشكلة في الطعم أو الخدمة بيصلحوها قبل الافتتاح الرسمي. في البرمجيات: فريق الشركة يستخدم التطبيق كأنهم مستخدمين عاديين."
-    },
-    {
-        cat: "levels", catLabel: "مستويات الاختبار · Test Levels", isNew: true,
-        en: "Beta Testing", ar: "اختبار بيتا",
-        defEN: "Testing by real external users in real conditions, before the final official release.",
-        defAR: "اختبار بيعمله مستخدمين حقيقيين من برّا الشركة في بيئتهم الحقيقية.",
-        example: "تطبيق جديد بيطلعوا نسخة 'Beta' لعدد محدود من المستخدمين — هم بيستخدموه في حياتهم الطبيعية ويبعتوا تقارير عن المشاكل. يوتيوب وجوجل بيعملوا كده دايماً قبل أي تحديث كبير."
+        cat: "ch2", catLabel: "الفصل الثاني · Ch2: SDLC", isNew: true, isExamFocus: true,
+        en: "🎯 CH2 EXAM FOCUS — Key Points",
+        ar: "🎯 أهم نقاط الفصل الثاني للامتحان",
+        defEN: "CRITICAL FOR EXAM: K1 & K2 items.",
+        defAR: "الأهم للامتحان — الفصل الثاني:",
+        example: "① Waterfall = no early testing, inflexible ② V-Model = each dev phase has paired test phase, testing PLANNED early ③ TDD = test FIRST then code | ATDD = team defines tests together | BDD = Given/When/Then natural language ④ DevOps = CI/CD, fast feedback, automated regression ⑤ Shift-Left = test earlier in SDLC | Shift-Right = test in production ⑥ 5 Test Levels: Component → Component Integration → System → System Integration → Acceptance ⑦ Integration strategies: Bottom-Up (needs Drivers) | Top-Down (needs Stubs) | Big-Bang (risky) ⑧ Confirmation = re-run SAME failed test after fix | Regression = check OTHER areas after ANY change ⑨ Maintenance triggers: modifications, upgrades, migrations, retirement"
     },
 
-    // ===== 5. TEST TYPES =====
+// ==========================================================
+// CHAPTER 3 — STATIC TESTING (4Q: K1=2, K2=2)
+// ==========================================================
+
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: false,
-        en: "Functional Testing", ar: "الاختبار الوظيفي",
-        defEN: "Testing that the software does what it's supposed to do — checking the features work correctly.",
-        defAR: "اختبار إن كل وظيفة وكل زر وكل feature بيشتغل زي ما المفروض.",
-        example: "زر 'نسيت كلمة المرور' — نضغطه، المفروض يجيلنا إيميل. لو جه = نجح. لو ما جاش أو جه الإيميل لبريد تاني = فشل. ده functional testing: بنتحقق إن الوظيفة نفسها بتشتغل."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Static Testing Basics",
+        ar: "أساسيات الاختبار الساكن",
+        defEN: "In static testing, software DOES NOT NEED TO BE EXECUTED. Work products are evaluated through manual examination (reviews) or with tools (static analysis). Objectives: improving quality, detecting defects, assessing characteristics (readability, completeness, correctness, testability, consistency). Can be applied for both verification AND validation.",
+        defAR: "في الاختبار الساكن، البرنامج لا يحتاج للتنفيذ. مخرجات العمل تُقيّم عبر الفحص اليدوي (مراجعات) أو الأدوات (تحليل ساكن). الأهداف: تحسين الجودة، اكتشاف العيوب، تقييم الخصائص (قابلية القراءة، الاكتمال، الصحة، قابلية الاختبار، الاتساق). يمكن تطبيقه للتحقق والتصديق معاً.",
+        example: "محامٍ يراجع عقداً قبل التوقيع يجد 'ثغرة قانونية' (عيب) بدون ما ينفّذ العقد. مبرمج يراجع كود زميله ويجد 'متغير غير معرّف' (عيب) بدون ما يُشغّل الكود. كلاهما Static Testing."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: false,
-        en: "Non-Functional Testing", ar: "الاختبار غير الوظيفي",
-        defEN: "Testing HOW WELL the software works — not if it works, but the quality of how it works.",
-        defAR: "مش هل الوظيفة بتشتغل، لكن بأي جودة بتشتغل — السرعة، الأمان، السهولة، الاستقرار.",
-        example: "الزر شغّال (functional ✓) — لكن بياخد 30 ثانية يستجيب (performance ✗). أو شغّال بس لما تضغطه من تليفون صغير الكلمات بتتداخل (usability ✗). ده non-functional testing: جودة التجربة."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Work Products Examinable by Static Testing",
+        ar: "مخرجات العمل القابلة للفحص بالاختبار الساكن",
+        defEN: "Almost ANY work product can be examined: requirement specs, source code, test plans, test cases, product backlog items, user stories, test charters, contracts, project documentation, models. For REVIEWS: any readable work product. For STATIC ANALYSIS: work products need a formal structure (e.g., code). NOT appropriate: 3rd party executable code (legal restrictions).",
+        defAR: "تقريباً أي مخرج عمل يمكن فحصه: مواصفات متطلبات، كود مصدري، خطط اختبار، حالات اختبار، عناصر Product Backlog، قصص مستخدم، ميثاق اختبار، عقود، توثيق مشروع، نماذج. للمراجعات: أي مخرج يمكن قراءته. للتحليل الساكن: يحتاج بنية رسمية. غير مناسب: كود قابل للتنفيذ من طرف ثالث (قيود قانونية).",
+        example: "مستشفى قبل إطلاق نظام جديد: يراجع وثيقة المتطلبات (متطلبات ناقصة)، تصميم قاعدة البيانات (علاقات خاطئة)، كود الـ API (ثغرات أمنية)، Test Cases (نقص تغطية). كل ده Static Testing قبل ما أي تشغيل يحصل."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: false,
-        en: "Performance Testing", ar: "اختبار الأداء",
-        defEN: "Testing how fast and stable the system is under normal and heavy load conditions.",
-        defAR: "اختبار سرعة النظام واستقراره تحت الضغط — هل يتحمّل كتير من الناس في نفس الوقت؟",
-        example: "متجر إلكتروني قبل Black Friday: المهندسون يحاكوا 50,000 شخص بيفتحوا الموقع في نفس اللحظة. هل الموقع هيستجيب في ثانيتين أو هيسقط؟ لو سقط في الاختبار نصلحه قبل اليوم الفعلي."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Value of Static Testing",
+        ar: "قيمة الاختبار الساكن",
+        defEN: "Static testing detects defects EARLIEST possible (principle 3). Can find defects IMPOSSIBLE to find via dynamic testing (e.g., unreachable code, design pattern issues, non-executable work product defects). Builds confidence in work products. Even though reviews can be costly to implement, overall project costs are LOWER because less rework later.",
+        defAR: "الاختبار الساكن يكتشف العيوب في أبكر مرحلة ممكنة (المبدأ الثالث). يمكنه إيجاد عيوب مستحيلة الاكتشاف بالاختبار الديناميكي (مثل: كود غير قابل للوصول، مشاكل design patterns، عيوب في مخرجات غير قابلة للتنفيذ). يبني الثقة في مخرجات العمل. رغم تكلفة المراجعات، التكلفة الإجمالية للمشروع أقل لأن التعديلات اللاحقة أقل.",
+        example: "Defects in requirements (أكثر أنواع العيوب): غموض (ambiguity)، تناقضات (contradictions)، حذف (omissions)، عدم دقة (inaccuracies)، تكرار (duplications). لو هذه العيوب وُجدت في متطلبات ما اكتُشفت إلا في الإنتاج — التكلفة 100x."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: false,
-        en: "Security Testing", ar: "اختبار الأمان",
-        defEN: "Testing whether the system can be hacked, penetrated, or misused by attackers.",
-        defAR: "اختبار قدرة النظام على مقاومة الهجمات وحماية بيانات المستخدمين.",
-        example: "بنك يستأجر 'لص محترف' يحاول يسرق — وده من المصلحة! لو اللص (مختبر أمني) وجد ثغرة، الشركة تصلحها قبل اللصوص الحقيقيين. في التطبيقات: محاولة تسجيل الدخول كمستخدم تاني، أو سرقة بيانات من قاعدة البيانات."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Static vs Dynamic Testing — Key Differences",
+        ar: "الاختبار الساكن مقابل الديناميكي — الفروق الرئيسية",
+        defEN: "Both: detect defects, support early testing. Differences: Static finds defects DIRECTLY | Dynamic causes FAILURES then finds defects through analysis. Static can find defects in NON-EXECUTABLE work products | Dynamic only works on executable code. Static can detect omissions (missing requirements) | Dynamic can't easily detect what's NOT there. Static measures quality characteristics NOT dependent on execution.",
+        defAR: "كلاهما: يكتشف العيوب، يدعم الاختبار المبكر. الاختلافات: الساكن يجد العيوب مباشرة | الديناميكي يسبب فشلاً ثم يجد العيوب عبر التحليل. الساكن يعمل على مخرجات غير قابلة للتنفيذ | الديناميكي يعمل فقط على الكود القابل للتنفيذ. الساكن يكتشف الحذف (requirements مفقودة) | الديناميكي لا يكتشف ما غير موجود بسهولة.",
+        example: "وثيقة متطلبات تقول 'يجب أن يدعم النظام العربية'. لو ما فيش Developer يدعم RTL — Static Review يكتشف 'المتطلب محقق جزئياً' قبل الكود. Dynamic Testing بعد الكود سيكتشف 'النص مقلوب' — أي Static أسرع وأرخص هنا."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: false,
-        en: "Usability Testing", ar: "اختبار سهولة الاستخدام",
-        defEN: "Testing how easy and intuitive the software is for real users who have never seen it before.",
-        defAR: "اختبار إن الشخص العادي يقدر يستخدم التطبيق بسهولة من غير ما يحتاج تدريب أو تعليمات.",
-        example: "اكيا بتطلب من ناس عاديين يركّبوا كنبة بدون الكتالوج — لو ناس كتير ضاعوا، مشكلة في التصميم مش في الناس. في التطبيقات: نطلب من جدة عمرها 60 تفتح حساب جديد وحدها، ونشوف وين هتقف."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Review Process Activities (5 Steps)",
+        ar: "أنشطة عملية المراجعة (5 خطوات)",
+        defEN: "5 activities in the review process (ISO/IEC 20246): (1) Planning: define scope, purpose, criteria, work product, timeframes. (2) Review Initiation: ensure everyone is prepared and has access. (3) Individual Review: each reviewer examines independently, logs anomalies. (4) Communication & Analysis: discuss anomalies, assign status & ownership, decide follow-up. (5) Fixing & Reporting: create defect reports, accept work product when exit criteria met.",
+        defAR: "5 أنشطة في عملية المراجعة (ISO/IEC 20246): (1) التخطيط: تحديد النطاق والهدف والمعايير ومخرج العمل والإطار الزمني. (2) بدء المراجعة: التأكد من استعداد الجميع وحصولهم على الوصول. (3) المراجعة الفردية: كل مراجع يفحص بشكل مستقل ويسجّل الشذوذات. (4) التواصل والتحليل: مناقشة الشذوذات وتحديد الحالة والملكية وإجراءات المتابعة. (5) الإصلاح والإبلاغ: إنشاء تقارير العيوب، قبول مخرج العمل عند استيفاء معايير الخروج.",
+        example: "مراجعة وثيقة متطلبات: (1) المدير يحدد 'راجعوا فصل 3 عن الأمان خلال 3 أيام'. (2) الكل يستلم الوثيقة ويؤكد استعداده. (3) كل مراجع يقرأ ويسجّل ملاحظاته بشكل مستقل. (4) الاجتماع: مناقشة كل ملاحظة وتقرير إذا كانت عيباً حقيقياً. (5) كاتب الوثيقة يصلح وتُقبل الوثيقة."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: false,
-        en: "Reliability Testing", ar: "اختبار الموثوقية",
-        defEN: "Testing how stable and consistent the system is over an extended period of continuous use.",
-        defAR: "اختبار إن النظام يشتغل بثبات لفترة طويلة بدون ما يتعطّل أو يتصرف بشكل غريب.",
-        example: "مولّد كهرباء في المستشفى لازم يشتغل 24/7/365 بدون انقطاع. في البرمجيات: بنشغّل سيرفر لأسبوع كامل بشكل متواصل ونراقب هل يواصل أداءه أم يبدأ يبطّأ أو يتعلق بعد ساعات."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Roles in Reviews (6 Roles)",
+        ar: "الأدوار في المراجعات (6 أدوار)",
+        defEN: "6 principal roles: (1) Manager: decides what to review, provides resources. (2) Author: creates and FIXES the work product under review. (3) Moderator (Facilitator): ensures effective review meetings, mediation, time management. (4) Scribe (Recorder): collates anomalies from reviewers and records decisions. (5) Reviewer: performs the review — can be anyone. (6) Review Leader: takes overall responsibility, organizes when and where.",
+        defAR: "6 أدوار رئيسية: (1) المدير: يقرر ما يُراجع ويوفر الموارد. (2) المؤلف: ينشئ ويصلح مخرج العمل قيد المراجعة. (3) المنسق (الميسر): يضمن سير اجتماعات المراجعة بفعالية. (4) الكاتب (المُسجّل): يجمع الشذوذات من المراجعين ويسجّل القرارات. (5) المراجع: يؤدي المراجعة — يمكن أن يكون أي شخص. (6) قائد المراجعة: يتحمل المسؤولية الكاملة وينظم وقت ومكان المراجعة.",
+        example: "اجتماع مراجعة عقد قانوني: مدير الشركة يقرر المراجعة (Manager). المحامي الذي كتب العقد يشرح ويصلح (Author). رئيس الجلسة يدير الوقت (Moderator). السكرتير يكتب الملاحظات (Scribe). المحامون الآخرون يراجعون (Reviewer). محامي كبير يتحمل المسؤولية الكاملة (Review Leader)."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: true,
-        en: "Accessibility Testing", ar: "اختبار إمكانية الوصول",
-        defEN: "Testing that people with disabilities (visual, hearing, motor) can also use the software.",
-        defAR: "اختبار إن الأشخاص ذوي الاحتياجات الخاصة يقدروا يستخدموا التطبيق بنفس الكفاءة.",
-        example: "شخص ضعيف البصر يستخدم برنامج قراءة شاشة — هل التطبيق يقرأ الأزرار بصوت عالي صح؟ هل الألوان كافية للتمييز؟ شركات زي Apple وGoogle بتنفق ملايين على ده لأنه حق إنساني."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Review Types (4 Types: Informal → Inspection)",
+        ar: "أنواع المراجعات الأربعة",
+        defEN: "4 review types (least to most formal): (1) Informal Review: no defined process, no documented output. Main objective: detecting anomalies. (2) Walkthrough: LED BY AUTHOR, informal. Objectives: evaluating quality, building confidence, educating reviewers, gaining consensus, generating new ideas. Individual review before walkthrough is NOT required. (3) Technical Review: by technically qualified peers, LED BY MODERATOR. Focus: technical problems. (4) Inspection: MOST FORMAL. Author CANNOT act as review leader or scribe. Metrics collected. Main objective: find maximum anomalies.",
+        defAR: "4 أنواع مراجعات (من الأقل للأكثر رسمية): (1) مراجعة غير رسمية: لا عملية محددة، لا مخرجات موثقة. الهدف الرئيسي: اكتشاف الشذوذات. (2) Walkthrough: يقودها المؤلف، غير رسمية. (3) المراجعة التقنية: من أقران مؤهلين تقنياً، يقودها منسق. (4) الفحص: الأكثر رسمية. المؤلف لا يمكنه أن يكون قائد مراجعة أو كاتباً. يجمع مقاييس.",
+        example: "مطور يريد مراجعة سريعة لكوده من زميل (Informal). مطور يشرح كوده للفريق ويطلب ملاحظات (Walkthrough). فريق من المهندسين يراجع Architecture Document بقيادة Lead Engineer (Technical Review). فريق رسمي يراجع Design Document الحرج بأدوار محددة ومعايير (Inspection)."
     },
     {
-        cat: "types", catLabel: "أنواع الاختبار · Test Types", isNew: true,
-        en: "Compatibility Testing", ar: "اختبار التوافق",
-        defEN: "Testing that the software works correctly across different devices, browsers, and operating systems.",
-        defAR: "اختبار إن التطبيق يشتغل صح على كل الأجهزة والمتصفحات وأنظمة التشغيل المختلفة.",
-        example: "موقع تصميمه تمام على Chrome — بتفتحه على Safari ينهار الموقع. أو على تليفون صغير الأزرار بتتداخل. Compatibility testing بيضمن التطبيق يشتغل صح على iPhone وAndroid وWindows وMac."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Early Stakeholder Feedback",
+        ar: "التغذية الراجعة المبكرة من أصحاب المصلحة",
+        defEN: "Early and frequent feedback allows early communication of quality problems. Without stakeholder involvement, the product might NOT meet their original vision. Failures to deliver cause: costly rework, missed deadlines, blame games, even project failure. Frequent feedback prevents misunderstandings and ensures requirement changes are understood early.",
+        defAR: "التغذية الراجعة المبكرة والمتكررة تتيح التواصل المبكر حول مشاكل الجودة. بدون مشاركة أصحاب المصلحة، قد لا يلبي المنتج رؤيتهم الأصلية. إخفاق التسليم يسبب: إعادة عمل مكلفة، تأخير المواعيد، صراعات، وحتى فشل المشروع. التغذية الراجعة المتكررة تمنع سوء الفهم.",
+        example: "شركة بنت نظام محاسبة كامل خلال 6 أشهر بدون مشاركة العميل. في التسليم: العميل قال 'أنا أريد نظام يدعم الضريبة المصرية، ليس الأمريكية'. 6 أشهر و 500,000 جنيه هدرت. مع مراجعات شهرية مع العميل — هذا كان سيُكتشف في الشهر الأول."
+    },
+    {
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: false, isExamFocus: false,
+        en: "Review Success Factors",
+        ar: "عوامل نجاح المراجعة",
+        defEN: "Key success factors: (1) Clear & measurable objectives. (2) Appropriate review type for objectives and context. (3) Reviewing small chunks (reviewers maintain concentration). (4) Feedback to authors and stakeholders. (5) Adequate preparation time. (6) Management support. (7) Making reviews part of organizational CULTURE. (8) Adequate training. (9) Facilitating review meetings.",
+        defAR: "عوامل النجاح الرئيسية: (1) أهداف واضحة وقابلة للقياس. (2) نوع مراجعة مناسب للأهداف والسياق. (3) مراجعة أجزاء صغيرة (المراجعون يحافظون على التركيز). (4) تغذية راجعة للمؤلفين وأصحاب المصلحة. (5) وقت كافٍ للتحضير. (6) دعم الإدارة. (7) جعل المراجعات جزءاً من ثقافة المنظمة. (8) تدريب كافٍ. (9) تيسير اجتماعات المراجعة.",
+        example: "فريق فشل في مراجعاته: وثيقة 200 صفحة تُراجع في يوم واحد (مراجعة كبيرة جداً). لا وقت للتحضير. لا هدف محدد. المدير لا يرى قيمة في المراجعة. النتيجة: اجتماع مضيع. فريق ناجح: يراجع 20 صفحة في كل جلسة، مع تحضير مسبق، وأهداف محددة."
     },
 
-    // ===== 6. BLACK & WHITE BOX =====
+    // ===== CH3 EXAM FOCUS CARD =====
     {
-        cat: "boxes", catLabel: "الصندوق الأسود والأبيض · Black & White Box", isNew: false,
-        en: "Black-Box Testing", ar: "اختبار الصندوق الأسود",
-        defEN: "Testing without knowing the internal code — you only see what goes in and what comes out.",
-        defAR: "اختبار من منظور المستخدم العادي — بندخل بيانات ونشوف النتيجة، بدون أي معرفة بالكود.",
-        example: "تخيّل إنك بتختبر ماكينة قهوة. بتحط الكبسولة وتضغط الزر وتشوف لو طلع قهوة صح. مش محتاج تعرف الميكانيزم الداخلي. في البرمجيات: بتدخل بيانات وتشوف النتيجة — بدون ما تفتح الكود."
-    },
-    {
-        cat: "boxes", catLabel: "الصندوق الأسود والأبيض · Black & White Box", isNew: false,
-        en: "White-Box Testing", ar: "اختبار الصندوق الأبيض",
-        defEN: "Testing with full knowledge of the internal code — verifying every path and branch executes correctly.",
-        defAR: "اختبار مع معرفة كاملة بالكود الداخلي — بنتأكد إن كل مسار في الكود اتنفذ وشتغل صح.",
-        example: "مهندس بيفحص محرك السيارة من الداخل — بيشيل الغطا ويفحص كل خط ومسار. في البرمجيات: المطور بيشوف الكود نفسه ويتأكد إن كل if-else وكل حلقة اتنفذت على الأقل مرة."
-    },
-    {
-        cat: "boxes", catLabel: "الصندوق الأسود والأبيض · Black & White Box", isNew: true,
-        en: "Grey-Box Testing", ar: "اختبار الصندوق الرمادي",
-        defEN: "A combination of both: partial knowledge of the internal code while testing from a user perspective.",
-        defAR: "خليط بين الاثنين — عندك معرفة جزئية بالكود وبتختبر من منظور المستخدم في نفس الوقت.",
-        example: "مراقب ضرائب بيعرف بعض قواعد المحاسبة (مش خبير) ويراجع الأرقام من خارج. في البرمجيات: المختبر يعرف هيكل قاعدة البيانات (لكن مش الكود) وبيختبر من الواجهة — يعرف يتحقق من قاعدة البيانات مباشرةً."
+        cat: "ch3", catLabel: "الفصل الثالث · Ch3: Static Testing", isNew: true, isExamFocus: true,
+        en: "🎯 CH3 EXAM FOCUS — Key Points",
+        ar: "🎯 أهم نقاط الفصل الثالث للامتحان",
+        defEN: "CRITICAL FOR EXAM: K1 & K2 items.",
+        defAR: "الأهم للامتحان — الفصل الثالث:",
+        example: "① Static = no execution needed | Dynamic = execution required ② Static finds defects DIRECTLY | Dynamic causes failures first ③ Static can find NON-EXECUTABLE work product defects | Dynamic CANNOT ④ Review Process: 5 steps — Planning → Initiation → Individual Review → Communication → Fixing ⑤ 6 Roles: Manager (decides) | Author (creates+fixes) | Moderator (runs meeting) | Scribe (records) | Reviewer (reviews) | Review Leader (overall responsibility) ⑥ Review Types (least→most formal): Informal → Walkthrough (author leads) → Technical Review (moderator leads) → Inspection (most formal, author ≠ leader or scribe) ⑦ Success Factors: clear objectives, small chunks, adequate time, management support"
     },
 
-    // ===== 7. CONFIRMATION & REGRESSION =====
+// ==========================================================
+// CHAPTER 4 — TEST ANALYSIS AND DESIGN (11Q: K2=6, K3=5)
+// ==========================================================
+
     {
-        cat: "regression", catLabel: "Confirmation & Regression Testing", isNew: false,
-        en: "Confirmation Testing (Re-Testing)", ar: "اختبار التأكيد",
-        defEN: "Running the same failed test again after the developer fixes the reported bug, to confirm it's truly fixed.",
-        defAR: "نعيد نفس الاختبار اللي فشل بالضبط بعد الإصلاح — للتأكد إن المشكلة اتحلت فعلاً.",
-        example: "بلّغت صاحب الشقة إن صنبور المطبخ بيسرّب. اصلحه. رحت وفتحت الصنبور نفسه في نفس المطبخ — ده confirmation testing. نتأكد إن نفس المشكلة المحددة اتحلت، مش أي حاجة تانية."
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Equivalence Partitioning (EP)",
+        ar: "تقسيم التكافؤ (EP)",
+        defEN: "Divides all possible inputs into PARTITIONS where all elements are processed the SAME WAY. ONE test per partition is sufficient. Partitions must NOT overlap and must be non-empty. Valid partitions (accepted data) + Invalid partitions (rejected data) must both be tested. Coverage = partitions exercised / total partitions × 100%.",
+        defAR: "تقسيم جميع المدخلات الممكنة إلى أقسام حيث تُعالج كل العناصر بنفس الطريقة. اختبار واحد لكل قسم كافٍ. الأقسام يجب ألا تتداخل وأن تكون غير فارغة. الأقسام الصالحة (بيانات مقبولة) + الأقسام غير الصالحة (بيانات مرفوضة) يجب اختبار الاثنتين. التغطية = الأقسام المختبرة / إجمالي الأقسام × 100%.",
+        example: "حقل سن: صالح [18-65]، غير صالح [أقل من 18]، غير صالح [أكبر من 65]. 3 أقسام → نختبر: 30 (صالح)، 10 (أصغر غير صالح)، 80 (أكبر غير صالح). لا داعي لاختبار 19، 20، 21... كلهم في نفس القسم."
     },
     {
-        cat: "regression", catLabel: "Confirmation & Regression Testing", isNew: false,
-        en: "Regression Testing", ar: "اختبار الانحدار",
-        defEN: "After any change, re-testing other areas to make sure the change didn't accidentally break something else.",
-        defAR: "بعد أي تعديل، بنختبر الأجزاء التانية للتأكد إن التعديل ما أثّرش على حاجات كانت شغّالة.",
-        example: "دكتور غيّر دواء ضغط المريض — لازم يتابع تأثير ده على الكلى والقلب والسكر. في البرمجيات: غيّرنا طريقة حساب الشحن — لازم نعيد اختبار صفحات الدفع، السلة، الفاتورة، كلها — لأن التغيير قد يكون أثّر عليهم."
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Boundary Value Analysis (BVA) — 2-value & 3-value",
+        ar: "تحليل القيم الحدية (BVA) — 2 قيم و3 قيم",
+        defEN: "Extends EP by testing at the BOUNDARIES of partitions. 2-value BVA: test the boundary value AND its nearest neighbor in adjacent partition. 3-value BVA: test boundary value AND BOTH neighbors (one each side). 3-value BVA is MORE RIGOROUS — detects bugs 2-value misses (e.g., ≤ vs < errors). Only works on ORDERED partitions.",
+        defAR: "يمتد EP باختبار الحدود الفاصلة بين الأقسام. 2-value BVA: اختبر القيمة الحدية وأقرب جار في القسم المجاور. 3-value BVA: اختبر القيمة الحدية وكلا الجارين (واحد من كل جانب). 3-value BVA أكثر صرامة — يكتشف bugs يفوت عليها 2-value. يعمل فقط على الأقسام المرتبة.",
+        example: "حقل سن [18-65]: 2-value BVA: 17, 18, 65, 66 (حدود + أقرب جار). 3-value BVA: 16, 17, 18 (حول حد 18) + 64, 65, 66 (حول حد 65). لو مطور كتب 'if age > 18' بدل '>= 18': 2-value BVA يصطاده (17 رفض، 18 يجب قبوله). لو كتب 'if age >= 17': 3-value BVA يصطاده (16 رفض، 17 يُقبل خطأً)."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Decision Table Testing",
+        ar: "اختبار جدول القرار",
+        defEN: "Used when you have MULTIPLE CONDITIONS that affect ACTIONS/outcomes. Number of rules (columns) = 2^n where n = number of conditions. Coverage items = columns (feasible combinations). 100% coverage = exercise all feasible columns. Strength: systematically identifies ALL combinations — helps find GAPS and CONTRADICTIONS in requirements. Can be minimized by merging columns where some conditions don't affect the outcome.",
+        defAR: "يُستخدم عند وجود شروط متعددة تؤثر على نتائج/أفعال. عدد القواعد (الأعمدة) = 2^n حيث n = عدد الشروط. عناصر التغطية = الأعمدة (التركيبات القابلة للتطبيق). 100% تغطية = اختبار كل الأعمدة القابلة للتطبيق. القوة: يُحدد بشكل منهجي جميع التركيبات — يساعد في إيجاد الثغرات والتناقضات في المتطلبات.",
+        example: "تسجيل الدخول: شرطان (إيميل صح/غلط × كلمة مرور صح/غلط) = 4 تركيبات. صح+صح = يدخل. صح+غلط = رسالة خطأ. غلط+صح = رسالة خطأ. غلط+غلط = رسالة خطأ. 3 شروط → 8 تركيبات. لو أضفنا 'هل الحساب محظور؟' → 16 تركيبة."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "State Transition Testing",
+        ar: "اختبار انتقال الحالات",
+        defEN: "Used when system behavior depends on its CURRENT STATE. Key concepts: States, Transitions (initiated by events), Guard conditions, Actions. Representation: State Diagram OR State Table (rows=states, columns=events). 3 coverage criteria: (1) All States Coverage (weakest — visit all states). (2) Valid Transitions Coverage / 0-switch (most widely used — exercise all valid transitions). (3) All Transitions Coverage (strongest — includes invalid transitions; needed for safety-critical).",
+        defAR: "يُستخدم عندما يعتمد سلوك النظام على حالته الحالية. المفاهيم الرئيسية: الحالات، الانتقالات (تُبادر بأحداث)، شروط الحراسة، الأفعال. التمثيل: مخطط حالة أو جدول حالة (صفوف=حالات، أعمدة=أحداث). 3 معايير تغطية: (1) تغطية كل الحالات (الأضعف). (2) تغطية الانتقالات الصالحة (الأكثر استخداماً). (3) تغطية كل الانتقالات (الأقوى — لأنظمة الأمان الحرجة).",
+        example: "حساب بنكي: حالات: نشط → قيد الفحص → مقفول → مغلق. الانتقال: 3 محاولات خاطئة → قيد الفحص. طلب فك القفل المراجعة → نشط. تجاوز 90 يوم بدون تفعيل → مغلق. Valid Transitions Coverage: نختبر كل الانتقالات المسموحة بالسهام."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Statement Testing and Coverage",
+        ar: "اختبار التعليمات وتغطيتها",
+        defEN: "White-box technique. Coverage items = executable STATEMENTS. Coverage = statements exercised / total executable statements × 100%. 100% statement coverage: all executable statements executed at least once. LIMITATION: 100% statement coverage does NOT ensure all branches are tested (branch coverage can be higher). Exercising a statement will NOT detect defects in all cases.",
+        defAR: "تقنية صندوق أبيض. عناصر التغطية = التعليمات القابلة للتنفيذ. التغطية = التعليمات المنفذة / إجمالي التعليمات القابلة للتنفيذ × 100%. 100% تغطية تعليمات: كل التعليمات القابلة للتنفيذ نُفِّذت مرة واحدة على الأقل. القيد: 100% تغطية تعليمات لا تضمن اختبار كل الفروع.",
+        example: "كود: if (x > 0) { print 'positive'; } print 'done'; اختبار بـ x=5: يُشغّل 3 تعليمات من 3 = 100% statement coverage. لكن لم نختبر ماذا يحدث لو x=-1 (الـ if condition = false). 100% statement ≠ 100% branch coverage."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Branch Testing and Coverage (Decision Coverage)",
+        ar: "اختبار الفروع وتغطيتها (تغطية القرارات)",
+        defEN: "White-box technique. Coverage items = BRANCHES (transfers of control between nodes in control flow graph). Conditional branches: true/false from if...then. Unconditional branches: straight-line code. Coverage = branches exercised / total branches × 100%. KEY RULE: 100% branch coverage SUBSUMES (guarantees) 100% statement coverage — but NOT vice versa.",
+        defAR: "تقنية صندوق أبيض. عناصر التغطية = الفروع (انتقالات التحكم بين العقد في مخطط تدفق التحكم). فروع شرطية: صح/خطأ من if...then. فروع غير شرطية: كود مستقيم. التغطية = الفروع المنفذة / إجمالي الفروع × 100%. القاعدة الرئيسية: 100% تغطية فروع تضمن 100% تغطية تعليمات — لكن ليس العكس.",
+        example: "كود: if (age >= 18) { allow(); } else { deny(); } لـ 100% branch coverage: نحتاج اختبارين — age=25 (branch true) و age=16 (branch false). هذا يغطي كل التعليمات أيضاً. لكن 100% statement coverage ممكن بـ age=25 فقط — لكنه لا يغطي branch الـ false."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Error Guessing",
+        ar: "تخمين الأخطاء",
+        defEN: "Experience-based technique. Anticipates occurrence of errors, defects, and failures based on tester's knowledge: how the app worked in the past, types of errors developers tend to make, types of failures in similar apps. Fault Attacks = methodical approach to error guessing — create a list of possible errors/defects/failures and design tests targeting them.",
+        defAR: "تقنية قائمة على الخبرة. توقّع حدوث أخطاء وعيوب وإخفاقات بناءً على معرفة المختبر: كيف عمل التطبيق في الماضي، أنواع الأخطاء التي يرتكبها المطورون عادةً، أنواع الإخفاقات في تطبيقات مشابهة. Fault Attacks = نهج منهجي لتخمين الأخطاء.",
+        example: "مختبر خبير يعرف أن المطورين غالباً يخطئون في: حقول المبالغ (أرقام سالبة، صفر، فاصلة)، كلمات المرور (رموز خاصة، UTF-8)، التواريخ (29 فبراير في غير سنة كبيسة)، الحدود الأعلى للقوائم، والمدخلات الفارغة. بيركز اختباراته هناك."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Exploratory Testing",
+        ar: "الاختبار الاستكشافي",
+        defEN: "Tests are SIMULTANEOUSLY designed, executed, and evaluated while learning about the test object. Structured using Session-Based Testing: defined TIME-BOX (60-120 min) + TEST CHARTER (scope, goal, approach). After session: DEBRIEFING with stakeholders. Useful when: few/inadequate specifications, significant time pressure. More effective with experienced testers with analytical skills & curiosity.",
+        defAR: "الاختبارات مُصممة ومُنفذة ومُقيّمة في آن واحد بينما يتعلم المختبر عن كائن الاختبار. هيكلة باستخدام اختبار قائم على الجلسات: TIME-BOX محدد (60-120 دقيقة) + TEST CHARTER (النطاق، الهدف، الأسلوب). بعد الجلسة: DEBRIEFING مع أصحاب المصلحة. مفيد عندما: مواصفات قليلة أو ضغط وقت كبير.",
+        example: "مختبر يفتح تطبيق بنك جديد بدون مواصفات مفصّلة: TEST CHARTER 'استكشف صفحة التحويل، ابحث عن مشاكل في المبالغ الكبيرة والعملات المختلطة، 90 دقيقة'. يجرب حالات لم تخطر في البال (مبلغ 0.001، عملة مختلطة، تحويل لنفس الحساب). يكتشف bugs لم يفكر فيها أحد."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Checklist-Based Testing",
+        ar: "الاختبار القائم على قوائم المراجعة",
+        defEN: "Tester designs, implements, and executes tests to cover test conditions from a CHECKLIST. Checklists built from: experience, knowledge of what's important to the user, understanding of why software fails. Should NOT contain items that can be checked automatically, items better suited as entry/exit criteria, or items too general. Items phrased as QUESTIONS. Support both functional and non-functional testing.",
+        defAR: "المختبر يصمم وينفّذ اختبارات لتغطية شروط الاختبار من قائمة مراجعة. تُبنى قوائم المراجعة من: الخبرة، معرفة ما هو مهم للمستخدم، فهم لماذا يفشل البرنامج. لا يجب أن تحتوي على: عناصر يمكن فحصها تلقائياً، عناصر تناسب أكثر معايير الدخول/الخروج، عناصر عامة جداً. العناصر مصاغة كأسئلة.",
+        example: "قائمة مراجعة لصفحة تسجيل: 'هل تظهر رسالة خطأ واضحة لو الإيميل موجود؟', 'هل كلمة المرور مخفية أثناء الكتابة؟', 'هل يعمل التسجيل بأحرف عربية؟', 'هل يُبلَّغ المستخدم بمتطلبات كلمة المرور قبل الإرسال؟' — كل عنصر سؤال قابل للإجابة."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Collaborative User Story Writing",
+        ar: "كتابة قصص المستخدم التعاونية",
+        defEN: "Business, developers, and testers (3 Amigos) collaborate BEFORE development to write user stories. Standard format: 'As a [role], I want [goal], so that [reason]'. Rules: testable, independent, small enough to complete in one sprint. Testers explore, challenge, and help improve proposed user stories by asking 'what if?' questions.",
+        defAR: "الأعمال والمطورون والمختبرون (الثلاثة أصدقاء) يتعاونون قبل التطوير لكتابة قصص المستخدم. الصيغة القياسية: 'كـ [دور]، أريد [هدف]، حتى [سبب]'. قواعد: قابلة للاختبار، مستقلة، صغيرة بما يكفي لإكمالها في sprint واحدة. المختبرون يستكشفون ويتحدون ويحسّنون القصص بأسئلة 'ماذا لو؟'.",
+        example: "'كعميل بنك، أريد تحويل أموال فورياً، حتى أدفع الفواتير في أي وقت.' المختبر يسأل: 'ماذا لو الرصيد غير كافٍ؟ ماذا لو الحساب المستلم محظور؟ ماذا لو انقطع الإنترنت خلال التحويل؟' هذه الأسئلة تُحدد Acceptance Criteria قبل الكود."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "Acceptance Criteria",
+        ar: "معايير القبول",
+        defEN: "Conditions that a user story must satisfy to be ACCEPTED by stakeholders — the testable definition of 'done' for a story. Different from Entry/Exit Criteria (which apply to activities/levels). Acceptance Criteria can be written using: Scenario-based format (Given/When/Then — ATDD), Rule-based format (list of rules). Each criterion must be independently testable.",
+        defAR: "الشروط التي يجب أن تستوفيها قصة المستخدم لقبولها من أصحاب المصلحة — التعريف القابل للاختبار لـ 'اكتملت' القصة. مختلفة عن معايير الدخول/الخروج (التي تُطبق على الأنشطة/المستويات). يمكن كتابة Acceptance Criteria باستخدام: صيغة السيناريو (Given/When/Then — ATDD)، صيغة القواعد (قائمة قواعد).",
+        example: "قصة: 'أريد استلام تنبيه عند سحب من حسابي'. معايير القبول: 1) تنبيه SMS في أقل من 10 ثوانٍ من السحب. 2) التنبيه يتضمن المبلغ والرصيد المتبقي. 3) لو السحب فشل → لا تنبيه. 4) يعمل 24/7. كل معيار قابل للاختبار بشكل مستقل."
+    },
+    {
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: false, isExamFocus: false,
+        en: "ATDD — Acceptance Test-Driven Development",
+        ar: "التطوير المدفوع باختبار القبول",
+        defEN: "Derives tests from acceptance criteria as part of the system design process. Tests are written BEFORE the part of the application is developed (to satisfy the tests). Typically uses Given/When/Then format. Collaboratively defined by business + developers + testers. Tests become executable requirements (can be automated). Follows shift-left principle.",
+        defAR: "يشتق اختبارات من معايير القبول كجزء من عملية تصميم النظام. الاختبارات تُكتب قبل تطوير الجزء المقابل من التطبيق. تستخدم عادةً صيغة Given/When/Then. تُحدَّد بشكل تعاوني من الأعمال والمطورين والمختبرين. الاختبارات تصبح متطلبات قابلة للتنفيذ (يمكن أتمتتها).",
+        example: "قبل كتابة كود التحقق من السن: ATDD يكتب: GIVEN مستخدم عمره 17 / WHEN يحاول الاشتراك في خدمة للبالغين / THEN يظهر رسالة 'يجب أن يكون عمرك 18 أو أكثر' ويُرفض الطلب. هذا Test يُكتب قبل الكود ثم يُمرَّر عليه."
     },
 
-    // ===== 8. STATIC TESTING =====
+    // ===== CH4 EXAM FOCUS CARD =====
     {
-        cat: "static", catLabel: "الاختبار الساكن · Static Testing", isNew: false,
-        en: "Static Testing", ar: "الاختبار الساكن",
-        defEN: "Finding problems WITHOUT running the software — by reading and reviewing documents and code.",
-        defAR: "اكتشاف المشاكل بالقراءة والمراجعة بدون تشغيل البرنامج أصلاً.",
-        example: "محامي بيراجع عقد قبل توقيعه — بيلاقي أخطاء أو ثغرات بدون ما ينفّذ العقد. في البرمجيات: مراجعة وثيقة المتطلبات لاكتشاف تناقضات أو نقاط غامضة قبل كتابة أي كود."
-    },
-    {
-        cat: "static", catLabel: "الاختبار الساكن · Static Testing", isNew: false,
-        en: "Review", ar: "المراجعة",
-        defEN: "One or more people manually read and examine a document or code looking for issues.",
-        defAR: "شخص أو أكثر بيقرأ ويفحص وثيقة أو كود يدوياً لإيجاد مشاكل.",
-        example: "قبل طباعة كتاب، مراجع لغوي بيقرأه ويصحح الأخطاء النحوية. في البرمجيات: مطور تاني بيقرأ كودك قبل merge — Code Review على GitHub هو مثال يومي على ده."
-    },
-    {
-        cat: "static", catLabel: "الاختبار الساكن · Static Testing", isNew: false,
-        en: "Walkthrough", ar: "الجولة التفسيرية",
-        defEN: "The author presents their work to peers who can ask questions and give feedback — informal review.",
-        defAR: "صاحب الوثيقة أو الكود يشرحه للفريق وهم يسألوا ويعطوا ملاحظات — مراجعة غير رسمية.",
-        example: "مهندس معماري بيعرض تصميم مبنى على الفريق ويشرح كل خطوة — الكل يسأل ويعلّق. في البرمجيات: المبرمج يشاشر كوده على Screen Share ويشرح كيف حلّ المشكلة، والفريق يعلّق."
-    },
-    {
-        cat: "static", catLabel: "الاختبار الساكن · Static Testing", isNew: false,
-        en: "Inspection", ar: "الفحص الرسمي المنظم",
-        defEN: "A formal, structured review with defined roles (moderator, author, reviewers, scribe) to find defects systematically.",
-        defAR: "مراجعة رسمية ومنظمة بأدوار محددة ووقت محدد وتقرير رسمي في النهاية.",
-        example: "هيئة رقابية حكومية تراجع مشروع قانون رسمياً: في رئيس جلسة، محاضر، مراجعون مختصون، وتقرير رسمي. في البرمجيات: فريق من 5 يفحص وثيقة متطلبات مهمة بأدوار محددة ويوثّقوا كل ملاحظة."
-    },
-    {
-        cat: "static", catLabel: "الاختبار الساكن · Static Testing", isNew: true,
-        en: "Technical Review", ar: "المراجعة التقنية",
-        defEN: "A structured review focused on technical accuracy, conducted by technical peers.",
-        defAR: "مراجعة تقنية من زملاء متخصصين للتحقق من الدقة التقنية للوثيقة أو الكود.",
-        example: "فريق من مهندسين بيراجع وثيقة تصميم قاعدة البيانات — هل الـ indexes صح؟ هل العلاقات بين الجداول منطقية؟ مش زي الـ Inspection الرسمي، بس أكثر تنظيماً من الـ Walkthrough."
-    },
-    {
-        cat: "static", catLabel: "الاختبار الساكن · Static Testing", isNew: true,
-        en: "Static Analysis", ar: "التحليل الساكن (بالأدوات)",
-        defEN: "Using automated tools to scan the code for potential problems without running it.",
-        defAR: "استخدام أدوات آلية تفحص الكود تلقائياً لإيجاد مشاكل محتملة — بدون تشغيل الكود.",
-        example: "Grammarly بتحلل كتابتك وتلاحي أخطاء إملائية ونحوية بدون ما تقرأ الجملة كلها. في البرمجيات: SonarQube أو ESLint يفحصوا الكود ويوجدوا أخطاء محتملة تلقائياً قبل ما المطور يشغّل أي حاجة."
+        cat: "ch4", catLabel: "الفصل الرابع · Ch4: Test Design", isNew: true, isExamFocus: true,
+        en: "🎯 CH4 EXAM FOCUS — Key Points",
+        ar: "🎯 أهم نقاط الفصل الرابع للامتحان",
+        defEN: "CRITICAL FOR EXAM: K2 & K3 — highest weight chapter!",
+        defAR: "الأهم للامتحان — الفصل الرابع (أعلى وزن: 11 سؤال!):",
+        example: "① EP: 1 test per partition is sufficient | valid + invalid partitions | coverage = exercised/total ② BVA 2-value: boundary + nearest neighbor | 3-value: boundary + BOTH neighbors | 3-value MORE rigorous ③ Decision Table: columns = 2^n conditions | coverage = all feasible columns ④ State Transition: 3 criteria — All States (weakest) | Valid Transitions/0-switch (most used) | All Transitions (strongest, includes invalid) ⑤ Statement Coverage subsumes NOTHING | Branch Coverage SUBSUMES Statement Coverage ⑥ Error Guessing = experience-based | Exploratory = simultaneous design+execute+evaluate, uses Test Charter + Time-box ⑦ Checklist = questions, NOT automatable items | Acceptance Criteria = testable definition of done per story ⑧ ATDD: tests written BEFORE code | Given/When/Then | collaborative"
     },
 
-    // ===== 9. TEST TECHNIQUES =====
+// ==========================================================
+// CHAPTER 5 — MANAGING TEST ACTIVITIES (9Q: K1=1, K2=5, K3=3)
+// ==========================================================
+
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: false,
-        en: "Equivalence Partitioning", ar: "تقسيم التكافؤ",
-        defEN: "Dividing all possible inputs into groups that should behave the same way, and testing one from each group.",
-        defAR: "تقسيم المدخلات لمجموعات متشابهة — اختبار واحدة من كل مجموعة بيكفي.",
-        example: "أمازون بتشحن بسعر مختلف حسب الوزن: أقل من 1 كيلو (مجموعة)، 1-5 كيلو (مجموعة)، أكتر من 5 كيلو (مجموعة). بدل ما نختبر كل وزن ممكن، نختبر واحد من كل مجموعة (مثلاً 0.5 كيلو، 3 كيلو، 7 كيلو)."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Test Plan — Purpose and Content",
+        ar: "خطة الاختبار — الهدف والمحتوى",
+        defEN: "A test plan describes: objectives, resources, processes for a test project. Documents means and schedule for achieving test objectives. Serves as communication tool with stakeholders. Demonstrates adherence to test policy and strategy. Typical content: Context, Assumptions & constraints, Stakeholders, Communication, Risk register, Test approach (levels, types, techniques, entry/exit criteria, metrics, independence, deviations from policy), Budget & schedule.",
+        defAR: "خطة الاختبار تصف: الأهداف والموارد والعمليات لمشروع اختبار. تُوثّق الوسائل والجدول الزمني لتحقيق أهداف الاختبار. تعمل كأداة تواصل مع أصحاب المصلحة. المحتوى النموذجي: السياق، الافتراضات والقيود، أصحاب المصلحة، التواصل، سجل المخاطر، نهج الاختبار، الميزانية والجدول الزمني.",
+        example: "Test Plan لمشروع بنكي: 'نختبر 3 مستويات (Component/System/UAT)، بفريق من 4 مختبرين، خلال 6 أسابيع، مع 90% branch coverage كمعيار خروج، وبأولوية لصفحات الدفع والتحويل (risk-based)'."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: false,
-        en: "Boundary Value Analysis", ar: "تحليل القيم الحدية",
-        defEN: "Testing at the edges/boundaries of the partitions, where most bugs hide.",
-        defAR: "اختبار الحدود الفاصلة بين المجموعات — لأن أكثر الأخطاء بتختبي هناك.",
-        example: "سن القيادة من 18 لـ 70. نختبر: 17 (رفض)، 18 (قبول)، 19 (قبول)... 69 (قبول)، 70 (قبول)، 71 (رفض). الحدود بالضبط هي الأخطر! المبرمج غالباً بيغلط في > مقابل >= في القيم الحدية."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Test Policy vs Test Strategy",
+        ar: "سياسة الاختبار مقابل استراتيجية الاختبار",
+        defEN: "Test Policy: high-level document defining principles and objectives for testing across the organization (general, stable, set by senior management). Test Strategy: describes how testing is done in a specific project or program — defines test approach, levels, types, and techniques (specific, derived from test policy). Test Plan may explain deviations from policy/strategy.",
+        defAR: "سياسة الاختبار: وثيقة عالية المستوى تحدد مبادئ وأهداف الاختبار عبر المنظمة (عامة، مستقرة، يضعها الإدارة العليا). استراتيجية الاختبار: تصف كيفية إجراء الاختبار في مشروع أو برنامج محدد — تحدد نهج الاختبار والمستويات والأنواع والتقنيات (محددة، مشتقة من سياسة الاختبار).",
+        example: "سياسة اختبار المنظمة: 'كل المنتجات يجب أن تحقق 80% code coverage على الأقل قبل الإطلاق'. استراتيجية مشروع معين: 'سنستخدم Selenium للأتمتة، JMeter للأداء، وسنجري UAT بـ 20 مستخدم حقيقي'. خطة الاختبار: 'في هذا المشروع تحديداً، Coverage ستكون 75% بسبب time constraints (انحراف موثق)'."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: false,
-        en: "Decision Table Testing", ar: "اختبار جدول القرار",
-        defEN: "Creating a table of all possible combinations of conditions to ensure no scenario is missed.",
-        defAR: "جدول بكل تركيبات الشروط الممكنة لضمان تغطية كل السيناريوهات.",
-        example: "بوليصة تأمين السيارة: العمر (أقل/أكثر من 25) × الجنس × هل فيه حوادث سابقة؟ كل تركيبة تعطي سعر مختلف. الجدول يضمن إننا اختبرنا كل الحالات: شاب 22 بدون حوادث، شاب 22 بحادثة، إلخ."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Entry Criteria and Exit Criteria",
+        ar: "معايير الدخول ومعايير الخروج",
+        defEN: "Entry Criteria: preconditions for undertaking a given activity (if not met, activity is more difficult/costly/risky). Typical entry: availability of resources, testware, initial quality level. Exit Criteria: what must be achieved to declare activity complete. Typical exit: measures of thoroughness (coverage, defect density), completion criteria. In Agile: Entry = Definition of Ready | Exit = Definition of Done.",
+        defAR: "معايير الدخول: الشروط المسبقة لبدء نشاط معين (إذا لم تتحقق، النشاط أصعب/أكلف/أكثر خطورة). أمثلة دخول: توافر الموارد والـ testware ومستوى جودة أولي. معايير الخروج: ما يجب تحقيقه للإعلان عن اكتمال النشاط. في Agile: الدخول = Definition of Ready | الخروج = Definition of Done.",
+        example: "Entry Criteria لـ System Testing: 'الكود مكتمل وخضع لـ Code Review، بيئة الاختبار تعمل، وثيقة المتطلبات معتمدة'. Exit Criteria: '95% من Test Cases اجتازت، لا يوجد Critical bugs مفتوحة، Code Coverage ≥ 85%'. لو في شرط واحد مش محقق → لا نبدأ/لا ننتهي."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: false,
-        en: "State Transition Testing", ar: "اختبار انتقال الحالات",
-        defEN: "Testing all the different states a system can be in, and all the transitions between them.",
-        defAR: "اختبار كل الحالات اللي يمكن يكون فيها النظام وكل الطرق اللي ينتقل بيها بين الحالات.",
-        example: "تليفونك عنده حالات: شاشة مضاءة، مقفولة، في مكالمة، في الشحن. كل حالة عندها قواعد مختلفة. في البرمجيات: حساب بنكي ينتقل من Active → 3 محاولات غلط → Locked → طلب إعادة تعيين → Active. نختبر كل انتقال."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Estimation Techniques (4 Methods)",
+        ar: "تقنيات تقدير الجهد (4 أساليب)",
+        defEN: "(1) Estimation Based on Ratios (metrics-based): use dev:test ratio from previous similar projects. (2) Extrapolation (metrics-based): measure early sprints, project forward using mathematical model — suitable for iterative SDLCs. (3) Wideband Delphi (expert-based): experts estimate independently, discuss deviations until consensus — Planning Poker is a variant. (4) Three-Point Estimation (expert-based): E=(a+4m+b)/6, SD=(b-a)/6.",
+        defAR: "(1) التقدير بالنسب (قائم على مقاييس): استخدام نسبة dev:test من مشاريع مشابهة سابقة. (2) الاستقراء (قائم على مقاييس): قياس الـ sprints المبكرة والإسقاط للأمام بنموذج رياضي — مناسب لـ SDLCs التكرارية. (3) Wideband Delphi (قائم على خبراء): الخبراء يقدّرون بشكل مستقل، يناقشون الانحرافات للوصول لإجماع — Planning Poker نوع منه. (4) التقدير ثلاثي النقاط: E=(a+4m+b)/6.",
+        example: "مشروع جديد لتطوير تطبيق موبايل: (1) المشاريع السابقة كانت 3 dev: 1 test → نقدر 100 يوم dev → 33 يوم اختبار. (2) أول sprint اخذ 5 أيام اختبار من 20 يوم → نتوقع 5×(كل الـ sprints) = X. (3) 3 خبراء بدون نقاش: 40, 60, 80 يوم. يناقشون → 55 يوم. (4) a=30, m=50, b=80 → E=(30+200+80)/6=51.7 يوم."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: false,
-        en: "Statement Coverage", ar: "تغطية التعليمات",
-        defEN: "Measuring what percentage of code lines have been executed by the tests.",
-        defAR: "قياس كم سطر من الكود اتنفّذ في الاختبارات — بنقيس النسبة المئوية.",
-        example: "كتاب مدرسي من 100 صفحة. الطالب راجع 80 صفحة فقط = 80% statement coverage. في البرمجيات: بعد تنفيذ الاختبارات، أداة بتقيس كم سطر اتنفذ. الهدف 100% — لكن في الواقع 80%+ يُعدّ جيد."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Test Case Prioritization (3 Strategies)",
+        ar: "ترتيب أولويات حالات الاختبار (3 استراتيجيات)",
+        defEN: "Determines ORDER of test case execution. 3 strategies: (1) Risk-based: cases covering most important risks executed first. (2) Coverage-based: cases achieving highest coverage executed first — Additional Coverage Prioritization: each subsequent case achieves highest ADDITIONAL coverage. (3) Requirements-based: cases covering highest-priority requirements executed first. CONSTRAINT: dependencies between cases must be respected.",
+        defAR: "يُحدد ترتيب تنفيذ حالات الاختبار. 3 استراتيجيات: (1) قائمة على المخاطر: الحالات التي تغطي أهم المخاطر أولاً. (2) قائمة على التغطية: الحالات التي تحقق أعلى تغطية أولاً. (3) قائمة على المتطلبات: الحالات التي تغطي أهم المتطلبات أولاً. قيد: يجب احترام التبعيات بين الحالات.",
+        example: "في مشروع بوقت محدود: Risk-based → نختبر صفحة الدفع (مخاطرة عالية: مال) قبل صفحة الإعدادات (مخاطرة منخفضة). لو وقت خلص قبل ما نخلص → الأهم اتغطى. Coverage-based: اختبر TC1 (يغطي 30%) ثم TC5 (يغطي 20% إضافية) ثم TC3 (يغطي 15% إضافية)."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: false,
-        en: "Decision Coverage (Branch Coverage)", ar: "تغطية القرارات والفروع",
-        defEN: "Making sure each decision (true/false) in the code has been tested in both outcomes.",
-        defAR: "التأكد إن كل قرار في الكود تم اختباره في حالتيه — الصح والغلط.",
-        example: "ميزان حرارة: if (درجة > 38): 'حمّى'. لازم نختبر حالة الحمّى (39 درجة) وحالة عدم الحمّى (37 درجة). لو اختبرنا 39 فقط، راحت علينا حالة اللي درجته طبيعية — الـ branch الـ false ما اتغطيش."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Test Pyramid",
+        ar: "هرم الاختبار",
+        defEN: "Model showing different tests have different granularity. The HIGHER the layer → LOWER granularity, isolation, and execution time. Bottom (unit tests): MANY, small, fast, isolated, check small functionality. Top (end-to-end UI tests): FEW, large, slow, check large piece of functionality. Key use: support automation strategy and test effort allocation.",
+        defAR: "نموذج يُظهر أن الاختبارات المختلفة لها تفصيل مختلف. كلما ارتفعت الطبقة → تفصيل أقل، عزل أقل، وقت تنفيذ أطول. القاعدة (unit tests): كثيرة، صغيرة، سريعة، معزولة. القمة (E2E UI tests): قليلة، كبيرة، بطيئة. الاستخدام الرئيسي: دعم استراتيجية الأتمتة وتخصيص الجهد.",
+        example: "هرم مقلوب (كثير من E2E وقليل من Unit) = مشكلة: CI pipeline بطيء (E2E تأخذ ساعات)، صعب تشخيص أي مكون سبب الفشل. الهرم الصحيح: آلاف Unit Tests (ثوانٍ) → مئات Integration Tests (دقائق) → عشرات E2E Tests (ساعة). الفشل في Unit Tests = تشخيص فوري."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: true,
-        en: "Use Case Testing", ar: "اختبار حالات الاستخدام",
-        defEN: "Designing test cases based on how users actually interact with the system step by step.",
-        defAR: "تصميم اختبارات بناءً على السيناريوهات الحقيقية للمستخدم — كيف يستخدم النظام فعلاً.",
-        example: "يوزر يفتح Netflix: يضغط بحث، يكتب اسم فيلم، يضغط تشغيل، الفيلم بيبدأ. ده use case. بنبني اختبارنا على هذا السيناريو الحقيقي خطوة بخطوة — مش مجرد اختبار كل زر لوحده."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Testing Quadrants (Q1-Q4)",
+        ar: "مربعات الاختبار الأربعة (Q1-Q4)",
+        defEN: "Model by Brian Marick. Two axes: Business-facing vs Technology-facing AND Support the Team vs Critique the Product. Q1 (Technology, Support): component & integration tests — AUTOMATED, in CI. Q2 (Business, Support): functional tests, API tests, simulations — manual OR automated. Q3 (Business, Critique): exploratory, usability, UAT — MANUAL. Q4 (Technology, Critique): performance, security, smoke tests — AUTOMATED.",
+        defAR: "نموذج من Brian Marick. محوران: موجه للأعمال مقابل موجه للتقنية، ودعم الفريق مقابل تقييم المنتج. Q1 (تقني، دعم): اختبارات مكونات وتكامل — آلية في CI. Q2 (أعمال، دعم): اختبارات وظيفية وAPI — يدوية أو آلية. Q3 (أعمال، تقييم): استكشافي وسهولة استخدام وUAT — يدوية. Q4 (تقني، تقييم): أداء وأمان واختبار دخان — آلية.",
+        example: "فريق Agile يستخدم Quadrants لتخطيط Sprint: Q1 → Unit Tests آلية في كل Commit. Q2 → مختبر وبيزنس يتحققان من Acceptance Criteria يدوياً. Q3 → مختبر خبير يعمل Exploratory Testing بعد كل Sprint. Q4 → Jenkins يشغّل JMeter كل ليلة لاختبار الأداء."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: true,
-        en: "Exploratory Testing", ar: "الاختبار الاستكشافي",
-        defEN: "Testing without a pre-written script — the tester explores the software freely, using intuition and experience.",
-        defAR: "اختبار حر بدون خطة مكتوبة مسبقاً — المختبر يستكشف البرنامج بحرية ويتّبع حدسه.",
-        example: "مفتّش جنائي في مسرح الجريمة — مش عنده قائمة محددة يتبعها، بيتجوّل ويلاحظ وياخد نوتس. في البرمجيات: مختبر خبير يفتح التطبيق ويبدأ يجرّب كل حاجة تجي في باله — غالباً بيلاقي bugs ما حدش فكّر فيها."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Risk Definition and Attributes",
+        ar: "تعريف المخاطرة وخصائصها",
+        defEN: "Risk = potential event/hazard whose occurrence causes ADVERSE EFFECT. Characterized by 2 factors: Risk Likelihood (probability of occurrence: >0 and <1) + Risk Impact (consequences if it occurs). Risk Level = Likelihood × Impact. The HIGHER the risk level, the MORE IMPORTANT its treatment. Risk-Based Testing: activities selected/prioritized/managed based on risk analysis and control.",
+        defAR: "المخاطرة = حدث/خطر محتمل يسبب تأثيراً سلبياً. تتسم بعاملين: احتمالية المخاطرة (احتمال الحدوث: >0 و<1) + تأثير المخاطرة (العواقب عند الحدوث). مستوى المخاطرة = الاحتمالية × التأثير. كلما ارتفع مستوى المخاطرة، كلما زادت أهمية معالجتها.",
+        example: "قبل رحلة: 'تأخر الطيران' — احتمالية 30% × تأثير (خسارة اجتماع مهم) = مخاطرة متوسطة. 'انهيار الطائرة' — احتمالية 0.001% × تأثير (الموت) = مخاطرة عالية جداً. في الاختبار: 'خطأ في حساب الفائدة البنكية' = احتمالية متوسطة × تأثير مالي ضخم = مخاطرة عالية → يُعطى أولوية قصوى."
     },
     {
-        cat: "techniques", catLabel: "تقنيات تصميم الاختبار · Test Design Techniques", isNew: true,
-        en: "Error Guessing", ar: "تخمين الأخطاء",
-        defEN: "Using experience and intuition to predict where bugs are likely to be and test those areas specifically.",
-        defAR: "استخدام الخبرة السابقة لتوقع أين الأخطاء المحتملة واختبارها تحديداً.",
-        example: "طبيب متمرّس يشوف المريض ومن غير فحوص كثيرة يقول 'ده على الأرجح مشكلة في الكلى'. الخبرة بتوجّهه. مختبر خبير يعرف إن حقل المبالغ الكبيرة، والرموز الخاصة في كلمة المرور، وتغيير اللغة — هي أكتر الأماكن اللي بتحتوي bugs."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Project Risks vs Product Risks",
+        ar: "مخاطر المشروع مقابل مخاطر المنتج",
+        defEN: "Project Risks: related to management and control of the PROJECT. Include: Organizational issues (delays, bad estimates, cost-cutting), People issues (skills, conflicts, staff shortage), Technical issues (scope creep, poor tools), Supplier issues (3rd party failures). Product Risks: related to PRODUCT QUALITY characteristics. Include: missing functionality, incorrect calculations, poor architecture, security vulnerabilities, inadequate response time.",
+        defAR: "مخاطر المشروع: تتعلق بإدارة والتحكم في المشروع. تشمل: مشاكل تنظيمية، مشاكل أفراد، مشاكل تقنية، مشاكل موردين. مخاطر المنتج: تتعلق بخصائص جودة المنتج. تشمل: وظائف مفقودة، حسابات خاطئة، هيكلة رديئة، ثغرات أمنية، وقت استجابة غير كافٍ.",
+        example: "Project Risk: 'المطور الرئيسي سيسافر آخر أسبوع قبل التسليم' (مخاطرة في إدارة المشروع). Product Risk: 'صفحة الدفع قد تحسب الضريبة بطريقة خاطئة' (مخاطرة في جودة المنتج). Product Risks تُوجه أين نختبر أكثر."
+    },
+    {
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Product Risk Analysis and Control",
+        ar: "تحليل ومراقبة مخاطر المنتج",
+        defEN: "Risk Analysis = Risk Identification + Risk Assessment. Risk Identification: generating comprehensive list using brainstorming, workshops, interviews, cause-effect diagrams. Risk Assessment: categorization, likelihood, impact, level, prioritization. Quantitative: Risk Level = likelihood × impact. Qualitative: Risk Matrix. Risk Control = Risk Mitigation + Risk Monitoring. Mitigation: implementing proposed actions to reduce risk level.",
+        defAR: "تحليل المخاطر = تحديد المخاطر + تقييم المخاطر. تحديد المخاطر: إنشاء قائمة شاملة باستخدام العصف الذهني والورش والمقابلات. تقييم المخاطر: التصنيف، الاحتمالية، التأثير، المستوى، تحديد الأولويات. التقييم الكمي: مستوى المخاطرة = الاحتمالية × التأثير. النوعي: مصفوفة المخاطر. مراقبة المخاطر = تخفيف + رصد.",
+        example: "مصفوفة المخاطر: احتمالية عالية × تأثير عالٍ = خلية حمراء (اختبار مكثف). احتمالية منخفضة × تأثير منخفض = خلية خضراء (اختبار أقل). نتائج Risk Analysis تُحدد: نطاق الاختبار، أي مستويات، أي تقنيات، كمية الجهد لكل منطقة."
+    },
+    {
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Test Metrics (7 Categories)",
+        ar: "مقاييس الاختبار (7 فئات)",
+        defEN: "7 metric categories: (1) Project progress: task completion, resource usage. (2) Test progress: cases run/not run, passed/failed, execution time. (3) Product quality: availability, response time, mean time to failure. (4) Defect metrics: number/priority of found/fixed defects, defect density, detection percentage. (5) Risk: residual risk level. (6) Coverage: requirements, code coverage. (7) Cost: cost of testing, cost of quality.",
+        defAR: "7 فئات مقاييس: (1) تقدم المشروع: اكتمال المهام، استخدام الموارد. (2) تقدم الاختبار: حالات شُغِّلت/لم تُشغَّل، اجتازت/فشلت. (3) جودة المنتج: التوافر، وقت الاستجابة، متوسط الوقت للفشل. (4) مقاييس العيوب: العدد والأولوية، الكثافة، نسبة الاكتشاف. (5) المخاطر: مستوى المخاطر المتبقية. (6) التغطية: تغطية المتطلبات والكود. (7) التكلفة.",
+        example: "تقرير أسبوعي للإدارة: '750 من 1000 Test Case شُغِّلوا (75%)، 23 Bug مفتوح (منهم 3 Critical)، Code Coverage 87%، Defect Density 2.5 bugs/KLOC، المخاطر المتبقية: خطر منخفض في صفحة التقارير'. الإدارة بتاخد قرارات مبنية على أرقام."
+    },
+    {
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Test Reports — Progress vs Completion",
+        ar: "تقارير الاختبار — التقدم مقابل الإتمام",
+        defEN: "Test Progress Reports: generated REGULARLY (daily/weekly) during testing. Content: test period, progress (ahead/behind schedule), impediments, metrics, new/changed risks, planned testing for next period. Test Completion Reports: prepared at END of testing (project/level/type complete). Content: test summary, quality evaluation, deviations from plan, impediments, metrics, unmitigated risks, lessons learned.",
+        defAR: "تقارير تقدم الاختبار: تُنشأ بانتظام (يومياً/أسبوعياً) أثناء الاختبار. المحتوى: فترة الاختبار، التقدم، العقبات، المقاييس، المخاطر الجديدة/المتغيرة، الاختبار المخطط للفترة القادمة. تقارير إتمام الاختبار: تُعدّ في نهاية الاختبار. المحتوى: ملخص الاختبار، تقييم الجودة، الانحرافات عن الخطة، المخاطر غير المعالجة، الدروس المستفادة.",
+        example: "تقرير تقدم أسبوعي: 'هذا الأسبوع: شغّلنا 200 Test Case، 180 نجحت، 20 فشلت (3 Critical). اكتشفنا 15 Bug جديدة. عائق: بيئة الاختبار كانت متوقفة يومين. الأسبوع القادم: سنختبر صفحة التقارير'. تقرير الإتمام: 'اختبرنا 1000 حالة، 950 نجحت، أطلقنا بمخاطر منخفضة، الدروس: الـ CI كان بطيئاً، نحسّنه في المشروع القادم'."
+    },
+    {
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Configuration Management",
+        ar: "إدارة التهيئة",
+        defEN: "Ensures consistency and integrity of work products by controlling changes and versions. Benefits for testing: uniquely identifies each test item (traceability), provides info about which version is being tested, ensures test environment changes are controlled. Proper CM ensures that all testware is properly identified, version-controlled, tracked, and related to each other and the test basis.",
+        defAR: "يضمن الاتساق وسلامة مخرجات العمل من خلال التحكم في التغييرات والإصدارات. فوائد للاختبار: التعريف الفريد لكل عنصر اختبار (قابلية التتبع)، معلومات عن الإصدار الذي يُختبر، ضمان التحكم في تغييرات بيئة الاختبار.",
+        example: "بدون Configuration Management: مختبر يختبر Version 2.5 لكنه يعتقد أنه 2.4 → تقاريره غلط. مع CM: كل Version لها رقم واضح. Bug مُبلَّغ في v2.3 يُعرف على أي ملف وأي سطر وأي بيئة حصل فيه. لو حدث رجوع للإصدار القديم — معروف بالضبط ما اتغيّر."
+    },
+    {
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: false, isExamFocus: false,
+        en: "Defect Management",
+        ar: "إدارة العيوب",
+        defEN: "Defect reports document anomalies to give developers enough info to reproduce and fix. Key content: unique identifier, title/description, date, author, test object and environment, steps to reproduce, expected vs actual result, severity, priority, status, related risks. Anomalies found in static testing are also documented (but may not be called 'defects' as the SW isn't running).",
+        defAR: "تقارير العيوب توثّق الشذوذات لإعطاء المطورين معلومات كافية لإعادة الإنتاج والإصلاح. المحتوى الرئيسي: معرّف فريد، العنوان والوصف، التاريخ، المؤلف، كائن الاختبار والبيئة، خطوات الإعادة، النتيجة المتوقعة مقابل الفعلية، الخطورة، الأولوية، الحالة، المخاطر المرتبطة.",
+        example: "تقرير عيب مثالي: ID: BUG-0542. العنوان: 'صفحة الدفع تقبل مبلغ سالب'. الخطوات: 1) ادخل -500 في حقل المبلغ. 2) اضغط ادفع. النتيجة الفعلية: يُخصم -500 (أي يُضاف 500). المتوقع: رسالة خطأ. خطورة: Critical. أولوية: P1."
     },
 
-    // ===== 10. RISK & MANAGEMENT =====
+    // ===== CH5 EXAM FOCUS CARD =====
     {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: false,
-        en: "Risk", ar: "المخاطرة",
-        defEN: "A potential future problem that could cause harm — measured by its probability and impact.",
-        defAR: "احتمالية حدوث مشكلة في المستقبل مضروبة في خطورة تأثيرها.",
-        example: "قبل رحلة سياحية بتفكر: 'ممكن مطر يخرّب الرحلة'. احتمالية × تأثير = مستوى المخاطرة. في البرمجيات: 'ممكن نظام الدفع ينهار في Black Friday' — احتمالية عالية × تأثير كارثي = risk عالي جداً."
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: true,
-        en: "Product Risk", ar: "مخاطر المنتج",
-        defEN: "Risk related to the quality of the product itself — what could go wrong inside the software.",
-        defAR: "مخاطر تتعلق بجودة البرنامج نفسه — الأجزاء اللي ممكن تكون فيها عيوب.",
-        example: "في مشروع بنكي: 'صفحة الدفع فيها منطق خاطئ ممكن يخصم مرتين' — ده product risk. بيحدد فين نركّز اختباراتنا: الأجزاء ذات المخاطر العالية تاخد اختبارات أكثر."
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: true,
-        en: "Project Risk", ar: "مخاطر المشروع",
-        defEN: "Risk related to the management of the testing project itself — schedule, resources, team issues.",
-        defAR: "مخاطر تتعلق بإدارة المشروع نفسه — الوقت، الفريق، الموارد.",
-        example: "'مطوّر رئيسي هيسافر في آخر أسبوع قبل التسليم' — ده project risk. مش عيب في الكود، لكن ممكن يأثر على جودة الاختبار. الـ Test Manager يخطط لده مسبقاً."
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: false,
-        en: "Risk-Based Testing", ar: "الاختبار القائم على المخاطر",
-        defEN: "Prioritizing testing efforts based on the risk level — test the riskiest parts first.",
-        defAR: "ترتيب أولويات الاختبار بناءً على مستوى المخاطر — نبدأ بالأجزاء الأكثر خطورة.",
-        example: "طيار بيعمل فحص قبل الإقلاع — مش بيفحص كل حاجة بنفس الوقت. بيبدأ بالمحرك والوقود والمقاييس الحيوية. في الاختبار: بدأ بصفحة الدفع والتسجيل قبل صفحة 'عنّا' أو الـ footer."
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: false,
-        en: "Test Plan", ar: "خطة الاختبار",
-        defEN: "A formal document that describes the testing scope, strategy, resources, schedule, and responsibilities.",
-        defAR: "وثيقة رسمية تصف كل شيء عن الاختبار: إيه، كيف، مين، إمتى، وبأي موارد.",
-        example: "مدير مشروع بيحضّر ورقة إدارية قبل أي مشروع: الهدف، الفريق، الميزانية، الجدول الزمني، خطة الطوارئ. Test Plan = نفس الفكرة بس للاختبار: scope، techniques، من يختبر، timing، وكيف نقيس النجاح."
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: false,
-        en: "Test Summary Report", ar: "تقرير ملخص الاختبار",
-        defEN: "A final report summarizing what was tested, what was found, and the readiness for release.",
-        defAR: "تقرير ختامي يلخّص نتائج الاختبار ويقترح قرار الإطلاق.",
-        example: "دكتور بعد رحلة علاجية بيكتب تقرير: 'المريض خلّص 10 جلسات، 9 ناجحة، ورحلة أخيرة اعتدنا فيها. التوصية: خروجه آمن'. Test Summary Report نفس الفكرة: كم test اتنفذ، كم failed، هل النظام جاهز للإطلاق؟"
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: true,
-        en: "Entry Criteria", ar: "معايير البداية",
-        defEN: "Conditions that must be met BEFORE testing can start.",
-        defAR: "الشروط اللازمة لازم تتحقق قبل ما يبدأ الاختبار.",
-        example: "الطبيب قبل العملية يشترط: المريض صايم، الفريق حاضر، غرفة العمليات جاهزة. في الاختبار: الكود جاهز، بيئة الاختبار شغّالة، وثيقة المتطلبات معتمدة — لو شرط واحد مش متحقق نأجّل."
-    },
-    {
-        cat: "risk", catLabel: "المخاطر والإدارة · Risk & Management", isNew: true,
-        en: "Exit Criteria", ar: "معايير الانتهاء",
-        defEN: "Conditions that must be met BEFORE testing can be officially stopped and the product released.",
-        defAR: "الشروط اللازمة تتحقق قبل ما نوقف الاختبار ونطلق المنتج رسمياً.",
-        example: "شركة طيران لها معايير قبل طيران الطائرة: وقود 100%، فريق كامل، تصاريح ممنوحة. في الاختبار: 95% من الـ test cases passed، لا يوجد critical bugs مفتوحة، العميل وافق = جاهز للإطلاق."
+        cat: "ch5", catLabel: "الفصل الخامس · Ch5: Managing Activities", isNew: true, isExamFocus: true,
+        en: "🎯 CH5 EXAM FOCUS — Key Points",
+        ar: "🎯 أهم نقاط الفصل الخامس للامتحان",
+        defEN: "CRITICAL FOR EXAM: K1, K2, K3 (9 questions).",
+        defAR: "الأهم للامتحان — الفصل الخامس (9 أسئلة!):",
+        example: "① Test Plan content: Context, Assumptions, Stakeholders, Communication, Risk Register, Test Approach, Budget ② Test Policy (org-level, stable) ≠ Test Strategy (project-level, specific) ③ Entry Criteria = preconditions to START | Exit Criteria = conditions to STOP ④ 4 Estimation: Ratios | Extrapolation | Wideband Delphi (Planning Poker variant) | Three-Point: E=(a+4m+b)/6 ⑤ 3 Prioritization: Risk-based | Coverage-based | Requirements-based ⑥ Test Pyramid: Unit (many/fast) → Integration → E2E (few/slow) ⑦ Quadrants: Q1=tech/support(automated) | Q2=business/support(manual+auto) | Q3=business/critique(manual) | Q4=tech/critique(automated) ⑧ Risk Level = Likelihood × Impact | Project Risk = management | Product Risk = quality ⑨ 7 Metrics categories: Project/Test/Product Quality/Defects/Risk/Coverage/Cost ⑩ Progress Report = regular during testing | Completion Report = at end ⑪ Defect Report must enable reproduction"
     },
 
-    // ===== 11. AGILE TESTING =====
+// ==========================================================
+// CHAPTER 6 — TEST TOOLS (2Q: K1=1, K2=1)
+// ==========================================================
+
     {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "Agile Testing", ar: "الاختبار في بيئة الأجايل",
-        defEN: "Testing within Agile development where testers work continuously alongside developers in short sprints.",
-        defAR: "اختبار بيحصل بشكل مستمر جنباً لجنب مع التطوير — مش في آخر المشروع.",
-        example: "تخيّل مطعم بيجرّب أكلة جديدة: بدل ما يطبخ 50 طبق وبعدين يذوّق، كل يوم بيطبخ 2-3 أطباق ويذوّقهم فوراً ويتحسّن. Agile Testing نفس الفكرة: اختبار صغير ومستمر بدل اختبار ضخم في الآخر."
+        cat: "ch6", catLabel: "الفصل السادس · Ch6: Test Tools", isNew: false, isExamFocus: false,
+        en: "Tool Support Categories (8 Types)",
+        ar: "فئات أدوات دعم الاختبار (8 أنواع)",
+        defEN: "8 tool support categories: (1) Management tools: manage SDLC, requirements, tests, defects, configuration (Jira, TestRail). (2) Static testing tools: support reviews and static analysis (SonarQube). (3) Test design & implementation tools: generate test cases, test data, test procedures. (4) Execution & coverage tools: automated execution and coverage measurement (Selenium). (5) Non-functional testing tools: performance, security (JMeter, OWASP ZAP). (6) DevOps tools: CI/CD, workflow, automated build (Jenkins). (7) Collaboration tools: communication. (8) Scalability & deployment tools: VMs, containers.",
+        defAR: "8 فئات أدوات: (1) أدوات إدارة: تدير SDLC والمتطلبات والاختبارات والعيوب. (2) أدوات الاختبار الساكن: تدعم المراجعات والتحليل الساكن. (3) أدوات تصميم وتجهيز الاختبار: تُنشئ حالات اختبار وبيانات وإجراءات. (4) أدوات التنفيذ والتغطية: تنفيذ آلي وقياس تغطية. (5) أدوات الاختبار غير الوظيفي: أداء وأمان. (6) أدوات DevOps: CI/CD وبناء آلي. (7) أدوات التعاون. (8) أدوات قابلية التوسع والنشر.",
+        example: "مشروع كامل يستخدم: Jira (إدارة) + SonarQube (تحليل ساكن) + Selenium (تنفيذ آلي) + JMeter (أداء) + OWASP ZAP (أمان) + Jenkins (CI/CD) + Slack (تعاون) + Docker (نشر). كل أداة لغرضها — لا أداة واحدة تعمل كل شيء."
     },
     {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "Sprint", ar: "السبرينت",
-        defEN: "A short, fixed time period (usually 1-4 weeks) where the team delivers a working piece of software.",
-        defAR: "فترة زمنية قصيرة محددة (عادة أسبوعين) يسلّم فيها الفريق ميزة شغّالة قابلة للاختبار.",
-        example: "فريق كرة القدم بيخطط للشوط الأول (45 دقيقة). في Sprint نفس الفكرة: كل أسبوعين الفريق يسلّم ميزة جديدة شغّالة — مش 6 أشهر وبعدين تشوف حاجة."
+        cat: "ch6", catLabel: "الفصل السادس · Ch6: Test Tools", isNew: false, isExamFocus: false,
+        en: "Benefits of Test Automation",
+        ar: "فوائد أتمتة الاختبار",
+        defEN: "Key benefits: (1) Time saved on repetitive manual work (e.g., regression tests, data entry, comparing results). (2) Prevention of simple human errors (consistency and repeatability). (3) More objective assessment (coverage metrics too complex for humans). (4) Easier access to testing information for reporting. (5) Reduced test execution times → faster feedback → faster time to market. (6) Frees testers for designing more creative/complex manual tests.",
+        defAR: "الفوائد الرئيسية: (1) توفير الوقت في العمل اليدوي المتكرر (regression tests، إدخال بيانات، مقارنة نتائج). (2) منع الأخطاء البشرية البسيطة (اتساق وتكرارية). (3) تقييم أكثر موضوعية (مقاييس تغطية معقدة للإنسان). (4) وصول أسهل لبيانات الاختبار للتقارير. (5) تقليل أوقات التنفيذ → تغذية راجعة أسرع → طرح أسرع في السوق. (6) تحرير المختبرين لتصميم اختبارات يدوية أكثر إبداعاً.",
+        example: "قبل الأتمتة: 2 مختبر × 3 أيام = 6 أيام لتشغيل 500 Regression Test يدوياً، مع احتمال خطأ إنساني. بعد الأتمتة بـ Selenium: 500 Test تُشغَّل في 25 دقيقة بدقة 100%. المختبرون يوجّهون وقتهم لـ Exploratory Testing — يكتشفون bugs أعمق وأكثر قيمة."
     },
     {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "Test-Driven Development (TDD)", ar: "التطوير المدفوع بالاختبار",
-        defEN: "Write the test FIRST, then write the code to make that test pass — not the other way around.",
-        defAR: "بنكتب الاختبار الأول قبل الكود — الكود بيتكتب لو الاختبار يعدي.",
-        example: "تخيّل إنك بتكتب امتحان للطلبة قبل ما تشرح الدرس — وبعدين تشرح تحديداً اللي يخليهم يجيبوا إجابة صح. TDD نفس الفكرة: نحدد النتيجة المطلوبة (test) ثم نكتب الكود اللي يحقّق النتيجة دي."
-    },
-    {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "Acceptance Test-Driven Development (ATDD)", ar: "التطوير المدفوع باختبار القبول",
-        defEN: "Business, developers, and testers write acceptance tests together BEFORE development starts.",
-        defAR: "العميل والمطور والمختبر يكتبوا معايير القبول معاً قبل ما يبدأ التطوير.",
-        example: "قبل بناء شقة: المالك والمهندس والمقاول يتّفقوا مع بعض على معايير القبول: 3 غرف، شبابيك مزدوجة، سقف 3 متر. كلهم موافقين قبل البناء. ATDD نفسها: الكل يتفق على معيار النجاح قبل ما الكود يتكتب."
-    },
-    {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "User Story", ar: "قصة المستخدم",
-        defEN: "A short, simple description of a feature from the user's perspective: 'As a [user], I want [goal] so that [reason]'.",
-        defAR: "وصف قصير لميزة من منظور المستخدم — اللغة البشرية بدل اللغة التقنية.",
-        example: "بدل كتابة 'يجب تطوير module لإدارة المصادقة' نكتب: 'كمستخدم مسجّل، أريد تسجيل الدخول بالبصمة، حتى لا أحتاج كتابة كلمة مرور في كل مرة'. ده user story — واضح ومبني على احتياج حقيقي."
-    },
-    {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "Definition of Done (DoD)", ar: "تعريف الإنجاز",
-        defEN: "A shared agreement on what 'finished' means — a checklist the team must complete before a task is truly done.",
-        defAR: "اتفاق مشترك على معنى إن الشغل 'خلص' — قائمة شروط لازم تتحقق كلها.",
-        example: "طبّاخ: 'الطبق جاهز' لما التدبيل صح، الطعام في الدرجة المثالية، والطبق نظيف. في البرمجيات: الميزة 'تمّت' لما الكود اتكتب + اتراجع + اتاختبر unit + regression passed + العميل وافق."
-    },
-    {
-        cat: "agile", catLabel: "✨ اختبار الأجايل · Agile Testing", isNew: true,
-        en: "Shift-Left Testing", ar: "الاختبار المبكّر (Shift Left)",
-        defEN: "Moving testing earlier in the development cycle — catching problems before they become expensive to fix.",
-        defAR: "تحريك الاختبار لأبكر مرحلة ممكنة في دورة التطوير — اكتشاف المشاكل مبكراً.",
-        example: "الطبيب اللي بيعمل كشف دوري منتظم أحسن من اللي بيزور لما المريض وصل للمستشفى. Shift Left: بدل ما نختبر في آخر الـ sprint، بنختبر من أول يوم — مراجعة المتطلبات، كتابة الاختبارات مع الكود."
+        cat: "ch6", catLabel: "الفصل السادس · Ch6: Test Tools", isNew: false, isExamFocus: false,
+        en: "Risks of Test Automation",
+        ar: "مخاطر أتمتة الاختبار",
+        defEN: "Key risks: (1) Unrealistic expectations about benefits (functionality and ease of use). (2) Inaccurate estimations of time/costs to introduce, maintain test scripts, and change manual process. (3) Using automation when MANUAL is more appropriate. (4) Over-reliance on tools — ignoring human critical thinking. (5) Vendor dependency (tool discontinued or sold). (6) Abandoned open-source software. (7) Tool not compatible with development platform. (8) Choosing unsuitable tool (regulatory/safety standards).",
+        defAR: "المخاطر الرئيسية: (1) توقعات غير واقعية حول الفوائد. (2) تقديرات غير دقيقة للوقت والتكاليف (التقديم والصيانة والتغيير). (3) استخدام الأتمتة حين اليدوي أنسب. (4) الاعتماد المفرط على الأدوات مع إهمال التفكير النقدي البشري. (5) التبعية للمورد. (6) أدوات Open Source متروكة. (7) عدم توافق الأداة مع منصة التطوير. (8) اختيار أداة غير مناسبة للمتطلبات التنظيمية.",
+        example: "شركة أتمتت صفحة سهلة التغيير: كل تحديث UI يكسر 50 Test Case → فريق يمضي 3 أيام يصلح scripts بدل 1 يوم اختبار يدوي. خطأ: أتمتة ما يتغير كثيراً. الصواب: أتمتة Regression Tests المستقرة، واليدوي للـ Exploratory والـ UI الجديدة."
     },
 
-    // ===== 12. DEFECT MANAGEMENT =====
+    // ===== CH6 EXAM FOCUS CARD =====
     {
-        cat: "defect", catLabel: "✨ إدارة العيوب · Defect Management", isNew: true,
-        en: "Defect Report (Bug Report)", ar: "تقرير العيب",
-        defEN: "A formal document describing a found bug with enough detail for the developer to reproduce and fix it.",
-        defAR: "وثيقة مفصّلة تصف العيب المكتشف بما يكفي للمطور لإعادة الاختبار وإصلاحه.",
-        example: "بلاغ بلدية عن حفرة في الشارع: الموقع بالعنوان الدقيق، الحجم، منذ متى، الخطر، صورة. Bug Report نفسها: اسم الزر، الخطوات لإعادة المشكلة، النتيجة الفعلية، النتيجة المتوقعة، screenshots."
-    },
-    {
-        cat: "defect", catLabel: "✨ إدارة العيوب · Defect Management", isNew: true,
-        en: "Defect Severity", ar: "خطورة العيب",
-        defEN: "How serious is the impact of the bug on the system's functionality — Critical, Major, Minor, Trivial.",
-        defAR: "مدى تأثير العيب على النظام — تصنيف من الأشد خطورة للأقل.",
-        example: "خطأ إملائي في الموقع = Trivial. زر ما بيشتغلش = Minor. صفحة الدفع مش شغّالة = Critical. نفس منطق الطوارئ: كسر ظفر = بسيط، نوبة قلبية = حرج."
-    },
-    {
-        cat: "defect", catLabel: "✨ إدارة العيوب · Defect Management", isNew: true,
-        en: "Defect Priority", ar: "أولوية إصلاح العيب",
-        defEN: "How urgently the bug needs to be fixed — High, Medium, Low — which may differ from severity.",
-        defAR: "مدى إلحاحية إصلاح العيب — ممكن يختلف عن مستوى الخطورة.",
-        example: "خطأ في شعار الشركة على الموقع (Severity: Minor) لكن لو الموقع هيُعرض على CEO بكرة = Priority: High! خطأ في صفحة نادراً ما تُزار (Severity: Major) = Priority: Low. الخطورة والأولوية ليسا نفس الشيء."
-    },
-    {
-        cat: "defect", catLabel: "✨ إدارة العيوب · Defect Management", isNew: true,
-        en: "Defect Life Cycle", ar: "دورة حياة العيب",
-        defEN: "The stages a bug goes through from discovery to closure: New → Assigned → Fixed → Verified → Closed.",
-        defAR: "المراحل التي يمرّ بها العيب من اكتشافه حتى إغلاقه رسمياً.",
-        example: "شكوى عميل في بنك: تُسجَّل (New) → تُحوَّل للمسؤول (Assigned) → يُحل المشكلة (Fixed) → العميل يتأكد (Verified) → الشكوى تُغلق (Closed). Bug نفس الرحلة في أي bug tracking tool زي Jira."
-    },
-    {
-        cat: "defect", catLabel: "✨ إدارة العيوب · Defect Management", isNew: true,
-        en: "Root Cause Analysis", ar: "تحليل السبب الجذري",
-        defEN: "Finding the true underlying reason a bug occurred — not just fixing the symptom but preventing recurrence.",
-        defAR: "البحث عن السبب الحقيقي وراء وجود العيب وليس مجرد علاج الأعراض.",
-        example: "غسّالة بتسرّب مية. بدل ما تمسح المية فقط (علاج أعراض)، تفتّش ليه بتسرّب: صمّامة كسرانة. Root Cause. في البرمجيات: بدل إصلاح الـ bug مباشرةً، نسأل ليه حصل؟ هل في نقص في المتطلبات؟ هل التوثيق غير واضح؟"
+        cat: "ch6", catLabel: "الفصل السادس · Ch6: Test Tools", isNew: true, isExamFocus: true,
+        en: "🎯 CH6 EXAM FOCUS — Key Points",
+        ar: "🎯 أهم نقاط الفصل السادس للامتحان",
+        defEN: "CRITICAL FOR EXAM: K1 & K2 (only 2 questions but easy marks!).",
+        defAR: "الأهم للامتحان — الفصل السادس (2 أسئلة فقط لكنها مضمونة!):",
+        example: "① 8 Tool categories: Management | Static Analysis | Test Design | Execution+Coverage | Non-functional | DevOps | Collaboration | Scalability ② Benefits: saves time on repetitive work | prevents human errors | more objective assessment | faster feedback | frees testers for creative tests ③ Risks: unrealistic expectations | underestimated maintenance cost | automating when manual is better | over-reliance | vendor dependency | abandoned open-source | incompatibility | unsuitable for regulations ④ CRITICAL: simply acquiring a tool does NOT guarantee success — effort for introduction + maintenance + training is required ⑤ Manual testing will ALWAYS be needed even with high automation (especially user perspective testing)"
     },
 
-    // ===== 13. TESTING TOOLS =====
+// ==========================================================
+// SEVEN TESTING PRINCIPLES (Referenced in Ch1)
+// ==========================================================
+
     {
-        cat: "tools", catLabel: "✨ أدوات الاختبار · Testing Tools", isNew: true,
-        en: "Test Automation", ar: "أتمتة الاختبار",
-        defEN: "Using software tools to run tests automatically without human intervention — faster and more consistent.",
-        defAR: "استخدام أدوات وبرامج لتشغيل الاختبارات تلقائياً بدون تدخل بشري.",
-        example: "بدل موظف يفحص 1000 منتج يدوياً كل يوم، ماكينة آلية تفحصهم في دقائق بدقة 100%. في البرمجيات: Selenium أو Playwright بيشغّلوا اختبارات الـ browser تلقائياً — بتختبر 500 حالة في 5 دقائق بدل يوم كامل."
+        cat: "ch1", catLabel: "الفصل الأول · Ch1: Fundamentals", isNew: false, isExamFocus: false,
+        en: "7 Testing Principles",
+        ar: "المبادئ السبعة للاختبار",
+        defEN: "P1: Testing shows PRESENCE of defects, not ABSENCE. P2: Exhaustive testing is IMPOSSIBLE — use risk+priority. P3: Early testing SAVES time & money. P4: Defects CLUSTER TOGETHER (Pareto: 80% bugs in 20% modules). P5: Tests WEAR OUT (Pesticide Paradox) — update tests. P6: Testing is CONTEXT DEPENDENT — no universal approach. P7: Absence-of-defects FALLACY — bug-free ≠ useful product.",
+        defAR: "م1: الاختبار يُثبت وجود العيوب لا غيابها. م2: الاختبار الشامل مستحيل — استخدم المخاطر والأولويات. م3: الاختبار المبكر يوفر الوقت والمال. م4: العيوب تتجمع (Pareto: 80% من الـ bugs في 20% من الوحدات). م5: الاختبارات تبلى (Pesticide Paradox) — حدّث اختباراتك. م6: الاختبار يعتمد على السياق. م7: وهم غياب الأخطاء — خالٍ من bugs ≠ منتج مفيد.",
+        example: "م4 مثال: في تطبيق كبير، صفحة الدفع (20% من الكود) فيها 80% من الـ bugs. م5 مثال: اختبارات Regression ثابتة لسنة بدأت تفوّت bugs جديدة — المطورون 'تكيّفوا' مع الاختبارات القديمة. م7 مثال: نظام محاسبة بدون bugs تقنية لكن يحسب الضريبة بالنظام الأمريكي لعميل مصري."
     },
-    {
-        cat: "tools", catLabel: "✨ أدوات الاختبار · Testing Tools", isNew: true,
-        en: "Continuous Integration / Continuous Testing", ar: "التكامل المستمر / الاختبار المستمر",
-        defEN: "Automatically running tests every time new code is added — catching problems instantly.",
-        defAR: "تشغيل الاختبارات تلقائياً مع كل تغيير في الكود — اكتشاف مشاكل فوري.",
-        example: "مصنع بيفحص كل منتج على خط الإنتاج قبل ما يكمل طريقه — مش في آخر الخط. CI/CD pipeline نفسها: كل مرة مطور يضغط Commit، الاختبارات بتشتغل تلقائياً وفي ثواني بتعرف لو في مشكلة."
-    },
-    {
-        cat: "tools", catLabel: "✨ أدوات الاختبار · Testing Tools", isNew: true,
-        en: "Test Management Tool", ar: "أداة إدارة الاختبار",
-        defEN: "Software used to organize test cases, track execution results, and manage defects (e.g., Jira, TestRail).",
-        defAR: "برنامج لتنظيم وتتبع الاختبارات وإدارة العيوب.",
-        example: "أوبر بيستخدم نظام لتتبع شكاوى السائقين والركاب — كل شكوى ليها ID، حالة، مسؤول. TestRail أو Jira نفسها: كل test case ليه ID، نتيجة، bugs مرتبطة. بدون ده، اختبار 10,000 حالة فوضى."
-    },
-    {
-        cat: "tools", catLabel: "✨ أدوات الاختبار · Testing Tools", isNew: true,
-        en: "Performance Testing Tool", ar: "أداة اختبار الأداء",
-        defEN: "Tools that simulate thousands of users using the system at the same time to measure performance (e.g., JMeter, k6).",
-        defAR: "أدوات بتحاكي آلاف المستخدمين في آن واحد لقياس أداء النظام تحت الضغط.",
-        example: "بدل انتظار Black Friday لتعرف لو الموقع هيقع — Apache JMeter بيحاكي 50,000 مستخدم في نفس الوقت الآن. لو الموقع وقع في الاختبار، نعرف قبل اليوم الحقيقي ونصلح. آمن وأرخص بكتير."
-    },
+
 ];
 
+// ==========================================================
+// TOOLS DATA (unchanged from original)
+// ==========================================================
+
 const toolsData = [
-    // ===== 1. TEST MANAGEMENT =====
     {
         cat: 'management', catLabel: 'أدوات إدارة الاختبار', catIcon: '📋', catSub: 'Test Management Tools',
         name: 'Jira', logo: '🟦', accentColor: '#4fc3f7',
         tagline: 'أداة الإدارة المرنة الأشهر لتتبع العيوب والمشاريع',
         badges: ['freemium-badge:FREEMIUM', 'cloud-badge:CLOUD', 'enterprise-badge:ENTERPRISE'],
-        desc: 'لو افترضنا إن تطوير البرامج زي بناء عمارة، فجيرة (Jira) هي "دفتر المهندس" اللي بيتسجل فيه كل حاجة. هي أداة إدارة مشاريع بتسمح للفرق (مطورين، مختبرين، مديري مشاريع) يتابعوا كل الشغل المطلوب. كمختبر برمجيات (Tester)، هتستخدم Jira عشان تسجل أي مشكلة (Bug) بتلاقيها، وتتابعها لحد ما المطور يصلحها، وتتأكد إنها اتقفلت بشكل صحيح. كمان بتقدر تربطها بأدوات تانية كتير عشان تدير الشغل كله من مكان واحد.',
-        steps: [
-            'التسجيل: ادخل على موقع Atlassian واعمل حساب مجاني، وبعدين أنشئ مشروع جديد (مثلاً بنظام Scrum).',
-            'إنشاء تذكرة (Issue): لما تلاقي مشكلة في الموقع، اضغط على أعلى الشاشة "Create" واختار النوع "Bug" (عيب).',
-            'كتابة التفاصيل: اكتب عنوان واضح للمشكلة، وخطوات إعادة إنتاجها خطوة بخطوة، وارفع صورة لشاشة الخطأ.',
-            'المتابعة الدائمة: حول حالة المشكلة من "To Do" إلى "In Progress" لما المطور يبدأ شغل، وبعدين "In Review" لما ترجعلك تختبرها تاني.'
-        ],
-        usecase: 'تخيل إنك بتختبر تطبيق توصيل أكل، ولقيت إن زر "إضافة للسلة" مش بيشتغل على موبايلات أندرويد. بتفتح Jira، تعمل تذكرة (Ticket) جديدة، وتشرح فيها المشكلة بوضوح وتحط صورة للشاشة، وتعين الأولوية (Priority) كـ "عالية". المطور بيشوفها، وبيصلحها، ويردهالك عشان تتأكد إنها اشتغلت.',
-        pricing: 'مجاني حتى 10 مستخدمين | بدءاً من $8.15 للمستخدم',
+        desc: 'لو افترضنا إن تطوير البرامج زي بناء عمارة، فجيرة (Jira) هي "دفتر المهندس" اللي بيتسجل فيه كل حاجة. هي أداة إدارة مشاريع بتسمح للفرق يتابعوا كل الشغل المطلوب. كمختبر برمجيات، هتستخدم Jira عشان تسجل أي Bug بتلاقيها، وتتابعها لحد ما المطور يصلحها، وتتأكد إنها اتقفلت صح.',
+        steps: ['التسجيل على Atlassian وإنشاء مشروع Scrum مجاني.', 'إنشاء Issue من نوع Bug مع عنوان واضح وخطوات الإعادة.', 'إضافة Screenshots وتحديد الأولوية والخطورة.', 'تحويل الحالة من To Do → In Progress → Done مع المطور.'],
+        usecase: 'بتختبر تطبيق توصيل أكل، ولقيت إن زر "إضافة للسلة" مش بيشتغل على Android. بتفتح Jira، تعمل Bug Ticket بالتفاصيل الكاملة، تعين Priority = High. المطور يصلحها، ويردهالك تتأكد.',
+        pricing: 'مجاني حتى 10 مستخدمين | من $8.15 للمستخدم',
         downloadLink: 'https://www.atlassian.com/software/jira',
         docsLink: 'https://support.atlassian.com/jira-software-cloud/docs/'
     },
     {
         cat: 'management', catLabel: 'أدوات إدارة الاختبار', catIcon: '📋', catSub: 'Test Management Tools',
         name: 'TestRail', logo: '🟩', accentColor: '#3de68a',
-        tagline: 'الأداة المنظمة لإدارة حالات الاختبار (Test Cases) باحترافية',
+        tagline: 'الأداة المنظمة لإدارة Test Cases باحترافية',
         badges: ['paid-badge:PAID', 'cloud-badge:CLOUD', 'enterprise-badge:ENTERPRISE'],
-        desc: 'تخيل إن مطلوب منك تختبر موقع كامل فيه 500 صفحة. مستحيل تحفظ كل الخطوات في دماغك أو تكتبها في ملف وورد عادي ويظل منظم. هنا ييجي دور TestRail. هي أداة متخصصة بتخليك تكتب كل حالات الاختبار (Test Cases) بتاعتك بشكل منظم جداً ومقسم لمجموعات. ولما تحب تبدأ اختبار فعلي، بتعمل حاجة اسمها "Test Run" وتبدأ تمشي على الحالات خطوة بخطوة وتحدد هل الاختبار ده نجح (Passed) ولا فشل (Failed).',
-        steps: [
-            'إنشاء بيئة العمل: بعد ما تسجل في TestRail، بتعمل مشروع جديد للموقع اللي عايز تختبره وتضيف زملائك.',
-            'كتابة الحالات المسبقة: بتنشئ مجموعة (Test Suite)، وتضيف جواها حالات الاختبار الفردية، وتكتب الخطوات والنتائج المتوقعة.',
-            'بدء الاختبار الفعلي: في يوم الاختبار، بتعمل "Test Run" جديد، وتبدأ تنفذ الخطوات المكتوبة على الموقع الفعلي.',
-            'تسجيل النتائج: لو الخطوة نجحت بتضغط (Pass)، ولو فشلت بتضغط (Fail) وتكتب السبب بوضوح، وممكن تربطها بـ Jira مباشرة لإنشاء عيب للمطور.'
-        ],
-        usecase: 'شغالين على النظام الجديد لبنك، ومطلوب منك تختبر صفحة تحويل الأموال بس المرة دي. بتدخل على TestRail، تختار الجزء الخاص بالتحويلات، وتعمل Test Run جديد. تبدأ تجرب: التحويل برصيد كافي (نجح -> Pass)، التحويل برصيد غير كافي (فشل والموقع هنج -> Fail وتكتب تعليق). وفي النهاية الإدارة بتشوف نسبة النجاح للتحويلات كلها.',
-        pricing: 'فترة تجريبية 14 يوم مجاناً | يبدأ من $36 للشهر',
+        desc: 'لما يكون عندك 500 Test Case، مستحيل تحفظها في دماغك أو ملف وورد. TestRail بتخليك تنظمها في مجموعات، وتعمل Test Runs، وتتابع كل نتيجة بشكل احترافي.',
+        steps: ['إنشاء مشروع وإضافة Test Suite وتنظيم الـ Cases في sections.', 'كتابة Test Cases بالخطوات والنتائج المتوقعة.', 'إنشاء Test Run وتنفيذ الاختبارات يدوياً.', 'تسجيل Pass/Fail وربط الـ Failures بـ Jira تلقائياً.'],
+        usecase: 'نظام بنكي جديد: تنظم 300 Test Case في TestRail مقسمة لـ Login وTransfers وReports. تعمل Test Run لكل Sprint وتتابع نسبة النجاح اليومية.',
+        pricing: 'تجريبي 14 يوم | من $36 شهرياً',
         downloadLink: 'https://www.testrail.com',
         docsLink: 'https://support.testrail.com/hc/en-us'
     },
     {
         cat: 'automation', catLabel: 'أدوات الأتمتة', catIcon: '🤖', catSub: 'Test Automation Tools',
         name: 'Selenium', logo: '🟢', accentColor: '#3de68a',
-        tagline: 'الروبوت الآلي الأول عالمياً لاختبار المتصفحات والمواقع',
+        tagline: 'الروبوت الآلي الأول عالمياً لاختبار المواقع',
         badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'تخيل لو كان عندك روبوت سحري بيعرف يفتح المتصفح، يكتب على الكيبورد، يضغط على الزراير، ويتأكد إن كل حاجة شغالة أسرع منك بـ 100 مرة! هو ده Selenium. هي أداة وأيقونة مجانية بتسمحلك تكتب كود برمجي (بأي لغة زي Python أو Java) عشان تخلي المتصفح يتحرك لوحده ويملى البيانات ويختبر الموقع آلياً بالكامل بدل ما تعمل ده بإيدك كل يوم.',
-        steps: [
-            'خطوة التثبيت البرمجي: بتنزل مكتبة Selenium للغة البرمجة اللي بتفضلها (زي مجلدات بايثون) من خلال الـ CMD.',
-            'استدعاء السائق (WebDriver): بتنزل ملف صغير اسمه WebDriver (هو زي جهاز التحكم اللي بيخلي كودك يتحكم في متصفح كروم أو فايرفوكس).',
-            'كتابة السكريبت التلقائي: بتكتب كود بيقول للمتصفح: افتح موقع كذا، دور على الزرار الفلاني بالاسم، واضغط عليه.',
-            'شرط التحقق (Assertion): بتضيف سطر برمجي يقول: لو ظهرت رسالة "تم إرسال الطب بنجاح" على الشاشة، إذن الاختبار يعتبر ناجح وإلا اعتبره فاشل.'
-        ],
-        usecase: 'كل يوم الصبح لازم تتأكد إن مسار "تسجيل الدخول" وشراء منتج شغال. بدل ما تفتح الموقع وتكتب إيميل وتجرب تدفع كل يوم بإيدك، بتكتب كود Selenium مرة واحدة. بعد كده، كل يوم الصبح بتضغط زرار تشغيل، وهو بيفتح المتصفح في الهواء، يكتب البيانات ويضغط دخول ويبلغك لو في مشكلة في لحظات.',
-        pricing: 'مجاني 100% ومفتوح المصدر',
+        desc: 'Selenium روبوت بيفتح المتصفح ويكتب ويضغط ويتحقق من النتائج أسرع منك 100 مرة. مجاني ويدعم Python وJava وJavaScript.',
+        steps: ['تثبيت مكتبة Selenium بالأمر: pip install selenium.', 'تحميل WebDriver المناسب لمتصفحك.', 'كتابة سكريبت: driver.get(URL) → find_element → click/send_keys.', 'إضافة Assertions للتحقق من النتائج.'],
+        usecase: 'كل صباح تشغّل سكريبت Selenium يتأكد إن صفحة Login شغالة وأن المنتجات بتظهر — بدل ما تعمله يدوياً كل يوم.',
+        pricing: 'مجاني 100%',
         downloadLink: 'https://www.selenium.dev/downloads/',
         docsLink: 'https://www.selenium.dev/documentation/'
     },
     {
         cat: 'automation', catLabel: 'أدوات الأتمتة', catIcon: '🤖', catSub: 'Test Automation Tools',
-        name: 'Cypress', logo: '🌲', accentColor: '#3de68a',
-        tagline: 'البديل الحديث الأسرع والمصمم خصيصاً لمطوري الويب الحديث',
-        badges: ['opensource-badge:OPEN SOURCE', 'freemium-badge:FREEMIUM'],
-        desc: 'سيبريس (Cypress) هي بطلة العصر الحديث في أدوات الاختبار الآلي للمواقع (Automation). على عكس Selenium، Cypress بتشتغل جوه المتصفح نفسه مش كتحكم عن بُعد، وده بيخليها أسرع بشكل خرافي، ومفيهاش مشاكل التقطيع اللي بتظهر في سيلينيوم. كمان العبقرية فيها إنها بتصور الشاشة أوتوماتيك مع كل خطوة، فلو حصل خطأ، تقدر ترجع بالزمن وتشوف المتصفح خطوة بخطوة كأنك بتشاهد فيديو وتعلم المشكلة فين بالظبط.',
-        steps: [
-            'التنزيل المباشر: بتثبت الأداة عن طريق موجه الأوامر (Terminal) بكتابة الأمر السريع npm install cypress.',
-            'بدء الواجهة التشغيلية: بتكتب الأمر npx cypress open، فهتفتحلك واجهة رسومية جميلة وبسيطة للمستخدم.',
-            'كتابة الاختبار العصري: بتكتب ملف JavaScript بسيط (مفهوم جداً ومُيسر) بيلخص كل الخطوات بدوال واضحة.',
-            'المشاهدة الحية والممتعة: أول ما تحفظ ملف الكود الاختباري، Cypress بتشغل المتصفح قدام عينك في لحظتها وتنفذ الخطوات بسرعة البرق وتوريك فين النتيجة.'
-        ],
-        usecase: 'المطورين عملوا تحديثات برمجية كثيرة في تصميم صفحة "دفع الفاتورة". بتستخدم Cypress عشان تراجع الشغل بعد كل حفظ للكود المحدّث. الأداة بتفتح المتصفح وتجرب وتضغط بسرعة رهيبة، ولو وقفت عند زرار الدفع وما عرفتش تضغط، هتاخد صورة للمشكلة وتوضح للمطور فورا إن الزرار اتغطى بالغلط ورا عنصر آخر في التصميم.',
-        pricing: 'الاستخدام الأساسي مجاني | الخدمة السحابية المدفوعة $67',
-        downloadLink: 'https://www.cypress.io/download',
-        docsLink: 'https://docs.cypress.io'
+        name: 'Playwright', logo: '🎭', accentColor: '#3de68a',
+        tagline: 'المنافس الأقوى لـ Selenium من Microsoft',
+        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
+        desc: 'Playwright من Microsoft أسرع من Selenium وأذكى — بيعمل Auto-wait، يدعم Chrome وSafari وFirefox بنفس الكود، ويصوّر كل خطوة تلقائياً.',
+        steps: ['npm init playwright@latest — يثبت كل حاجة تلقائياً.', 'استخدام Codegen لتسجيل حركاتك وتحويلها لكود.', 'كتابة tests بـ JavaScript أو Python.', 'تشغيل على كل المتصفحات في نفس الوقت.'],
+        usecase: 'موقعك يجب يشتغل على iPhone وWindows وMac. Playwright يكتب Test واحد ويشغّله على محاكيات الثلاثة في نفس الوقت.',
+        pricing: 'مجاني ومفتوح المصدر',
+        downloadLink: 'https://playwright.dev/',
+        docsLink: 'https://playwright.dev/docs/intro'
     },
     {
         cat: 'api', catLabel: 'أدوات اختبار الـ API', catIcon: '🔗', catSub: 'API Testing Tools',
         name: 'Postman', logo: '📮', accentColor: '#ff9f43',
-        tagline: 'الأداة الرشيقة الأولى عالمياً لاختبار وتحليل الـ APIs',
+        tagline: 'الأداة الأولى عالمياً لاختبار APIs',
         badges: ['freemium-badge:FREEMIUM', 'cloud-badge:CLOUD'],
-        desc: 'عشان تفهم بوستمان (Postman)، تخيل الـ API ده هو "الجرسون" اللي بياخد طلبك من قائمة المطعم (التطبيق) لطهاة المطبخ (السيرفر العقل المدبر) ويرجعلك بالأكل (النتيجة أو البيانات). Postman هي واجهة وتطبيق بيسمحلك تتكلم مع "الجرسون" ده مباشرة من غير ما تستنى بناء التطبيق الرسومي! بتقدر تبعتله طلبات (Requests) بأشكال وألوان وتشوف البيانات الخفية (Response) اللي بترجع من السيرفر كأنك مطور محترف وتتأكد إن البيانات سليمة وخالية من الأخطاء المنطقية.',
-        steps: [
-            'التحميل السلس: بتحمل برنامج Postman من موقعه الرسمي وتثبته على جهازك ببساطة وإنشاء حساب مجاني لو أردت.',
-            'إنشاء طلب جديد (Request): بتعمل طلب جديد. لو عاوز تقرأ بيانات بتخلي النوع GET، ولو هترسل معلومات جديدة زي إنشاء حساب بتخليه POST، وتحط الـ URL (رابط الجرسون).',
-            'إضافة التوابل للطلب: لو الطلب محتاج باسورد أو بيانات معينة (زي بيانات اسم العميل)، بتضيفها كمخطط بيانات في خانة تُسمى الـ Body أو كمعرفات في الـ Headers.',
-            'الإرسال والتحليل الذكي: بتضغط على الزرار الأزرق الكبير (Send)، وتنتظر لجزء من الثانية لتفحص الرد أسفل الشاشة (Status Code 200 يعني العملية نجحت! 404 تعني أنك ضللت الطريق).'
-        ],
-        usecase: 'شركة بتبرمج تطبيق موبايل لسه الواجهة بتاعته وشكله مخلصوش تماماً، بس المطور قلك "أنا خلصت الكود الداخلي لجلب أسعار المنتجات". عشان تختبرها ومضيعش وقت لحد ما الواجهة تجهز، بتفتح Postman، وتحط رابط الأسعار الجديد، وتضغط Send. لو رجعلك بيانات أسعار مرتبة ومنسقة بسرعة وبدون أصفار أو أعطال، إذن الـ Backend أو الكود الخفي شغال بامتياز ومفيش عطل منتظر.',
-        pricing: 'مجاني وكافي جداً للاستخدام الفردي | الميزات المتقدمة بـ $14',
+        desc: 'Postman بيخليك تتكلم مع الـ API مباشرة بدون واجهة المستخدم. مثالي لاختبار الـ Backend قبل ما الـ Frontend يتجهز.',
+        steps: ['تحميل Postman وإنشاء حساب مجاني.', 'إنشاء Request جديد وتحديد Method (GET/POST/PUT/DELETE).', 'إضافة Headers وBody وAuth tokens.', 'الضغط Send وتحليل الـ Response (Status Code + Body).'],
+        usecase: 'المطور قالك "خلصت API جلب المنتجات". بدل ما تستنى الـ Frontend تجربه بـ Postman فوراً — ترسل GET request وتتأكد من البيانات.',
+        pricing: 'مجاني للاستخدام الفردي | من $14 للـ Teams',
         downloadLink: 'https://www.postman.com/downloads/',
         docsLink: 'https://learning.postman.com/docs/'
     },
     {
         cat: 'performance', catLabel: 'أدوات اختبار الأداء', catIcon: '⚡', catSub: 'Performance Testing Tools',
         name: 'Apache JMeter', logo: '🌡', accentColor: '#ff5f7e',
-        tagline: 'بطل الوزن الثقيل لاختبار الأداء والضغط على السيرفرات',
+        tagline: 'بطل اختبار الأداء والضغط على السيرفرات',
         badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'هل عمرك دخلت تشتري تذاكر ماتش مهم أو تحجز في أوكازيون لقيت الموقع مبيفتحش أوالسيرفر بيقع؟ ده بيحصل بسبب الضغط الشديد الزائد عن الحد. Jmeter هي أداة سحرية بتحاكي هذا الضغط بشكل كاذب ولكن واقعي قبل وقوع المصيبة. بتسمحلك تصنع آلاف "المستخدمين الآليين الوهميين" وتبعتهك في نفس اللحظة يهاجموا الموقع بشكل منظم عشان تقيس: هل الموقع هيستحمل ولا هينهار؟ وبياخد كام ثانية عشان يرد على كل الكم ده من الناس؟',
-        steps: [
-            'الاستعداد: بتحمل JMeter (بيتطلب تثبيت بيئة Java على الجهاز مسبقاً)، وتشغّل البرنامج من المجلد بالضغط على ملف jmeter.bat لتفتح واجهته الكلاسيكية.',
-            'تصميم كتيبة المستخدمين: بتعمل قسم رئيسي اسمه المجموعة (Thread Group) وتحدد جواه بالضبط: عايز كام مستخدم وهمي؟ وهيدخلوا خلال كام ثانية بالتحديد؟ وممكن كمان كم مرة هيعيدوا الكرّة؟',
-            'تحديد نقطة الهجوم: بتضيف خطوة الطلب، وهي تحديد رابط الصفحة المحددة اللي عايز المجموعة تهجم عليها بحملها وتزورها بصفة جماعية (HTTP Request).',
-            'دروع المراقبة: بتضيف مستمعين أو شاشات المراقبة (Listeners) عشان تظهرلك الرسوم البيانية والأرقام التفصيلية عن بطء الشاشة أثناء الضغط ونسبة الأخطاء.'
-        ],
-        usecase: 'متجر أمازون أو جوميا بيستعد بشراسة ليوم البلاك فرايداي القادم حيث الخصومات تجذب الجموع. بيستخدم المهندسون JMeter لإرسال نص مليون مستخدم وهمي لصفحة "عربة التسوق" في نفس الدقيقة. لو لاقوا الموقع بياخد أكتر من 3 ثواني عشان يفتح أو بيقع تماماً ويسرّب البيانات، بيدقوا جرس الإنذار للمطورين ليزودوا كفاءة السيرفرات ويحسنوا الكود قبل اليوم المنتظر لتفادي الخسائر الملايينيّة.',
-        pricing: 'مجاني تماماً وللأبد | مشروع مفتوح المصدر',
+        desc: 'JMeter بيحاكي آلاف المستخدمين في نفس الوقت لاختبار قدرة السيرفر على التحمل — قبل ما البلاك فرايداي يجي!',
+        steps: ['تحميل JMeter (يحتاج Java) وفتح واجهته.', 'إنشاء Thread Group وتحديد عدد المستخدمين والـ Ramp-up time.', 'إضافة HTTP Request بالـ URL المطلوب.', 'إضافة Listeners لعرض الرسوم البيانية والإحصائيات.'],
+        usecase: 'قبل Black Friday: JMeter يرسل 50,000 طلب في نفس الدقيقة. لو الموقع وقع في الاختبار — نصلحه قبل اليوم الحقيقي.',
+        pricing: 'مجاني تماماً',
         downloadLink: 'https://jmeter.apache.org/download_jmeter.cgi',
         docsLink: 'https://jmeter.apache.org/usermanual/index.html'
-    },
-    // ===== NEW TOOLS ADDED =====
-    {
-        cat: 'api', catLabel: 'أدوات اختبار الـ API', catIcon: '🔗', catSub: 'API Testing Tools',
-        name: 'Rest-Assured', logo: '☕', accentColor: '#ff9f43',
-        tagline: 'الأداة الأقوى لمطوري Java لاختبار صفحات الـ API برمجياً',
-        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'لو إنت مطور أو مختبر بتتعامل مع لغة Java، فـ Rest-Assured هي "الرفيق المثالي" لاختبار الـ APIs. هي مكتبة برمجية بتخلي كتابة الاختبارات للـ REST services سهلة جداً ومفهومة، لأنها بتستخدم لغة شبه اللغة البشرية (Given/When/Then). ميزتها الكبيرة إنها بتندمج بسهولة مع أدوات الأتمتة التانية زي Selenium عشان تعمل اختبار شامل للموقع والكود الخفي مع بعض.',
-        steps: [
-            'التهيئة: بتضيف مكتبة Rest-Assured لملف الـ POM الخاص بمشروعك (Maven أو Gradle).',
-            'كتابة كود الاختبار: بتستخدم دوال بسيطة زي given() لتحديد البيانات المرسلة، وwhen() لتحديد الرابط، وthen() للتأكيد على النتيجة.',
-            'التحقق الذكي: بتقدر تفحص الـ Status Code، والبيانات اللي راجعة (JSON)، وحتى الوقت اللي خده الطلب في سطر واحد.',
-            'الدمج: بتشغل الاختبارات دي كجزء من الـ Unit Tests بتاعتك عشان تضمن إن مفيش تغيير في الكود بوظ الـ API.'
-        ],
-        usecase: 'شغال في مشروع كبير بيستخدم Java، وعاوز تتأكد إن "خدمة تسجيل الدخول" بترجع بيانات المستخدم صح وبسرعة. بدل ما تجرب يدوي، بتكتب سكريبت Rest-Assured يبعت بيانات وهمية ويتأكد إن الرد اللي جاي فيه "token" صحيح وصلاحيات العميل مظبوطة.',
-        pricing: 'مجاني بالكامل ومفتوح المصدر',
-        downloadLink: 'https://rest-assured.io/',
-        docsLink: 'https://github.com/rest-assured/rest-assured/wiki/Usage'
-    },
-    {
-        cat: 'automation', catLabel: 'أدوات الأتمتة', catIcon: '🤖', catSub: 'Test Automation Tools',
-        name: 'Playwright', logo: '🎭', accentColor: '#3de68a',
-        tagline: 'المنافس الأقوى والأحدث لـ Selenium من إنتاج Microsoft',
-        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'بلاي-رايت (Playwright) هو "الجيل الجديد" من أدوات الأتمتة. صممته مايكروسوفت عشان يحل كل مشاكل الأدوات القديمة. هو سريع جداً، بيدعم كل المتصفحات (Chrome, Safari, Firefox) بنفس الكود، والأهم من كده إنه بيعمل "Auto-wait"، يعني مش محتاج تقوله "استنى لحد ما الصفحة تحمل"، هو ذكي كفاية إنه يستنى لوحده. كمان بيقدر يختبر الموبايل والتابلت بسهولة من خلال محاكاة الشاشات.',
-        steps: [
-            'التثبيت السريع: عن طريق الـ Terminal بتكتب npm init playwright@latest وهو بينزل كل حاجة محتاجها.',
-            'تسجيل الاختبار (Codegen): دي ميزة عبقرية، بتفتح أداة بتسجل حركاتك على المتصفح وتحولها لكود برمجي جاهز فوراً.',
-            'كتابة الاختبار: بتستخدم لغات زي JavaScript أو Python لكتابة خطوات دقيقة ومنظمة.',
-            'التشغيل المتقدم: بتقدر تشغل الاختبارات على كذا متصفح في نفس الوقت وتشوف التقارير بشكل مرئي جميل وجذاب.'
-        ],
-        usecase: 'عندك موقع تجارة إلكترونية وعاوز تتأكد إنه شغال صح على "ايفون" وعلى "لابتوب ويندوز" وعلى "ماك". بـ Playwright بتكتب كود واحد، وهو بيفتح محاكي لكل الأجهزة دي ويجرب عملية الشراء ويتأكد إن الأزرار بتظهر في مكانها الصح في كل شاشة.',
-        pricing: 'مجاني تماماً ومفتوح المصدر',
-        downloadLink: 'https://playwright.dev/',
-        docsLink: 'https://playwright.dev/docs/intro'
-    },
-    {
-        cat: 'mobile', catLabel: 'أدوات الموبايل', catIcon: '📱', catSub: 'Mobile Testing Tools',
-        name: 'Appium', logo: '🔮', accentColor: '#7c6fff',
-        tagline: 'الأداة رقم 1 عالمياً لأتمتة تطبيقات الموبايل (Android & iOS)',
-        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'لو عاوز تعمل اختبار آلي لتطبيق موبايل، فـ Appium هو "المعيار العالمي". هو زي Selenium بس للموبايل. العبقرية فيه إنه "Cross-platform"، يعني بتقدر تكتب كود واحد يشتغل على أندرويد وعلى آيفون. بيتعامل مع التطبيقات كأنها كائنات حقيقية، فبيقدر يضغط على الأزرار، يسحب الشاشة (Swipe)، ويجرب كل حركات اللمس اللي بيعملها المستخدم الحقيقي.',
-        steps: [
-            'التحضير: بتنزل Appium Server على جهازك وتثبت الـ SDK الخاص بالأندرويد أو الـ Xcode للآيفون.',
-            'توصيل الجهاز: بتوصل موبايل حقيقي أو بتفتح "محاكي" (Emulator) على الكمبيوتر.',
-            'تحديد العناصر (Inspector): بتستخدم أداة Appium Inspector عشان "تشوف" الأكواد الخفية للأزرار في الموبايل وتعرف هتحركها إزاي.',
-            'تشغيل الكود: بتكتب سكريبت بلغة Java أو Python يبعت أوامر لـ Appium، وهو ينفذها فوراً على الموبايل قدام عينك.'
-        ],
-        usecase: 'بنك أطلق تطبيق موبايل جديد وعاوز يتأكد إن "البصمة" وشاشات التحويل شغالة صح على كل أنواع الموبايلات (Samsung, iPhone, Huawei). بتستخدم Appium عشان يفتح التطبيق على كل الأجهزة دي ويجرب العمليات الحساسة آلياً.',
-        pricing: 'مجاني ومفتوح المصدر',
-        downloadLink: 'https://appium.io/',
-        docsLink: 'http://appium.io/docs/en/about-appium/intro/'
     },
     {
         cat: 'security', catLabel: 'أدوات الأمان', catIcon: '🔒', catSub: 'Security Testing Tools',
         name: 'OWASP ZAP', logo: '⚡', accentColor: '#a855f7',
-        tagline: 'الأداة الأشهر والأسهل لاكتشاف الثغرات الأمنية في المواقع',
+        tagline: 'الأداة الأشهر لاكتشاف الثغرات الأمنية',
         badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'هل الموقع بتاعك معرض للاختراق؟ ZAP (Zet Attack Proxy) هي الأداة اللي هتقولك الإجابة. هي "ماسح ضوئي" أمني بيقوم بدور "الهكر الأخلاقي". بيقوم بفحص الموقع بتاعك ويدور على أشهر الثغرات زي (SQL Injection) أو (XSS). ميزتها إنها مناسبة جداً للمبتدئين في الأمن السيبراني لأن فيها واجهة سهلة وبتقدر تعمل فحص تلقائي بضغطة زر واحدة.',
-        steps: [
-            'التشغيل: بتفتح برنامج ZAP وتحط رابط الموقع بتاعك في خانة "Automated Scan".',
-            'الهجوم الوهمي: الأداة بتبدأ "تخبط" على أبواب الموقع بكل الطرق اللي الهكرز بيستخدموها عشان تشوف مين اللي هيفتح.',
-            'تحليل النتائج: بعد الفحص، بتطلعلك قائمة بـ "التنبيهات" (Alerts)، وكل ثغرة بتقولك مدى خطورتها (حمراء يعني كارثة، صفراء يعني بسيطة).',
-            'التقارير: بتقدر تطلع تقرير مفصل للمطورين يشرحلهم الثغرة فين بالظبط في الكود وإزاي يقفلوها.'
-        ],
-        usecase: 'خلصت بناء موقع لشركة طبية فيها بيانات مرضى حساسة. قبل ما تطلعه للناس، بتشغل OWASP ZAP عشان تتأكد إن مفيش ثغرة سهلة تخلي أي حد يسرق البيانات دي. الأداة بتكتشف إن في ثغرة في صفحة "تغيير كلمة السر" وبتبلغك تصلحها فوراً.',
-        pricing: 'مجاني تماماً وللأبد',
+        desc: 'OWASP ZAP هو "الهاكر الأخلاقي الآلي" — يفحص موقعك ويجد الثغرات قبل ما الهاكرز الحقيقيين يجدوها.',
+        steps: ['تحميل ZAP وفتح Automated Scan.', 'إدخال URL الموقع والضغط على Attack.', 'مراجعة الـ Alerts المُنتَجة (Red = Critical, Orange = Medium).', 'تقديم التقرير للمطورين لإصلاح الثغرات.'],
+        usecase: 'موقع طبي به بيانات مرضى حساسة. قبل الإطلاق: ZAP يكتشف ثغرة SQL Injection في صفحة البحث — تُصلح قبل ما أي هاكر يستغلها.',
+        pricing: 'مجاني تماماً',
         downloadLink: 'https://www.zaproxy.org/download/',
         docsLink: 'https://www.zaproxy.org/docs/'
     },
     {
         cat: 'static', catLabel: 'التحليل الساكن', catIcon: '🔍', catSub: 'Static Analysis Tools',
         name: 'SonarQube', logo: '🌊', accentColor: '#f9ca24',
-        tagline: 'المراقب الصارم لجودة الكود ونظافته (Clean Code)',
+        tagline: 'مراقب جودة الكود ونظافته (Clean Code)',
         badges: ['freemium-badge:FREEMIUM', 'enterprise-badge:ENTERPRISE'],
-        desc: 'سونار-كيوب (SonarQube) هو "مدقق لغوي" بس للكود البرمجي. هو مش بيشغل البرنامج، هو بس "بيقرأ" الكود ويقولك: "إنت معيد كود كتير هنا"، "المتغير ده ملوش لازمة"، أو "الحتة دي ممكن تسبب ثغرة أمنية مستقبلاً". هو بيساعد الفرق إنها تحافظ على مستوى عالي من الجودة وبيرسم خريطة لـ "الدين التقني" (Technical Debt) اللي هو الوقت اللي هتحتاجه عشان تصلح العك اللي في الكود.',
-        steps: [
-            'الربط: بيتم ربط SonarQube بمستودع الكود (GitHub أو GitLab).',
-            'الفحص التلقائي: مع كل تغيير المطور بيعمله، سونار بيقوم بفحص الأسطر الجديدة فوراً.',
-            'لوحة المعلومات (Dashboard): بتدخل تشوف "صحة المشروع" بالألوان؛ الأخضر يعني كود نظيف، الأحمر يعني محتاج وقفة.',
-            'تحديد القواعد (Quality Gates): بتقدر تمنع المطور إنه يرفع كوده لو السونار لقى فيه أخطاء خطيرة، وده بيضمن جودة ثابتة.'
-        ],
-        usecase: 'فريق برمجي شغال على مشروع بقاله سنتين والكود بقى معقد جداً. بدأوا يستخدموا SonarQube عشان "ينظفوا" المشروع. الأداة كشفتلهم إن 20% من الكود مكرر ملوش لازمة، وفي ثغرات خفية كانت ممكن تسبب مشاكل أداء بعدين.',
-        pricing: 'النسخة المجانية للمشاريع المفتوحة | خطط مدفوعة للشركات',
+        desc: 'SonarQube يقرأ كودك ويخبرك: "هنا كود مكرر"، "هنا ثغرة أمنية محتملة"، "هنا تعقيد زائد". كل ده بدون تشغيل البرنامج.',
+        steps: ['ربط SonarQube بـ GitHub أو GitLab.', 'مع كل Commit، سونار يفحص الأسطر الجديدة تلقائياً.', 'مراجعة Dashboard: أخضر = كود نظيف، أحمر = مشاكل.', 'تحديد Quality Gates لمنع الكود السيء من الدمج.'],
+        usecase: 'فريق برمجي عنده 200,000 سطر كود وبدأ يعاني من بطء. SonarQube كشف إن 25% من الكود مكرر وفيه 15 ثغرة أمنية خفية.',
+        pricing: 'مجاني للمشاريع Open Source | مدفوع للشركات',
         downloadLink: 'https://www.sonarqube.org/downloads/',
         docsLink: 'https://docs.sonarqube.org/'
     },
     {
+        cat: 'mobile', catLabel: 'أدوات الموبايل', catIcon: '📱', catSub: 'Mobile Testing Tools',
+        name: 'Appium', logo: '🔮', accentColor: '#7c6fff',
+        tagline: 'الأداة رقم 1 لأتمتة تطبيقات الموبايل',
+        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
+        desc: 'Appium يفعل لتطبيقات الموبايل ما يفعله Selenium للمواقع — يتحكم في Android وiOS بنفس الكود.',
+        steps: ['تثبيت Appium Server وAndroid SDK أو Xcode.', 'توصيل موبايل حقيقي أو فتح Emulator.', 'تعريف العناصر بـ Appium Inspector.', 'كتابة سكريبت بـ Python أو Java لأتمتة الخطوات.'],
+        usecase: 'تطبيق بنك على Android وiOS: Appium يختبر عملية "تحويل الأموال" على 10 أجهزة مختلفة في نفس الوقت.',
+        pricing: 'مجاني ومفتوح المصدر',
+        downloadLink: 'https://appium.io/',
+        docsLink: 'http://appium.io/docs/en/about-appium/intro/'
+    },
+    {
         cat: 'reporting', catLabel: 'التقارير', catIcon: '📊', catSub: 'Test Reporting Tools',
         name: 'Allure Report', logo: '🌈', accentColor: '#f472b6',
-        tagline: 'أجمل وأوضح تقارير اختبار في العالم (Visual Reporting)',
+        tagline: 'أجمل تقارير اختبار بصرية في العالم',
         badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'لو عملت 1000 اختبار آلي وطلعوا كلهم "ناجح" أو "فاشل" في سطر أسود على الشاشة، مفيش مدير هيقدر يفهم حاجة. هنا بييجي دور Allure. هي أداة "بصرية" بتحول نتائج الاختبارات المملة لتقارير تفاعلية، فيها رسوم بيانية، صور، وحتى فيديوهات للخطوات اللي فشلت. بتخلي التواصل بين التستر والمطور والمدير سهل جداً لأن كل حاجة واضحة وبالألوان.',
-        steps: [
-            'التكامل: بتضيف Allure كـ Plugin لأداة الأتمتة بتاعتك (زي Selenium أو Playwright).',
-            'جمع البيانات: وأنت بتشغل الاختبارات، Allure بتسجل كل حركة وبتاخد "Screenshots" لو حصل أي فشل.',
-            'توليد التقرير: بضغطة زر، Allure بتعمل صفحة ويب (Dashboard) كاملة فيها كل التفاصيل.',
-            'المشاركة: بترفع الصفحة دي لزمايلك عشان يشوفوا إيه اللي شغال وإيه اللي محتاج تصليح.'
-        ],
-        usecase: 'مديرك سألك: "نسبة النجاح في السبرينت ده كام؟ وفين أكتر جزء فيه مشاكل؟". بدل ما تشرحله كلام كتير، بتبعتله لينك Allure Report. بيفتح يلاقي رسم بياني بيوري إن 90% ناجح، والـ 10% اللي فشلوا موجود ليهم صور بتوضح المشكلة فين بالظبط.',
-        pricing: 'مجاني بالكامل ومفتوح المصدر',
+        desc: 'Allure يحوّل نتائج الاختبارات من نصوص مملة إلى تقارير تفاعلية بالألوان والرسوم البيانية والصور.',
+        steps: ['ربط Allure كـ Plugin لأداة الأتمتة.', 'تشغيل الاختبارات — Allure يسجل كل خطوة تلقائياً.', 'تشغيل allure serve لعرض التقرير التفاعلي.', 'مشاركة اللينك مع الفريق والإدارة.'],
+        usecase: 'مديرك يسأل عن نتائج الأسبوع. بدل ملف Excel مملة، تبعته Allure Report: رسم بياني، نسب نجاح/فشل، screenshots لكل Bug.',
+        pricing: 'مجاني بالكامل',
         downloadLink: 'https://github.com/allure-framework/allure2/releases',
         docsLink: 'https://docs.qameta.io/allure/'
     },
-    {
-        cat: 'automation', catLabel: 'أدوات الأتمتة', catIcon: '🤖', catSub: 'Test Automation Tools',
-        name: 'Robot Framework', logo: '🤖', accentColor: '#3de68a',
-        tagline: 'الأتمتة باللغة البشرية - البساطة في أبهى صورها',
-        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'لو إنت مش خبير برمجة بس عاوز تعمل أتمتة، Robot Framework هو اختيارك الأول. هو إطار عمل بيعتمد على "الكلمات المفتاحية" (Keywords). يعني بدل ما تكتب كود معقد، بتكتب كلمات زي Open Browser و Input Text. هو مرن جداً وبتقدر تستخدمه لاختبار المواقع، الموبايل، الـ API، وحتى قواعد البيانات.',
-        steps: [
-            'التهيئة: بتثبت الـ Framework باستخدام بايثون (pip install robotframework).',
-            'كتابة السكريبت: بتكتب ملف نصي بسيط، الجزء الأول فيه بحدد المكتبات والجزء التاني فيه خطوات الاختبار بكلمات واضحة.',
-            'التشغيل: بتكتب أمر التشغيل في الـ Terminal وبيبدأ ينفذ الخطوات خطوة بخطوة.',
-            'رؤية النتائج: تلقائياً، الروبوت بيعملك ملف Log (تفصيلي) وملف Report (ملخص) في نهاية كل اختبار.'
-        ],
-        usecase: 'فريق مختبرين (Manual QA) عاوزين يدخلوا عالم الأتمتة بسرعة. اختاروا Robot Framework لأنهم قدروا يكتبوا اختباراتهم الأولى في يوم واحد بس لأنها شبه اللغة الإنجليزية العادية ومحتاجتش منهم مجهود برمجي كبير.',
-        pricing: 'مجاني تماماً',
-        downloadLink: 'https://robotframework.org/#getting-started',
-        docsLink: 'https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html'
-    },
-    {
-        cat: 'mobile', catLabel: 'أدوات الموبايل', catIcon: '📱', catSub: 'Mobile Testing Tools',
-        name: 'BrowserStack', logo: '☁️', accentColor: '#7c6fff',
-        tagline: 'مختبرك السحابي لآلاف الأجهزة الحقيقية في جيبك',
-        badges: ['paid-badge:PAID', 'cloud-badge:CLOUD'],
-        desc: 'مستحيل كشركة تشتري كل أنواع الموبايلات الموجودة في السوق عشان تجرب عليها. BrowserStack بيحل المشكلة دي بإنه بيديك "اشتراك" في مزرعة أجهزة ضخمة موجودة في السحاب (Cloud). بضغطة زرار، بتقدر تفتح "iPhone 15" أو "Galaxy S24" حقيقي (مش محاكي) وتجرب موقعك أو تطبيقك عليه كأن الموبايل في إيدك بالظبط.',
-        steps: [
-            'الدخول: بتعمل حساب على موقعهم وتدخل على لوحة التحكم.',
-            'اختيار الجهاز: بتنقي نوع المتصفح أو نوع الموبايل والنسخة اللي عاوز تجرب عليها.',
-            'البدء: الأداة بتفتحلك شاشة الموبايل لايف قدامك على الكمبيوتر، وبتقدر تستخدم الماوس كأنه صباعك.',
-            'الاختبار الآلي: بتقدر تربط كود السيلينيوم أو الابيوم بتاعك بـ BrowserStack عشان يشغل الاختبارات على كذا جهاز حقيقي في نفس الوقت.'
-        ],
-        usecase: 'عميل بلغك إن الموقع "بايظ" على متصفح قديم في موبايل أندرويد 8. بدل ما تدور على حد عنده الموبايل ده، بتدخل BrowserStack، بتفتحه في ثواني، وبتشوف المشكلة فين وتصلحها فوراً.',
-        pricing: 'فترة تجريبية مجانية | خطط مدفوعة تبدأ من $29',
-        downloadLink: 'https://www.browserstack.com/',
-        docsLink: 'https://www.browserstack.com/docs'
-    },
-    {
-        cat: 'api', catLabel: 'أدوات اختبار الـ API', catIcon: '🔗', catSub: 'API Testing Tools',
-        name: 'Insomnia', logo: '🟣', accentColor: '#ff9f43',
-        tagline: 'البديل الأنيق والبسيط لـ Postman لمصممي الـ APIs',
-        badges: ['opensource-badge:OPEN SOURCE', 'freemium-badge:FREEMIUM'],
-        desc: 'إنسومنيا (Insomnia) هي الأخت التوأم لـ Postman بس بتركيز أكتر على البساطة والأناقة. هي أداة بتسمحلك تصمم وتختبر الـ APIs بتاعتك بواجهة مريحة جداً ومش زحمة. ميزتها الكبيرة إنها بتدعم بروتوكولات حديثة زي GraphQL وgRPC بامتياز، وبتركز جداً على تجربة المستخدم (UX) عشان تخليك تخلص شغلك من غير تشتيت.',
-        steps: [
-            'التنصيب: بتحل البرنامج وتثبته ببساطة على ويندوز أو ماك.',
-            'تنظيم الطلبات: بتقدر تعمل "Workspaces" لكل مشروع، وتجمع الـ Requests في مجلدات منظمة.',
-            'استخدام المتغيرات: بتقدر تعمل Environment Variables عشان تبدل بين السيرفر التجريبي والسيرفر الحقيقي بسهولة.',
-            'التجربة الحية: بتكتب الطلب وتضغط Send وتشوف الرد منظم وجميل قدامك مع إمكانية البحث جواه.'
-        ],
-        usecase: 'إنت شغال على مشروع بيستخدم تقنية GraphQL (دي تقنية حديثة في الـ API)، ومحتاج أداة تدعمها بشكل كامل وتديك اقتراحات للكود وأنت بتكتب. Insomnia هي الأداة المثالية للمهمة دي بفضل دعمها القوي للتقنيات الحديثة.',
-        pricing: 'الاستخدام الأساسي مجاني | خطط متقدمة للفرق',
-        downloadLink: 'https://insomnia.rest/download',
-        docsLink: 'https://docs.insomnia.rest/'
-    },
-    {
-        cat: 'performance', catLabel: 'أدوات اختبار الأداء', catIcon: '⚡', catSub: 'Performance Testing Tools',
-        name: 'k6', logo: '📈', accentColor: '#ff5f7e',
-        tagline: 'أداة اختبار الحمل (Load Testing) للمطورين العصريين',
-        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'كيه-سيكس (k6) هي أداة اختبار أداء ثورية صممتها شركة Grafana. على عكس الأدوات القديمة اللي كانت بتعتمد على واجهات رسومية معقدة، k6 بتعتمد بالكامل على الكود (JavaScript). هي خفيفة جداً، سريعة، وبتقدر تشغلها كجزء من الـ CI/CD pipeline بسهولة تامة. هي مصممة "للمطورين" اللي عاوزين يكتبوا اختبارات الأداء بتاعتهم بنفس اللغة اللي بيكتبوا بيها كود الموقع.',
-        steps: [
-            'التثبيت: بتنزل ملف k6 الصغير وتعرفه على الجهاز (عن طريق winget أو brew).',
-            'كتابة السكريبت: بتكتب ملف JavaScript بسيط بيحدد عدد المستخدمين الوهميين والوقت المطلوب.',
-            'التنفيذ: بتكتب k6 run script.js في الـ Terminal ويبدأ الهجوم فوراً.',
-            'تحليل النتائج: بتظهرلك إحصائيات دقيقة جداً عن وقت الاستجابة، ونسبة الأخطاء، وحجم البيانات.'
-        ],
-        usecase: 'عندك "System Update" كبير في السيرفر وعاوز تتأكد إن التغيير ده محصلش فيه تدهور في الأداء. بتكتب سكريبت k6 صغير وتخليه يشتغل أوتوماتيك مع كل عملية Build، لو الأداء نزل عن حد معين، الـ Build بيفشل والسيرفر "بيصفر" إن في مشكلة.',
-        pricing: 'مجاني تماماً | خدمة سحابية مدفوعة للنتائج الضخمة',
-        downloadLink: 'https://k6.io/docs/getting-started/installation/',
-        docsLink: 'https://k6.io/docs/'
-    },
-    {
-        cat: 'security', catLabel: 'أدوات الأمان', catIcon: '🔒', catSub: 'Security Testing Tools',
-        name: 'Burp Suite', logo: '🟠', accentColor: '#a855f7',
-        tagline: 'الأداة الاحترافية الأولى لخبراء الاختراق والأمان حول العالم',
-        badges: ['paid-badge:PAID', 'freemium-badge:FREEMIUM'],
-        desc: 'بيرب-سويت (Burp Suite) هي "السكينة السويسري" لكل متخصص في أمن المعلومات. هي مش مجرد أداة فحص، هي بيئة عمل كاملة بتسمحلك "تراقب" و"تعدل" البيانات وهي ماشية بين المتصفح والسيرفر (Proxy). بتستخدم في الهجمات المتقدمة اليدوية، وفيها ميزة الـ Intruder اللي بتقدر تجرب آلاف كلمات السر أو المتغيرات في ثواني. هي الأداة اللي مفيش "Bug Bounty Hunter" يقدر يعيش من غيرها.',
-        steps: [
-            'التهيئة: بتشغل البرنامج وتضبط المتصفح إنه يبعت البيانات من خلال Burp.',
-            'الاعتراض (Intercept): بتوقف الطلب في النص، وتعدل فيه (مثلاً تغير السعر من 100 لـ 1 جنيه!) وتشوف السيرفر هيقبله ولا لأ.',
-            'التكرار (Repeater): لو لقيت طلب مثير للاهتمام، بتبعته للـ Repeater عشان تقعد تعدل فيه وتجربه كذا مرة بسرعة.',
-            'الفحص الآلي: النسخة الـ Pro فيها ماسح ضوئي عبقري بيكتشف ثغرات معقدة جداً مش أي أداة تانية تقدر تشوفها.'
-        ],
-        usecase: 'إنت بتختبر "منطق العمل" (Business Logic) بتاع موقع بنكي. بتستخدم Burp عشان تحاول تغير رقم الحساب اللي الفلوس بتتحول ليه في اللحظة اللي بتضغط فيها "تأكيد" عشان تشوف هل السيستم بيراجع البيانات دي ورا المستخدم ولا بيفترض إنها صح.',
-        pricing: 'نسخة Community مجانية ومحدودة | نسخة Pro بـ $449 سنوياً',
-        downloadLink: 'https://portswigger.net/burp/releases',
-        docsLink: 'https://portswigger.net/burp/documentation/desktop'
-    },
-    {
-        cat: 'api', catLabel: 'أدوات اختبار الـ API', catIcon: '🔗', catSub: 'API Testing Tools',
-        name: 'SoapUI', logo: '🧼', accentColor: '#ff9f43',
-        tagline: 'الأداة العملاقة لاختبار خدمات الـ SOAP و REST المتقدمة',
-        badges: ['opensource-badge:OPEN SOURCE', 'freemium-badge:FREEMIUM'],
-        desc: 'سواب-يو-آي (SoapUI) هو "الجد الأكبر" لأدوات اختبار الـ API. وبالرغم من قدمه، إلا إنه لسه الأقوى لما تتعامل مع خدمات الـ Web Services القديمة والمعقدة (SOAP). هو أداة شاملة بتقدر تعمل بيها اختبارات وظيفية، اختبارات حمل (Load)، وحتى اختبارات أمان للـ API. لو شغال في مؤسسة ضخمة أو بنك، غالباً هتلاقي SoapUI هو الأداة الأساسية هناك بسبب قوته في التعامل مع البروتوكولات الصعبة.',
-        steps: [
-            'التحميل: بتنزل نسخة الـ Open Source من الموقع الرسمي.',
-            'إنشاء المشروع: بترفع ملف الـ WSDL أو الـ Swagger الخاص بالخدمة، وهو بيبني لك كل الطلبات تلقائياً.',
-            'التأكيد (Assertions): بتقدر تضيف شروط معينة للتأكد إن الرد اللي جاي من السيرفر مطابق للمواصفات.',
-            'الاختبار التسلسلي: بتقدر تربط كذا طلب ورا بعض عشان تجرب "سيناريو كامل" (زي: إنشاء عميل -> استعلام عن رصيده -> سحب مبلغ).'
-        ],
-        usecase: 'إنت شغال على نظام ربط مع "مصلحة الضرائب" أو "جهة حكومية" بتستخدم تقنيات قديمة وصعبة (SOAP). SoapUI هي الأداة الوحيدة اللي هتقدر تقرأ ملفاتهم المعقدة وتعرفك إزاي تبعت البيانات وتستلمها صح من غير مشاكل.',
-        pricing: 'نسخة مفتوحة المصدر مجانية | نسخة ReadyAPI مدفوعة للميزات الضخمة',
-        downloadLink: 'https://www.soapui.org/downloads/soapui/',
-        docsLink: 'https://www.soapui.org/docs/'
-    },
-    {
-        cat: 'performance', catLabel: 'أدوات اختبار الأداء', catIcon: '⚡', catSub: 'Performance Testing Tools',
-        name: 'Locust', logo: '🦗', accentColor: '#ff5f7e',
-        tagline: 'اختبار الحمل باستخدام لغة Python - البساطة والمرونة المطلقة',
-        badges: ['opensource-badge:OPEN SOURCE', 'free-badge:FREE'],
-        desc: 'لوكاست (Locust) هو "الخيار الأول" لعشاق لغة Python. هو أداة اختبار أداء بتسمحلك تكتب سيناريوهات الاختبار بكود بايثون بسيط. العبقرية فيه هي "توزيع الحمل"؛ بتقدر تشغله على كذا جهاز مع بعض عشان يحاكوا ملايين المستخدمين في وقت واحد. واجهة المستخدم بتاعته (Web Interface) بتعرضلك رسم بياني "لايف" وأنت شغال بيوريك السيرفر بيتعامل إزاي مع الضغط المتزايد.',
-        steps: [
-            'التثبيت المريح: عن طريق أمر pip install locust.',
-            'كتابة السكريبت: بتكتب ملف Python بتعرف فيه "المستخدم" والوظائف اللي هيعملها (مثلاً: يفتح الصفحة الرئيسية، يضيف منتج).',
-            'إطلاق السرب: بتشغل الأداة وتفتح المتصفح على عنوان معين عشان تبدأ الهجوم وتحدد عدد المستخدمين ومعدل دخولهم.',
-            'المراقبة اللحظية: بتشوف شارتات حية بتوريك الـ Response Time والـ Failure Rate وأنت شغال.'
-        ],
-        usecase: 'إنت شغال في ستارت-أب (Start-up) سريعة، وعاملين نظام Back-end بلغة Python. عاوزين تختبروا قدرة النظام ده على تحمل 100 ألف مستخدم قبل حملة إعلانية ضخمة. Locust هيخليكم تعملوا ده بسرعة جداً وبكود بايثون نظيف ومعروف للفريق كله.',
-        pricing: 'مجاني تماماً ومفتوح المصدر',
-        downloadLink: 'https://locust.io/',
-        docsLink: 'https://docs.locust.io/'
-    }
 ];
 
 const quizData = [...glossaryData];
